@@ -1,0 +1,1 @@
+Error: Can’t withdraw more than $5000 in one day in ATM mode 

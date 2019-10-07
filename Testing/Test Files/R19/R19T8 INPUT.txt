@@ -1,0 +1,6 @@
+Login 
+machine 
+Transfer 
+1234567 1234566 500000 
+Transfer 
+1234567 1234566 400000 

@@ -1,0 +1,5 @@
+login
+machine
+deposit
+1234567
+200001

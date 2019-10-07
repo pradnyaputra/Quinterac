@@ -1,0 +1,4 @@
+login
+machine
+deposit
+200000
