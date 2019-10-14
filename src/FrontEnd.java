@@ -6,4 +6,8 @@ public class FrontEnd {
 
 	}
 
+	public void logout() {
+		System.out.println("Hello world");
+	}
+
 }
