@@ -6,8 +6,33 @@ public class FrontEnd {
 		System.out.println("hi");
 	}
 
-	public void logout() {
-		System.out.println("Hello world");
+	public void login() {
+
 	}
+
+	public void logout() {
+	}
+
+	public void createacct() {
+
+	}
+
+	public void deleteacct() {
+
+	}
+
+	public void deposit() {
+
+	}
+
+	public void withdraw() {
+
+	}
+
+	public void transfer() {
+
+	}
+
+
 
 }
