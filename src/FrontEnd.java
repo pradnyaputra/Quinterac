@@ -1,4 +1,7 @@
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -66,6 +69,11 @@ public class FrontEnd {
 		System.out.println("The session has been closed for the day");
 		String endOfSession = "EOS";
 		tsfQueue.add(endOfSession);
+		try {
+			writeTransactionsToSummaryFile("transactionSummaryFile.txt");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		loggedOut = true;
 		startUp();
 	}
@@ -158,6 +166,15 @@ public class FrontEnd {
 	public static boolean accountNameCheck(String Name) {
 		// i only put a return so it would stop screaming error
 		return true;
+	}
+
+	public static void writeTransactionsToSummaryFile(String fileName) throws IOException {
+		BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
+		while(!tsfQueue.isEmpty()) {
+			writer.write(tsfQueue.poll());
+			writer.newLine();
+		}
+		writer.close();
 	}
 
 }
