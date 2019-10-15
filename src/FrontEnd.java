@@ -83,7 +83,7 @@ public class FrontEnd {
 			System.out.println("Please enter the new account number: ");
 			accNum = input.nextLine();
 
-			if (accountNumberCheck(accNum) && !accountNumberExists(accNum)) {
+			if (accountNumberValid(accNum) && !accountNumberExists(accNum)) {
 				System.out.println("Please enter an account name: ");
 				accName = input.nextLine();
 
@@ -131,8 +131,21 @@ public class FrontEnd {
 		return true;
 	}
 
-	public static boolean accountNumberCheck(String Num) {
-		// i only put a return so it would stop screaming error
+	public static boolean accountNumberValid(String number) {
+		// new account number is exactly seven decimal digits not beginning with 0 (e.g., 1234567)
+		number = number.trim();
+		if (!isAllDigits(number)) {
+			return false;
+		}
+
+		if(number.length() != 7) {
+			return false;
+		}
+
+		if(number.charAt(0) == '0') {
+			return false;
+		}
+
 		return true;
 
 	}
