@@ -7,21 +7,59 @@ public class FrontEnd {
 
 	//The static Queue name tsf (transaction summary file) queue
 	static Queue<String> tsfQueue = new LinkedList<>();
+	static boolean loggedOut = false;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		login();
-		System.out.println("hi");
+		Scanner input = new Scanner(System.in);
+		while(!input.nextLine().equals("login")) {
+			System.out.println("The only valid command is login");
+		}
+		boolean agent = login();
+		while(!loggedOut) {
+			switch (input.nextLine()) {
+				case "logout":
+					logout();
+					break;
+				case "createacct":
+					createAcct(agent);
+					break;
+				case "deleteacct":
+					deleteacct();
+					break;
+				case "deposit":
+					deposit();
+					break;
+				case "withdraw":
+					withdraw();
+					break;
+				case "transfer":
+					transfer();
+					break;
+				default:
+					System.out.println("Please enter one of the commands as input");
+			}
+		}
 
 	}
 
-	public static void login() {
-		defaultScreen();
+	public static boolean login() {
+		System.out.println("Do you want a machine or agent session?");
+		Scanner input = new Scanner(System.in);
+		boolean agent;
+		if (input.nextLine().equals("agent")) {
+			agent = true;
+		} else {
+			agent = false;
+		}
+		loggedOut = false;
+		System.out.println("Logged in");
+		return agent;
 	}
 
 	public static void logout() {
 		System.out.println("logout");
-		defaultScreen();
+		loggedOut = true;
 	}
 
 
@@ -57,54 +95,24 @@ public class FrontEnd {
 
 	public static void deleteacct() {
 		System.out.println("deleteacct");
-		defaultScreen();
 	}
 
 	public static void deposit() {
 		System.out.println("deposit");
-		defaultScreen();
 	}
 
 	public static void withdraw() {
 		System.out.println("withdraw");
-		defaultScreen();
 	}
 
 
 	public static void transfer() {
 		System.out.println("transfer");
-		defaultScreen();
 	}
 
 	/*
 	* Common helper functions
 	* */
-	public static void defaultScreen() {
-		Scanner input = new Scanner(System.in);
-		switch(input.nextLine()) {
-			case "logout":
-				logout();
-				break;
-			case "createacct":
-				createacct();
-				break;
-			case "deleteacct":
-				deleteacct();
-				break;
-			case "deposit":
-				deposit();
-				break;
-			case "withdraw":
-				withdraw();
-				break;
-			case "transfer":
-				transfer();
-				break;
-			default:
-				System.out.println("Please enter one of the commands as input");
-				defaultScreen();
-		}
-
 
 	public static boolean accountNumberCheck(String Num) {
 		// i only put a return so it would stop screaming error
