@@ -5,13 +5,14 @@ import java.util.Queue;
 
 public class FrontEnd {
 
-	//The static Queue name tsf (transaction summary file) queue
-	static Queue<String> tsfQueue = new LinkedList<>();
-	static boolean loggedOut = false;
+	private static Queue<String> tsfQueue = new LinkedList<>();
+	private static boolean loggedOut = true;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner input = new Scanner(System.in);
+		System.out.println("Welcome to Quinterac, developed by YES-MEN");
+		System.out.println("Please enter 'login' to begin using the service");
 		while(!input.nextLine().equals("login")) {
 			System.out.println("The only valid command is login");
 		}
@@ -47,11 +48,12 @@ public class FrontEnd {
 		System.out.println("Do you want a machine or agent session?");
 		Scanner input = new Scanner(System.in);
 		boolean agent;
-		if (input.nextLine().equals("agent")) {
-			agent = true;
-		} else {
-			agent = false;
+		String sessionType = input.nextLine();
+		while (!sessionType.equals("machine") && !sessionType.equals("agent")) {
+			System.out.println("The only valid options are 'machine' or 'agent'");
+			sessionType = input.nextLine();
 		}
+		agent = sessionType.equals("agent");
 		loggedOut = false;
 		System.out.println("Logged in");
 		return agent;
