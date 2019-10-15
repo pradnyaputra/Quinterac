@@ -41,7 +41,6 @@ public class FrontEnd {
 					System.out.println("Please enter one of the commands as input");
 			}
 		}
-
 	}
 
 	public static boolean login() {
@@ -60,8 +59,11 @@ public class FrontEnd {
 	}
 
 	public static void logout() {
-		System.out.println("logout");
+		System.out.println("The session has been closed for the day");
+		String endOfSession = "EOS";
+		tsfQueue.add(endOfSession);
 		loggedOut = true;
+		main(null);
 	}
 
 
