@@ -122,6 +122,15 @@ public class FrontEnd {
 	* Common helper functions
 	* */
 
+	public static boolean isAllDigits(String number) {
+		for(Character x: number.toCharArray()) {
+			if (!Character.isDigit(x)) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	public static boolean accountNumberCheck(String Num) {
 		// i only put a return so it would stop screaming error
 		return true;
