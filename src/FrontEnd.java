@@ -10,6 +10,10 @@ public class FrontEnd {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		startUp();
+	}
+
+	public static void startUp() {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Welcome to Quinterac, developed by YES-MEN");
 		System.out.println("Please enter 'login' to begin using the service");
@@ -63,7 +67,7 @@ public class FrontEnd {
 		String endOfSession = "EOS";
 		tsfQueue.add(endOfSession);
 		loggedOut = true;
-		main(null);
+		startUp();
 	}
 
 
