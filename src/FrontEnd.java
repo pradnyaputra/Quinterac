@@ -156,7 +156,7 @@ public class FrontEnd {
 
 			if (isAllDigits(accAmount)) {
 				if (agent) {
-					if (Integer.parseInt(accAmount) < 0 && Integer.parseInt(accAmount) > 999999.99) { // if out of
+					if (Integer.parseInt(accAmount) >= 0 && Integer.parseInt(accAmount) <= 999999.99) { // if out of
 						// bounds then
 						// throw error
 						// message
