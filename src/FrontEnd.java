@@ -1,10 +1,9 @@
-
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Scanner;
 
 public class FrontEnd {
 
@@ -27,26 +26,26 @@ public class FrontEnd {
 		boolean agent = login();
 		while (!loggedOut) {
 			switch (input.nextLine()) {
-			case "logout":
-				logout();
-				break;
-			case "createacct":
-				createAcct(agent);
-				break;
-			case "deleteacct":
-				deleteacct();
-				break;
-			case "deposit":
-				deposit();
-				break;
-			case "withdraw":
-				withdraw();
-				break;
-			case "transfer":
-				transfer();
-				break;
-			default:
-				System.out.println("Please enter one of the commands as input");
+				case "logout":
+					logout();
+					break;
+				case "createacct":
+					createAcct(agent);
+					break;
+				case "deleteacct":
+					deleteacct(agent);
+					break;
+				case "deposit":
+					deposit();
+					break;
+				case "withdraw":
+					withdraw(agent);
+					break;
+				case "transfer":
+					transfer();
+					break;
+				default:
+					System.out.println("Please enter one of the commands as input");
 			}
 		}
 	}
@@ -158,9 +157,9 @@ public class FrontEnd {
 			if (isAllDigits(accAmount)) {
 				if (agent) {
 					if (Integer.parseInt(accAmount) < 0 && Integer.parseInt(accAmount) > 999999.99) { // if out of
-																										// bounds then
-																										// throw error
-																										// message
+						// bounds then
+						// throw error
+						// message
 						return "Error: Please enter a valid value";
 					} else {
 						tsfData = "WDR " + accNum + " " + accAmount + " 0000000 ***";
@@ -169,7 +168,7 @@ public class FrontEnd {
 					}
 				} else {// machine mode
 					if (Integer.parseInt(accAmount) >= 0 && Integer.parseInt(accAmount) <= 1000) { // if out of bounds
-																									// then throw error
+						// then throw error
 						// working out current daily limit
 						int dailyTotal = 0;
 						for (int i = 0; i < tsfQueue.size(); i++) {
