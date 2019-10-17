@@ -1,5 +1,0 @@
-Login 
-Machine 
-Logout 
-Login 
-Machine

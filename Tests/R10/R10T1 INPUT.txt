@@ -1,5 +1,0 @@
-Login  
-machine 
-createacct 
-1234567 
-abc 

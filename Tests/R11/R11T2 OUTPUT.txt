@@ -1,1 +1,0 @@
-No transactions allowed for newly created accounts

@@ -1,1 +1,0 @@
-Names cannot end with space
