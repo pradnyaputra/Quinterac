@@ -1,0 +1,4 @@
+login
+machine
+deposit
+7654321

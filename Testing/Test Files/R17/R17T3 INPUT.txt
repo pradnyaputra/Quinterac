@@ -1,0 +1,4 @@
+Login 
+machine 
+Withdraw 
+1234567 abc
