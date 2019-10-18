@@ -444,7 +444,11 @@ public class FrontEnd {
 
 	//checks whether an account number exists in the valid account list file
 	private static boolean accountNumberExists(String number) {
-
+		if(accountList.contains(number)) {
+			return true;
+		}else {
+			return false;
+		}
     }
 
     //Checks whether an account name is valid by following constraints
