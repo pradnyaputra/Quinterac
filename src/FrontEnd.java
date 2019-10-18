@@ -1,5 +1,9 @@
 /*
  * Developed by YES-MEN team
+ * Student1#: 20072745
+ * Student2#: 20047267
+ * Student3#: 20053704
+ * Student4#: 20070181
  */
 
 import java.io.*;
@@ -485,11 +489,11 @@ public class FrontEnd {
 		//while loop to ensure all lines are read within the file
 		while (file.hasNextLine()) {
 			String line = file.nextLine();
-			//will return true if the account number is found
+			//adds every account number from the valid account list file to the hashset
 			buildingAccountList.add(line);
 		}
 		file.close();
-		//will return false if the while loop exits without finding the account number
+		//will return the data from the valid account list in the form of a hashset
 		return buildingAccountList;
 	}
 }
