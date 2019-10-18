@@ -1,4 +1,7 @@
+import java.util.regex.Pattern;
 import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.LinkedList;
@@ -14,6 +17,7 @@ public class FrontEnd {
 		// TODO Auto-generated method stub
 
 		startUp();
+
 	}
 
 	public static void startUp() {
@@ -36,13 +40,13 @@ public class FrontEnd {
 					deleteacct(agent);
 					break;
 				case "deposit":
-					deposit();
+					deposit(agent);
 					break;
 				case "withdraw":
 					withdraw(agent);
 					break;
 				case "transfer":
-					transfer();
+					transfer(agent);
 					break;
 				default:
 					System.out.println("Please enter one of the commands as input");
@@ -78,14 +82,15 @@ public class FrontEnd {
 		startUp();
 	}
 
-	public static String createAcct(boolean agent) {
+	public static void createAcct(boolean agent) {
 		Scanner input = new Scanner(System.in);
 
 		String accName;
 		String accNum;
 		String tsfData;
 		if (!agent) {
-			return "Please use agent mode to access this command.";
+			System.out.println("Please use agent mode to access this command.");
+			return;
 		} else {
 			System.out.println("Please enter the new account number: ");
 			accNum = input.nextLine();
@@ -97,25 +102,29 @@ public class FrontEnd {
 				if (accountNameValid(accName)) {
 					tsfData = "NEW " + accNum + " 000 0000000 " + accName;
 					tsfQueue.add(tsfData);
-					return "Account created successfully";
+					System.out.println("Account created successfully");
+					return;
 				} else {
-					return "Invalid account name";
+					System.out.println("Invalid account name");
+					return;
 				}
 			} else {
-				return "invalid account number";
+				System.out.println("invalid account number");
+				return;
 			}
 		}
 
 	}
 
-	public static String deleteacct(boolean agent) {
+	public static void deleteacct(boolean agent) {
 		Scanner input = new Scanner(System.in);
 		String accName;
 		String accNum;
 		String tsfData;
 
 		if (!agent) {
-			return "Please use agent mode to access this command.";
+			System.out.println("Please use agent mode to access this command.");
+			return;
 		} else {
 			System.out.println("Please enter the your account number: ");
 			accNum = input.nextLine();
@@ -127,23 +136,22 @@ public class FrontEnd {
 				if (accountNameValid(accName)) {
 					tsfData = "DEL " + accNum + " 000 0000000 " + accName;
 					tsfQueue.add(tsfData);
-					return "Account successfully deleted";
+					System.out.println("Account successfully deleted");
+					return;
 				} else {
-					return "Invalid account name";
+					System.out.println("Invalid account name");
+					return;
 				}
 			} else {
-				return "invalid account number";
+				System.out.println("invalid account number");
+				return;
 			}
 		}
 	}
 
-	public static void deposit() {
-		System.out.println("deposit");
-	}
-
-	public static String withdraw(boolean agent) {
+	public static void deposit(boolean agent) {
 		Scanner input = new Scanner(System.in);
-		String accAmount;
+		String amount;
 		String accNum;
 		String tsfData;
 
@@ -151,25 +159,22 @@ public class FrontEnd {
 		accNum = input.nextLine();
 
 		if (accountNumberValid(accNum) && accountNumberExists(accNum)) {
-			System.out.println("Please enter the amount you wish to withdraw: ");
-			accAmount = input.nextLine();
+			System.out.println("Please enter the amount you wish to deposit: ");
+			amount = input.nextLine();
 
-			if (isAllDigits(accAmount)) {
+			if (isAllDigits(amount)) {
 				if (agent) {
-					if (Integer.parseInt(accAmount) >= 0 && Integer.parseInt(accAmount) <= 999999.99) { // if out of
-						// bounds then
-						// throw error
-						// message
-						return "Error: Please enter a valid value";
-					} else {
-						tsfData = "WDR " + accNum + " " + accAmount + " 0000000 ***";
+					if (Integer.parseInt(amount) >= 0 && Integer.parseInt(amount) <= 99999999) {
+						tsfData = "DEP " + accNum + " " + amount + " 0000000 ***";
 						tsfQueue.add(tsfData);
-						return "Amount successfully withdrawn";
+						System.out.println("Amount successfully deposited");
+						return;
+					} else {
+						System.out.println("Error: Invalid amount");
+						return;
 					}
 				} else {// machine mode
-					if (Integer.parseInt(accAmount) >= 0 && Integer.parseInt(accAmount) <= 1000) { // if out of bounds
-						// then throw error
-						// working out current daily limit
+					if (Integer.parseInt(amount) >= 0 && Integer.parseInt(amount) <= 200000) {
 						int dailyTotal = 0;
 						for (int i = 0; i < tsfQueue.size(); i++) {
 							String queueVal = tsfQueue.poll();
@@ -179,29 +184,155 @@ public class FrontEnd {
 							}
 							tsfQueue.add(queueVal);
 						}
-						if ((dailyTotal + Integer.parseInt(accAmount)) > 5000) {
-							return "Error: Can’t withdraw more than $5000 in one day in ATM mode";
+						if ((dailyTotal + Integer.parseInt(amount)) > 500000) {
+							System.out.println("ERROR: Can’t deposit more than $5000 in one day in ATM mode");
+							return;
 						} else {
-							tsfData = "WDR " + accNum + " " + accAmount + " 0000000 ***";
+							tsfData = "DEP " + accNum + " " + amount + " 0000000 ***";
 							tsfQueue.add(tsfData);
-							return "Amount successfully withdrawn";
+							System.out.println("Amount successfully deposited");
+							return;
 						}
 					} else {
-						return "invalid amount";
+						System.out.println("ERROR: Invalid amount");
+						return;
 					}
 				}
 
 			} else {
-				return "Invalid account name";
+				System.out.println("ERROR: Invalid account name");
+				return;
 			}
 		} else {
-			return "invalid account number";
+			System.out.println("ERROR: Invalid account number");
+			return;
+		}
+	}
+
+	public static void withdraw(boolean agent) {
+		Scanner input = new Scanner(System.in);
+		String amount;
+		String accNum;
+		String tsfData;
+
+		System.out.println("Please enter the your account number: ");
+		accNum = input.nextLine();
+
+		if (accountNumberValid(accNum) && accountNumberExists(accNum)) {
+			System.out.println("Please enter the amount you wish to withdraw in cents: ");
+			amount = input.nextLine();
+
+			if (isAllDigits(amount)) {
+				if (agent) {
+					if (Integer.parseInt(amount) >= 0 && Integer.parseInt(amount) <= 99999999) {
+						tsfData = "WDR 0000000 " + amount + " "+accNum+" ***";
+						tsfQueue.add(tsfData);
+						System.out.println("Amount successfully withdrawn");
+						return;
+					} else {
+						System.out.println("ERROR: Please enter a valid value");
+						return;
+					}
+				} else {// machine mode
+					if (Integer.parseInt(amount) >= 0 && Integer.parseInt(amount) <= 100000) {
+						int dailyTotal = 0;
+						for (int i = 0; i < tsfQueue.size(); i++) {
+							String queueVal = tsfQueue.poll();
+							String[] queueValArr = queueVal.split(" ");
+							if (queueValArr[0].equals("WDR") && queueValArr[3].equals(accNum)) {
+								dailyTotal += Integer.parseInt(queueValArr[2]);
+							}
+							tsfQueue.add(queueVal);
+						}
+						if ((dailyTotal + Integer.parseInt(amount)) > 500000) {
+							System.out.println("ERROR: Can’t withdraw more than $5000 in one day in ATM mode");
+							return;
+						} else {
+							tsfData = "WDR 0000000 " + amount + " "+accNum+" 0000000 ***";
+							tsfQueue.add(tsfData);
+							System.out.println("Amount successfully withdrawn");
+							return;
+						}
+					} else {
+						System.out.println("ERROR: Invalid amount");
+						return;
+					}
+				}
+
+			} else {
+				System.out.println("ERROR Invalid account name");
+				return;
+			}
+		} else {
+			System.out.println("ERROR: Invalid account number");
+			return;
 		}
 
 	}
 
-	public static void transfer() {
-		System.out.println("transfer");
+	public static void transfer(boolean agent) {
+		Scanner input = new Scanner(System.in);
+		String amount;
+		String accNumFrom;
+		String accNumTo;
+		String tsfData;
+
+		System.out.println("Please enter the account number you want to transfer from: ");
+		accNumFrom = input.nextLine();
+		System.out.println("Please enter the account you want to transfer to: ");
+		accNumTo = input.nextLine();
+
+
+		if (accountNumberValid(accNumTo) && accountNumberExists(accNumTo) && accountNumberValid(accNumFrom) && accountNumberExists(accNumFrom)) {
+			System.out.println("Please enter the amount you wish to transfer in cents: ");
+			amount = input.nextLine();
+
+			if (isAllDigits(amount)) {
+				if (agent) {
+					if (Integer.parseInt(amount) >= 0 && Integer.parseInt(amount) <= 99999999) {
+						tsfData = "XFR " + accNumTo + " " + amount +" "+accNumFrom+ " ***";
+						tsfQueue.add(tsfData);
+						System.out.println("Amount successfully transferred");
+						return;
+					} else {
+						System.out.println("ERROR: Please enter a valid value");
+						return;
+					}
+				} else {// machine mode
+					if (Integer.parseInt(amount) >= 0 && Integer.parseInt(amount) <= 1000000) {
+						int dailyTotal = 0;
+						for (int i = 0; i < tsfQueue.size(); i++) {
+							String queueVal = tsfQueue.poll();
+							String[] queueValArr = queueVal.split(" ");
+							if (queueValArr[0].equals("WDR") && queueValArr[1].equals(accNumFrom)) {
+								dailyTotal += Integer.parseInt(queueValArr[2]);
+							}
+							tsfQueue.add(queueVal);
+						}
+						if ((dailyTotal + Integer.parseInt(amount)) > 1000000) {
+							System.out.println("ERROR: Can’t transfer more than $10000 in one day in ATM mode");
+							return;
+						} else {
+							tsfData = "XFR " + accNumTo + " " + amount +" "+accNumFrom+ " ***";
+							tsfQueue.add(tsfData);
+							System.out.println("Amount successfully transferred");
+							return;
+						}
+					} else {
+						System.out.println("ERROR: Invalid amount");
+						return;
+					}
+				}
+
+			} else {
+				System.out.println("ERROR Invalid account name");
+				return;
+			}
+		} else {
+			System.out.println("ERROR: Invalid account number");
+			return;
+		}
+
 	}
 
 	/*
@@ -238,14 +369,36 @@ public class FrontEnd {
 	}
 
 	public static boolean accountNumberExists(String Num) {
-		// i only put a return so it would stop screaming error
-		// also doesnt exist if delete cmd for account number found in queue
-		return true;
+		Scanner file = null;			
+		try {
+			file = new Scanner(new FileInputStream("validAccountList.txt"));
+		}
+		
+		catch (FileNotFoundException e) {
+			System.out.println("ERROR: "+e.getMessage());
+		}
+		
+		
+		while (file.hasNextLine()){
+			String line = file.nextLine();
+			if(line.equals(Num)) {
+				return true;
+			}	
+		}
+		file.close();
+		return false;
+		
 	}
 
 	public static boolean accountNameValid(String Name) {
-		// i only put a return so it would stop screaming error
+		
+		if((Name.matches("[a-zA-Z0-9]+")) && (Name.length()<=30) && (Name.length()>=3) && !((Name.charAt(0) == ' ') && Name.charAt(Name.length()-1) == ' ')){
 		return true;
+		}
+		else {
+			return false;
+		}
+				
 	}
 
 	public static void writeTransactionsToSummaryFile(String fileName) throws IOException {
