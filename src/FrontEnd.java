@@ -1,9 +1,4 @@
-import java.util.regex.Pattern;
-import java.io.BufferedWriter;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
@@ -12,15 +7,22 @@ public class FrontEnd {
 
 	private static Queue<String> tsfQueue = new LinkedList<>();
 	private static boolean loggedOut = true;
+	private static String accountListFileLocation = "";
+	private static String transactionSummaryFileLocation = "";
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		if (args.length == 2) {
+			// capture the arguments passed in from the commandline
+			accountListFileLocation = args[0];
+			transactionSummaryFileLocation = args[1];
+		} else {
+			System.out.println("Please specify the locations of the account list txt file and the transaction summary txt file");
+			return;
+		}
 		startUp();
-
 	}
 
-	public static void startUp() {
+	private static void startUp() {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Welcome to Quinterac, developed by YES-MEN");
 		System.out.println("Please enter 'login' to begin using the service");
@@ -54,7 +56,7 @@ public class FrontEnd {
 		}
 	}
 
-	public static boolean login() {
+	private static boolean login() {
 		System.out.println("Do you want a machine or agent session?");
 		Scanner input = new Scanner(System.in);
 		boolean agent;
@@ -69,7 +71,7 @@ public class FrontEnd {
 		return agent;
 	}
 
-	public static void logout() {
+	private static void logout() {
 		System.out.println("The session has been closed for the day");
 		String endOfSession = "EOS";
 		tsfQueue.add(endOfSession);
@@ -82,7 +84,7 @@ public class FrontEnd {
 		startUp();
 	}
 
-	public static void createAcct(boolean agent) {
+	private static void createAcct(boolean agent) {
 		Scanner input = new Scanner(System.in);
 
 		String accName;
@@ -116,7 +118,7 @@ public class FrontEnd {
 
 	}
 
-	public static void deleteacct(boolean agent) {
+	private static void deleteacct(boolean agent) {
 		Scanner input = new Scanner(System.in);
 		String accName;
 		String accNum;
@@ -149,7 +151,7 @@ public class FrontEnd {
 		}
 	}
 
-	public static void deposit(boolean agent) {
+	private static void deposit(boolean agent) {
 		Scanner input = new Scanner(System.in);
 		String amount;
 		String accNum;
@@ -209,7 +211,7 @@ public class FrontEnd {
 		}
 	}
 
-	public static void withdraw(boolean agent) {
+	private static void withdraw(boolean agent) {
 		Scanner input = new Scanner(System.in);
 		String amount;
 		String accNum;
@@ -225,7 +227,7 @@ public class FrontEnd {
 			if (isAllDigits(amount)) {
 				if (agent) {
 					if (Integer.parseInt(amount) >= 0 && Integer.parseInt(amount) <= 99999999) {
-						tsfData = "WDR 0000000 " + amount + " "+accNum+" ***";
+						tsfData = "WDR 0000000 " + amount + " " + accNum + " ***";
 						tsfQueue.add(tsfData);
 						System.out.println("Amount successfully withdrawn");
 						return;
@@ -248,7 +250,7 @@ public class FrontEnd {
 							System.out.println("ERROR: Can’t withdraw more than $5000 in one day in ATM mode");
 							return;
 						} else {
-							tsfData = "WDR 0000000 " + amount + " "+accNum+" 0000000 ***";
+							tsfData = "WDR 0000000 " + amount + " " + accNum + " 0000000 ***";
 							tsfQueue.add(tsfData);
 							System.out.println("Amount successfully withdrawn");
 							return;
@@ -270,7 +272,7 @@ public class FrontEnd {
 
 	}
 
-	public static void transfer(boolean agent) {
+	private static void transfer(boolean agent) {
 		Scanner input = new Scanner(System.in);
 		String amount;
 		String accNumFrom;
@@ -290,7 +292,7 @@ public class FrontEnd {
 			if (isAllDigits(amount)) {
 				if (agent) {
 					if (Integer.parseInt(amount) >= 0 && Integer.parseInt(amount) <= 99999999) {
-						tsfData = "XFR " + accNumTo + " " + amount +" "+accNumFrom+ " ***";
+						tsfData = "XFR " + accNumTo + " " + amount + " " + accNumFrom + " ***";
 						tsfQueue.add(tsfData);
 						System.out.println("Amount successfully transferred");
 						return;
@@ -313,7 +315,7 @@ public class FrontEnd {
 							System.out.println("ERROR: Can’t transfer more than $10000 in one day in ATM mode");
 							return;
 						} else {
-							tsfData = "XFR " + accNumTo + " " + amount +" "+accNumFrom+ " ***";
+							tsfData = "XFR " + accNumTo + " " + amount + " " + accNumFrom + " ***";
 							tsfQueue.add(tsfData);
 							System.out.println("Amount successfully transferred");
 							return;
@@ -330,7 +332,6 @@ public class FrontEnd {
 			}
 		} else {
 			System.out.println("ERROR: Invalid account number");
-			return;
 		}
 
 	}
@@ -339,7 +340,7 @@ public class FrontEnd {
 	 * Common helper functions
 	 */
 
-	public static boolean isAllDigits(String number) {
+	private static boolean isAllDigits(String number) {
 		for (Character x : number.toCharArray()) {
 			if (!Character.isDigit(x)) {
 				return false;
@@ -348,7 +349,7 @@ public class FrontEnd {
 		return true;
 	}
 
-	public static boolean accountNumberValid(String number) {
+	private static boolean accountNumberValid(String number) {
 		// new account number is exactly seven decimal digits not beginning with 0
 		// (e.g., 1234567)
 		number = number.trim();
@@ -360,48 +361,41 @@ public class FrontEnd {
 			return false;
 		}
 
-		if (number.charAt(0) == '0') {
-			return false;
-		}
-
-		return true;
+		return number.charAt(0) != '0';
 
 	}
 
-	public static boolean accountNumberExists(String Num) {
-		Scanner file = null;			
+	private static boolean accountNumberExists(String number) {
+		Scanner file = null;
 		try {
 			file = new Scanner(new FileInputStream("validAccountList.txt"));
+		} catch (FileNotFoundException e) {
+			System.out.println("ERROR: " + e.getMessage());
 		}
-		
-		catch (FileNotFoundException e) {
-			System.out.println("ERROR: "+e.getMessage());
-		}
-		
-		
-		while (file.hasNextLine()){
+
+
+		while (file.hasNextLine()) {
 			String line = file.nextLine();
-			if(line.equals(Num)) {
+			if (line.equals(number)) {
 				return true;
-			}	
+			}
 		}
 		file.close();
 		return false;
-		
+
 	}
 
-	public static boolean accountNameValid(String Name) {
-		
-		if((Name.matches("[a-zA-Z0-9]+")) && (Name.length()<=30) && (Name.length()>=3) && !((Name.charAt(0) == ' ') && Name.charAt(Name.length()-1) == ' ')){
-		return true;
-		}
-		else {
-			return false;
-		}
-				
+	private static boolean accountNameValid(String name) {
+
+		return (name.matches("[a-zA-Z0-9]+"))
+				&& (name.length() <= 30)
+				&& (name.length() >= 3)
+				&& !((name.charAt(0) == ' ')
+				&& name.charAt(name.length() - 1) == ' ');
+
 	}
 
-	public static void writeTransactionsToSummaryFile(String fileName) throws IOException {
+	private static void writeTransactionsToSummaryFile(String fileName) throws IOException {
 		BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
 		while (!tsfQueue.isEmpty()) {
 			writer.write(tsfQueue.poll());
@@ -409,5 +403,4 @@ public class FrontEnd {
 		}
 		writer.close();
 	}
-
 }
