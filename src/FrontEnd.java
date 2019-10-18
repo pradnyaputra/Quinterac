@@ -109,7 +109,7 @@ public class FrontEnd {
 
         //trycatch to write data from tsfQueue into transaction summary file
         try {
-            writeTransactionsToSummaryFile("transactionSummaryFile.txt");
+            writeTransactionsToSummaryFile(transactionSummaryFileLocation);
         } catch (IOException e) {
             e.printStackTrace();
         }
