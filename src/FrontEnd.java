@@ -409,6 +409,10 @@ public class FrontEnd {
 
 	}
 
+	/*
+ 	 * Common helper functions
+ 	 */
+
 	//checks whether the account number entered consists only of decimal digits
 	private static boolean isAllDigits(String number) {
 		
