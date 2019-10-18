@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
+// Acts as Quinterac's front end 
 public class FrontEnd {
 
 	//declaring global values that will be used through direct reference throughout the program
@@ -15,6 +16,8 @@ public class FrontEnd {
 	private static String accountListFileLocation = "";
 	private static String transactionSummaryFileLocation = "";
 
+	//takes in valid accounts list and transaction summary file from command line and sets them to global values to be referenced by other methods
+	//initiates the startUp method to display the welcome screen which then allows a system login and subsequent commands before a system logout
 	public static void main(String[] args) {
 		if (args.length == 2) {
 			// capture the arguments passed in from the commandline
@@ -27,7 +30,7 @@ public class FrontEnd {
 		startUp();
 	}
 
-	//startUp method introduces the program and requests for initial user commands
+	//startUp method acts as a welcome screen, requests for initial user commands and keeps on running until a system logout
 	private static void startUp() {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Welcome to Quinterac, developed by YES-MEN");
@@ -68,7 +71,7 @@ public class FrontEnd {
 		}
 	}
 
-	//login method called by startUp method, asking for user mode
+	//login method starts a front end session and asks for a type of session
 	private static boolean login() {
 		System.out.println("Do you want a machine or agent session?");
 		Scanner input = new Scanner(System.in);
@@ -89,10 +92,13 @@ public class FrontEnd {
 		return agent;
 	}
 
-	//logout method notifies user of end of session, adds EOS to tsfQueuem, and writes to transaction summary file
+	//logout method ends the front end session and writes to transaction summary file and directs user to welcome screen 
+	//afterwards where a new session can be started
 	private static void logout() {
 		System.out.println("The session has been closed for the day");
 		String endOfSession = "EOS";
+
+		// adds EOS to end of queue
 		tsfQueue.add(endOfSession);
 		
 		//trycatch to write data from tsfQueue into transaction summary file
@@ -328,6 +334,7 @@ public class FrontEnd {
 
 	}
 
+	//transfers money from one account to another and adds transaction code to tsfQueue
 	private static void transfer(boolean agent) {
 		Scanner input = new Scanner(System.in);
 		String amount;
@@ -402,11 +409,7 @@ public class FrontEnd {
 
 	}
 
-	/*
-	 * Common helper functions
-	 */
-
-	//checks whether the string entered consists only of integers or not
+	//checks whether the account number entered consists only of decimal digits
 	private static boolean isAllDigits(String number) {
 		
 		//loops through all characters of the string and checks if it is a digit
@@ -418,10 +421,9 @@ public class FrontEnd {
 		return true;
 	}
 
-	//checks whether the account number is valid by following the constraints
+	//checks whether the account number is exactly seven decimal digits not beginning with 0
 	private static boolean accountNumberValid(String number) {
-		// new account number is exactly seven decimal digits not beginning with 0
-		// (e.g., 1234567)
+		// trims leading and trailing spaces of the string
 		number = number.trim();
 		if (!isAllDigits(number)) {
 			return false;
@@ -432,7 +434,6 @@ public class FrontEnd {
 		}
 
 		return number.charAt(0) != '0';
-
 	}
 
 	//checks whether an account number exists in the valid account list file
@@ -471,7 +472,7 @@ public class FrontEnd {
 
 	}
 
-	//Accepts filename and then empties the tsfQueue while writing tsfQueue's data into the transaction summary file
+	// Writes out every transaction that has been made in the session day to the transaction summary file by emptying out tsfQueue 
 	private static void writeTransactionsToSummaryFile(String fileName) throws IOException {
 		BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
 		
