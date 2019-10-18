@@ -442,25 +442,6 @@ public class FrontEnd {
 
 	//checks whether an account number exists in the valid account list file
 	private static boolean accountNumberExists(String number) {
-		Scanner file = null;
-		//trycatch to open the valid account list file
-		try {
-			file = new Scanner(new FileInputStream("validAccountList.txt"));
-		} catch (FileNotFoundException e) {
-			System.out.println("ERROR: " + e.getMessage());
-		}
-
-		//while loop to ensure all lines are read within the file
-		while (file.hasNextLine()) {
-			String line = file.nextLine();
-			//will return true if the account number is found
-			if (line.equals(number)) {
-				return true;
-			}
-		}
-		file.close();
-		//will return false if the while loop exits without finding the account number
-		return false;
 
 	}
 
