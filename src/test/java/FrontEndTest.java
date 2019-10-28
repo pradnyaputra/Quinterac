@@ -5,10 +5,121 @@ import java.io.PrintStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
+import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 public class FrontEndTest {
+
+    @Test
+    public void R16T1() throws Exception {
+
+    }
+
+    @Test
+    public void R17T1() throws Exception {
+
+    }
+
+    @Test
+    public void R17T2() throws Exception {
+
+    }
+
+    @Test
+    public void R17T3() throws Exception {
+
+    }
+
+    @Test
+    public void R17T4() throws Exception {
+
+    }
+
+    @Test
+    public void R17T5() throws Exception {
+
+    }
+
+    @Test
+    public void R17T6() throws Exception {
+
+    }
+
+    @Test
+    public void R17T7() throws Exception {
+
+    }
+
+    @Test
+    public void R17T8() throws Exception {
+
+    }
+
+    @Test
+    public void R17T9() throws Exception {
+
+    }
+
+    @Test
+    public void R17T10() throws Exception {
+
+    }
+
+    @Test
+    public void R18T1() throws Exception {
+
+    }
+
+    @Test
+    public void R19T1() throws Exception {
+
+    }
+
+    @Test
+    public void R19T2() throws Exception {
+
+    }
+
+    @Test
+    public void R19T3() throws Exception {
+
+    }
+
+    @Test
+    public void R19T4() throws Exception {
+
+    }
+
+    @Test
+    public void R19T5() throws Exception {
+
+    }
+
+    @Test
+    public void R19T6() throws Exception {
+
+    }
+
+    @Test
+    public void R19T7() throws Exception {
+
+    }
+
+    @Test
+    public void R19T8() throws Exception {
+
+    }
+
+    @Test
+    public void R19T9() throws Exception {
+
+    }
+
+    @Test
+    public void R19T10() throws Exception {
+
+    }
 
     // Functions below this point are credited to Steven Ding
     /**
