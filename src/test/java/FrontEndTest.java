@@ -18,13 +18,15 @@ public class FrontEndTest {
      * @param expected_output_file A file that contains the expected content for the output file
      * @throws Exception
      */
+
     public void runAndTest(List<String> terminal_input, List<String> expected_terminal_tails,
                            String expected_output_file) throws Exception {
 
         // setup parameters for the program to run
         // create a temporary file
-        File tmpFile = File.createTempFile("temp-test", ".tmp");
-        String[] args = { tmpFile.getAbsolutePath() };
+        File tmpFile1 = File.createTempFile("testTransactionSummaryFile", ".txt");
+        File tmpFile2 = File.createTempFile("testValidAccountListFile", ".txt");
+        String[] args = { tmpFile1.getAbsolutePath(), tmpFile2.getAbsolutePath() };
 
         // setup user input
         String userInput = String.join(System.lineSeparator(), terminal_input);
@@ -52,7 +54,7 @@ public class FrontEndTest {
         // compare output file content to the expected content
         if (expected_output_file != null) {
             String expected_output = new String(Files.readAllBytes(Paths.get(expected_output_file)), "UTF-8");
-            String actual_output = new String(Files.readAllBytes(tmpFile.toPath()), "UTF-8");
+            String actual_output = printed_lines;
             assertEquals(expected_output, actual_output);
         }
 
