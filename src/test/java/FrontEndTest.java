@@ -3,7 +3,6 @@ import org.junit.Test;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -29,8 +28,9 @@ public class FrontEndTest {
 
         // setup parameters for the program to run
         // create a temporary file
-        File tmpFile = File.createTempFile("temp-test", ".tmp");
-        String[] args = { tmpFile.getAbsolutePath() };
+        File tmpFile1 = File.createTempFile("testTransactionSummaryFile", ".txt");
+        File tmpFile2 = File.createTempFile("testValidAccountListFile", ".txt");
+        String[] args = { tmpFile1.getAbsolutePath(), tmpFile2.getAbsolutePath() };
 
         // setup user input
         String userInput = String.join(System.lineSeparator(), terminal_input);
@@ -54,6 +54,7 @@ public class FrontEndTest {
             System.out.println(printed_lines[x]);
             assertEquals(printed_lines[x], expected_output[x]);
         }
+
     }
 
     /**
