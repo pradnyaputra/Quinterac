@@ -10,7 +10,6 @@ import static org.junit.Assert.assertEquals;
 
 public class FrontEndTest {
 
-
     // Functions below this point are credited to Steven Ding
     /**
      * Helper function to run the main function and verify the output
