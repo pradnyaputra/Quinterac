@@ -1,14 +1,20 @@
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.PrintStream;
+import org.junit.Test;
+
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
 public class FrontEndTest {
+
+    @Test
+    public void test() throws Exception {
+        String[] terminal_input = new String(Files.readAllBytes(Paths.get("../../../Testing/Test Files/R1/R1T1 INPUT.txt")), "UTF-8").split("[\r\n]+");
+        runAndTest(Arrays.asList(terminal_input), Arrays.asList(""), "../../../Testing/Test Files/R1/R1T1 OUTPUT.txt");
+    }
 
     // Functions below this point are credited to Steven Ding
     /**
@@ -42,20 +48,12 @@ public class FrontEndTest {
 
         // capture terminal outputs:
         String[] printed_lines = outContent.toString().split("[\r\n]+");
+        String[] expected_output = new String(Files.readAllBytes(Paths.get(expected_output_file)), "UTF-8").split("[\r\n]+");
 
-        // compare the tail of the terminal outputs:
-        int diff = printed_lines.length - expected_terminal_tails.size();
-        for (int i = 0; i < expected_terminal_tails.size(); ++i) {
-            assertEquals(expected_terminal_tails.get(i), printed_lines[i + diff]);
+        for(int x = 0; x < printed_lines.length; x++) {
+            System.out.println(printed_lines[x]);
+            assertEquals(printed_lines[x], expected_output[x]);
         }
-
-        // compare output file content to the expected content
-        if (expected_output_file != null) {
-            String expected_output = new String(Files.readAllBytes(Paths.get(expected_output_file)), "UTF-8");
-            String actual_output = new String(Files.readAllBytes(tmpFile.toPath()), "UTF-8");
-            assertEquals(expected_output, actual_output);
-        }
-
     }
 
     /**
