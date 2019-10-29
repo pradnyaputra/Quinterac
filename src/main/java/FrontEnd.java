@@ -38,7 +38,7 @@ public class FrontEnd {
         System.out.println("Welcome to Quinterac, developed by YES-MEN");
         System.out.println("Please enter 'login' to begin using the service");
         while (!input.nextLine().equals("login")) {
-            System.out.println("The only valid command is login");
+            System.out.println("Please login first");
         }
 
         //agent boolean value to determine the mode (agent or !agent (aka machine))
@@ -101,7 +101,7 @@ public class FrontEnd {
 	//logout method ends the front end session and writes to transaction summary file and directs user to welcome screen
     //afterwards where a new session can be started
     private static void logout() {
-        System.out.println("The session has been closed for the day");
+        System.out.println("Logged out successfully");
         String endOfSession = "EOS";
 
         // adds EOS to end of queue
@@ -144,7 +144,7 @@ public class FrontEnd {
 				if (accountNameValid(accName)) {
 					tsfData = "NEW " + accNum + " 000 0000000 " + accName;
 					tsfQueue.add(tsfData);
-					System.out.println("Account created successfully");
+					System.out.println("Account successfully created");
 					return;
 				} else {
 					System.out.println("Invalid account name");
@@ -185,11 +185,11 @@ public class FrontEnd {
 					System.out.println("Account successfully deleted");
 					return;
 				} else {
-					System.out.println("Invalid account name");
+					System.out.println("ERROR: Invalid account name");
 					return;
 				}
 			} else {
-				System.out.println("invalid account number");
+				System.out.println("ERROR: invalid account number");
 				return;
 			}
 		}
@@ -222,7 +222,7 @@ public class FrontEnd {
                         System.out.println("Amount successfully deposited");
                         return;
                     } else {
-                        System.out.println("Error: Invalid amount");
+                        System.out.println("ERROR: Invalid amount");
                         return;
                     }
                 } else {// machine mode
@@ -330,7 +330,7 @@ public class FrontEnd {
                 }
 
             } else {
-                System.out.println("ERROR Invalid account name");
+                System.out.println("ERROR: Invalid account name");
                 return;
             }
         } else {
@@ -406,7 +406,7 @@ public class FrontEnd {
                 }
 
             } else {
-                System.out.println("ERROR Invalid account name");
+                System.out.println("ERROR: Invalid account name");
                 return;
             }
         } else {
