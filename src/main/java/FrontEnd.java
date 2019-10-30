@@ -7,7 +7,10 @@
  */
 
 import java.io.*;
-import java.util.*;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
 
 // Acts as Quinterac's front end 
 public class FrontEnd {
@@ -38,11 +41,9 @@ public class FrontEnd {
         System.out.println("Welcome to Quinterac, developed by YES-MEN");
         System.out.println("Please enter 'login' to begin using the service");
         while (!input.nextLine().equals("login")) {
-            System.out.println("The only valid command is login");
-//            input.close();
+            System.out.println("Please login first");
         }
 
-        input.close();
         //agent boolean value to determine the mode (agent or !agent (aka machine))
         boolean agent = login(fileLocation);
 
@@ -100,10 +101,10 @@ public class FrontEnd {
         return agent;
     }
 
-	//logout method ends the front end session and writes to transaction summary file and directs user to welcome screen
+    //logout method ends the front end session and writes to transaction summary file and directs user to welcome screen
     //afterwards where a new session can be started
     private static void logout() {
-        System.out.println("The session has been closed for the day");
+        System.out.println("Logged out successfully");
         String endOfSession = "EOS";
 
         // adds EOS to end of queue
@@ -137,80 +138,80 @@ public class FrontEnd {
             System.out.println("Please enter the new account number: ");
             accNum = input.nextLine();
 
-			//proceeds with account creation after account number has been validated, and there is no current account with that account number
-			if (accountNumberValid(accNum) && !accountNumberExists(accNum)) {
-				System.out.println("Please enter an account name: ");
-				accName = input.nextLine();
+            //proceeds with account creation after account number has been validated, and there is no current account with that account number
+            if (accountNumberValid(accNum) && !accountNumberExists(accNum)) {
+                System.out.println("Please enter an account name: ");
+                accName = input.nextLine();
 
-				//verifies the validity of the account name, and then adds the corresponding transaction code tsfQueue
-				if (accountNameValid(accName)) {
-					tsfData = "NEW " + accNum + " 000 0000000 " + accName;
-					tsfQueue.add(tsfData);
-					System.out.println("Account created successfully");
-					return;
-				} else {
-					System.out.println("Invalid account name");
-					return;
-				}
-			} else {
-				System.out.println("invalid account number");
-				return;
-			}
-		}
+                //verifies the validity of the account name, and then adds the corresponding transaction code tsfQueue
+                if (accountNameValid(accName)) {
+                    tsfData = "NEW " + accNum + " 000 0000000 " + accName;
+                    tsfQueue.add(tsfData);
+                    System.out.println("Account successfully created");
+                    return;
+                } else {
+                    System.out.println("Invalid account name");
+                    return;
+                }
+            } else {
+                System.out.println("invalid account number");
+                return;
+            }
+        }
 
-	}
+    }
 
-	//deleteAcct deletes an existing account and adds transaction code to tsfQueue
-	private static void deleteacct(boolean agent) {
-		Scanner input = new Scanner(System.in);
-		String accName;
-		String accNum;
-		String tsfData;
+    //deleteAcct deletes an existing account and adds transaction code to tsfQueue
+    private static void deleteacct(boolean agent) {
+        Scanner input = new Scanner(System.in);
+        String accName;
+        String accNum;
+        String tsfData;
 
-		//checking whether in agent or machine mode
-		if (!agent) {
-			System.out.println("Please use agent mode to access this command.");
-			return;
-		} else {
-			System.out.println("Please enter the your account number: ");
-			accNum = input.nextLine();
+        //checking whether in agent or machine mode
+        if (!agent) {
+            System.out.println("Please use agent mode to access this command.");
+            return;
+        } else {
+            System.out.println("Please enter the your account number: ");
+            accNum = input.nextLine();
 
-			//proceeds with account deletion after account number has been validated, and there is currently an account with that account number
-			if (accountNumberValid(accNum) && accountNumberExists(accNum)) {
-				System.out.println("Please enter your account name: ");
-				accName = input.nextLine();
-				
-				//verifies the validity of the account name, and then adds the corresponding transaction code tsfQueue
-				if (accountNameValid(accName)) {
-					tsfData = "DEL " + accNum + " 000 0000000 " + accName;
-					tsfQueue.add(tsfData);
-					System.out.println("Account successfully deleted");
-					return;
-				} else {
-					System.out.println("Invalid account name");
-					return;
-				}
-			} else {
-				System.out.println("invalid account number");
-				return;
-			}
-		}
-	}
+            //proceeds with account deletion after account number has been validated, and there is currently an account with that account number
+            if (accountNumberValid(accNum) && accountNumberExists(accNum)) {
+                System.out.println("Please enter your account name: ");
+                accName = input.nextLine();
 
-	//deposits money into an account and adds transaction code to tsfQueue
-	private static void deposit(boolean agent) {
-		Scanner input = new Scanner(System.in);
-		String amount;
-		String accNum;
-		String tsfData;
+                //verifies the validity of the account name, and then adds the corresponding transaction code tsfQueue
+                if (accountNameValid(accName)) {
+                    tsfData = "DEL " + accNum + " 000 0000000 " + accName;
+                    tsfQueue.add(tsfData);
+                    System.out.println("Account successfully deleted");
+                    return;
+                } else {
+                    System.out.println("ERROR: Invalid account name");
+                    return;
+                }
+            } else {
+                System.out.println("ERROR: invalid account number");
+                return;
+            }
+        }
+    }
 
-		System.out.println("Please enter the your account number: ");
-		accNum = input.nextLine();
+    //deposits money into an account and adds transaction code to tsfQueue
+    private static void deposit(boolean agent) {
+        Scanner input = new Scanner(System.in);
+        String amount;
+        String accNum;
+        String tsfData;
 
-		//proceeds with deposit after account number has been validated, and there is currently an account with that account number
-		if (accountNumberValid(accNum) && accountNumberExists(accNum)) {
-			System.out.println("Please enter the amount you wish to deposit: ");
-			amount = input.nextLine();
+        System.out.println("Please enter the your account number: ");
+        accNum = input.nextLine();
+
+        //proceeds with deposit after account number has been validated, and there is currently an account with that account number
+        if (accountNumberValid(accNum) && accountNumberExists(accNum)) {
+            System.out.println("Please enter the amount you wish to deposit: ");
+            amount = input.nextLine();
 
             if (isAllDigits(amount)) {
 
@@ -224,7 +225,7 @@ public class FrontEnd {
                         System.out.println("Amount successfully deposited");
                         return;
                     } else {
-                        System.out.println("Error: Invalid amount");
+                        System.out.println("ERROR: Invalid amount");
                         return;
                     }
                 } else {// machine mode
@@ -332,7 +333,7 @@ public class FrontEnd {
                 }
 
             } else {
-                System.out.println("ERROR Invalid account name");
+                System.out.println("ERROR: Invalid account name");
                 return;
             }
         } else {
@@ -408,7 +409,7 @@ public class FrontEnd {
                 }
 
             } else {
-                System.out.println("ERROR Invalid account name");
+                System.out.println("ERROR: Invalid account name");
                 return;
             }
         } else {
@@ -448,8 +449,8 @@ public class FrontEnd {
         return number.charAt(0) != '0';
     }
 
-	//checks whether an account number exists in the valid account list file
-	private static boolean accountNumberExists(String number) {
+    //checks whether an account number exists in the valid account list file
+    private static boolean accountNumberExists(String number) {
         return accountList.contains(number);
     }
 
@@ -478,24 +479,24 @@ public class FrontEnd {
     }
 
     // Read the account list file from the disk into program memory as a HashSet
-	private static HashSet<String> readAccountListFile(String fileLocation) {
-    	HashSet<String> buildingAccountList = new HashSet<>();
-		Scanner file = null;
-		//trycatch to open the valid account list file
-		try {
-			file = new Scanner(new FileInputStream(fileLocation));
-		} catch (FileNotFoundException e) {
-			System.out.println("ERROR: " + e.getMessage());
-		}
+    private static HashSet<String> readAccountListFile(String fileLocation) {
+        HashSet<String> buildingAccountList = new HashSet<>();
+        Scanner file = null;
+        //trycatch to open the valid account list file
+        try {
+            file = new Scanner(new FileInputStream(fileLocation));
+        } catch (FileNotFoundException e) {
+            System.out.println("ERROR: " + e.getMessage());
+        }
 
-		//while loop to ensure all lines are read within the file
-		while (file.hasNextLine()) {
-			String line = file.nextLine();
-			//adds every account number from the valid account list file to the hashset
-			buildingAccountList.add(line);
-		}
-		file.close();
-		//will return the data from the valid account list in the form of a hashset
-		return buildingAccountList;
-	}
+        //while loop to ensure all lines are read within the file
+        while (file.hasNextLine()) {
+            String line = file.nextLine();
+            //adds every account number from the valid account list file to the hashset
+            buildingAccountList.add(line);
+        }
+        file.close();
+        //will return the data from the valid account list in the form of a hashset
+        return buildingAccountList;
+    }
 }
