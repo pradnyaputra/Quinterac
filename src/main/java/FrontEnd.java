@@ -39,8 +39,10 @@ public class FrontEnd {
         System.out.println("Please enter 'login' to begin using the service");
         while (!input.nextLine().equals("login")) {
             System.out.println("The only valid command is login");
+//            input.close();
         }
 
+        input.close();
         //agent boolean value to determine the mode (agent or !agent (aka machine))
         boolean agent = login(fileLocation);
 

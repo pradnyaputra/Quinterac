@@ -3,6 +3,7 @@ import org.junit.Test;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -11,8 +12,8 @@ public class FrontEndTest {
 
     @Test
     public void test() throws Exception {
-        String[] terminal_input = new String(Files.readAllBytes(Paths.get("../../../Testing/Test Files/R1/R1T1 INPUT.txt")), "UTF-8").split("[\r\n]+");
-        runAndTest(Arrays.asList(terminal_input), Arrays.asList(""), "../../../Testing/Test Files/R1/R1T1 OUTPUT.txt");
+        String[] terminal_input = new String(Files.readAllBytes(Paths.get("C:\\Users\\Tyler\\Documents\\Github\\Quinterac\\Testing\\Test Files\\R5\\R5T1 Input.txt")), "UTF-8").split("[\r\n]+");
+        runAndTest(Arrays.asList(terminal_input), Arrays.asList(""), "C:\\Users\\Tyler\\Documents\\Github\\Quinterac\\Testing\\Test Files\\R5\\R5T1 Input.txt");
     }
 
     // Functions below this point are credited to Steven Ding
