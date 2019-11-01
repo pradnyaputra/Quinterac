@@ -1,16 +1,22 @@
-import java.util.Arrays;
 import org.junit.Test;
-import java.util.Scanner;
-import java.util.ArrayList;
+
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import org.junit.Test;
+import java.util.Scanner;
 
 import static org.junit.Assert.assertEquals;
 
 public class FrontEndTest {
+
+    @Test
+    public void test() throws Exception {
+        String[] terminal_input = new String(Files.readAllBytes(Paths.get("C:\\Users\\Tyler\\Documents\\Github\\Quinterac\\Testing\\Test Files\\R5\\R5T1 Input.txt")), "UTF-8").split("[\r\n]+");
+        runAndTest(Arrays.asList(terminal_input), Arrays.asList(""), "C:\\Users\\Tyler\\Documents\\Github\\Quinterac\\Testing\\Test Files\\R5\\R5T1 Input.txt");
+    }
 
     @Test
     public void PROF_EXAMPLE() throws Exception {
@@ -20,176 +26,179 @@ public class FrontEndTest {
 
     @Test
     public void R1T1() throws Exception {
-        runAndTest(fileToStringArray( "./Testing/Test Files/R1/R1T1 INPUT.txt"), fileToStringArray("./Testing/Test Files/R1/R1T1 OUTPUT.txt"),
-                getFileFromResource("./Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        runAndTest(fileToStringArray( "Testing/Test Files/R1/R1T1 INPUT.txt"), fileToStringArray("Testing/Test Files/R1/R1T1 OUTPUT.txt"),
+                getFileFromResource("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+
     }
 
     @Test
     public void R1T2() throws Exception {
-        runAndTest(fileToStringArray( "/Testing/Test Files/R1/R1T2 INPUT.txt"), fileToStringArray("/Testing/Test Files/R1/R1T2 OUTPUT.txt"),
-                getFileFromResource("/Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        runAndTest(fileToStringArray( "Testing/Test Files/R1/R1T2 INPUT.txt"), fileToStringArray("Testing/Test Files/R1/R1T2 OUTPUT.txt"),
+                getFileFromResource("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R1T3() throws Exception {
-        runAndTest(fileToStringArray( "/Testing/Test Files/R1/R1T3 INPUT.txt"), fileToStringArray("/Testing/Test Files/R1/R1T3 OUTPUT.txt"),
-                getFileFromResource("/Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        runAndTest(fileToStringArray( "Testing/Test Files/R1/R1T3 INPUT.txt"), fileToStringArray("Testing/Test Files/R1/R1T3 OUTPUT.txt"),
+                getFileFromResource("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R1T4() throws Exception {
-        runAndTest(fileToStringArray( "/Testing/Test Files/R1/R1T4 INPUT.txt"), fileToStringArray("/Testing/Test Files/R1/R1T4 OUTPUT.txt"),
-                getFileFromResource("/Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        runAndTest(fileToStringArray( "Testing/Test Files/R1/R1T4 INPUT.txt"), fileToStringArray("Testing/Test Files/R1/R1T4 OUTPUT.txt"),
+                getFileFromResource("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R1T5() throws Exception {
-        runAndTest(fileToStringArray( "/Testing/Test Files/R1/R1T5 INPUT.txt"), fileToStringArray("/Testing/Test Files/R1/R1T5 OUTPUT.txt"),
-                getFileFromResource("/Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        runAndTest(fileToStringArray( "Testing/Test Files/R1/R1T5 INPUT.txt"), fileToStringArray("Testing/Test Files/R1/R1T5 OUTPUT.txt"),
+                getFileFromResource("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R1T6() throws Exception {
-        runAndTest(fileToStringArray( "/Testing/Test Files/R1/R1T6 INPUT.txt"), fileToStringArray("/Testing/Test Files/R1/R1T6 OUTPUT.txt"),
-                getFileFromResource("/Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        runAndTest(fileToStringArray( "Testing/Test Files/R1/R1T6 INPUT.txt"), fileToStringArray("Testing/Test Files/R1/R1T6 OUTPUT.txt"),
+                getFileFromResource("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R1T7() throws Exception {
-        runAndTest(fileToStringArray( "/Testing/Test Files/R1/R1T7 INPUT.txt"), fileToStringArray("/Testing/Test Files/R1/R1T7 OUTPUT.txt"),
-                getFileFromResource("/Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        runAndTest(fileToStringArray( "Testing/Test Files/R1/R1T7 INPUT.txt"), fileToStringArray("Testing/Test Files/R1/R1T7 OUTPUT.txt"),
+                getFileFromResource("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R1T8() throws Exception {
-        runAndTest(fileToStringArray( "/Testing/Test Files/R1/R1T8 INPUT.txt"), fileToStringArray("/Testing/Test Files/R1/R1T8 OUTPUT.txt"),
-                getFileFromResource("/Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        runAndTest(fileToStringArray( "Testing/Test Files/R1/R1T8 INPUT.txt"), fileToStringArray("Testing/Test Files/R1/R1T8 OUTPUT.txt"),
+
+                getFileFromResource("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R2T1() throws Exception {
-        runAndTest(fileToStringArray( "/Testing/Test Files/R2/R2T1 INPUT.txt"), fileToStringArray("/Testing/Test Files/R2/R2T1 OUTPUT.txt"),
-                getFileFromResource("/Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        runAndTest(fileToStringArray( "Testing/Test Files/R2/R2T1 INPUT.txt"), fileToStringArray("Testing/Test Files/R2/R2T1 OUTPUT.txt"),
+
+                getFileFromResource("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R2T2() throws Exception {
-        runAndTest(fileToStringArray( "/Testing/Test Files/R2/R2T2 INPUT.txt"), fileToStringArray("/Testing/Test Files/R2/R2T2 OUTPUT.txt"),
-                getFileFromResource("/Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        runAndTest(fileToStringArray( "Testing/Test Files/R2/R2T2 INPUT.txt"), fileToStringArray("Testing/Test Files/R2/R2T2 OUTPUT.txt"),
+                getFileFromResource("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R2T3() throws Exception {
-        runAndTest(fileToStringArray( "/Testing/Test Files/R2/R2T3 INPUT.txt"), fileToStringArray("/Testing/Test Files/R2/R2T3 OUTPUT.txt"),
-                getFileFromResource("/Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        runAndTest(fileToStringArray( "Testing/Test Files/R2/R2T3 INPUT.txt"), fileToStringArray("Testing/Test Files/R2/R2T3 OUTPUT.txt"),
+                getFileFromResource("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R3T1() throws Exception {
-        runAndTest(fileToStringArray( "/Testing/Test Files/R3/R3T1 INPUT.txt"), fileToStringArray("/Testing/Test Files/R3/R3T1 OUTPUT.txt"),
-                getFileFromResource("/Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        runAndTest(fileToStringArray( "Testing/Test Files/R3/R3T1 INPUT.txt"), fileToStringArray("Testing/Test Files/R3/R3T1 OUTPUT.txt"),
+                getFileFromResource("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R3T2() throws Exception {
-        runAndTest(fileToStringArray( "/Testing/Test Files/R3/R3T2 INPUT.txt"), fileToStringArray("/Testing/Test Files/R3/R3T2 OUTPUT.txt"),
-                getFileFromResource("/Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        runAndTest(fileToStringArray( "Testing/Test Files/R3/R3T2 INPUT.txt"), fileToStringArray("Testing/Test Files/R3/R3T2 OUTPUT.txt"),
+                getFileFromResource("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R3T3() throws Exception {
-        runAndTest(fileToStringArray( "/Testing/Test Files/R3/R3T3 INPUT.txt"), fileToStringArray("/Testing/Test Files/R3/R3T3 OUTPUT.txt"),
-                getFileFromResource("/Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        runAndTest(fileToStringArray( "Testing/Test Files/R3/R3T3 INPUT.txt"), fileToStringArray("Testing/Test Files/R3/R3T3 OUTPUT.txt"),
+                getFileFromResource("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R3T4() throws Exception {
-        runAndTest(fileToStringArray( "/Testing/Test Files/R3/R3T4 INPUT.txt"), fileToStringArray("/Testing/Test Files/R3/R3T4 OUTPUT.txt"),
-                getFileFromResource("/Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        runAndTest(fileToStringArray( "Testing/Test Files/R3/R3T4 INPUT.txt"), fileToStringArray("Testing/Test Files/R3/R3T4 OUTPUT.txt"),
+                getFileFromResource("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R3T5() throws Exception {
-        runAndTest(fileToStringArray( "/Testing/Test Files/R3/R3T5 INPUT.txt"), fileToStringArray("/Testing/Test Files/R3/R3T5 OUTPUT.txt"),
-                getFileFromResource("/Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        runAndTest(fileToStringArray( "Testing/Test Files/R3/R3T5 INPUT.txt"), fileToStringArray("Testing/Test Files/R3/R3T5 OUTPUT.txt"),
+                getFileFromResource("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R3T6() throws Exception {
-        runAndTest(fileToStringArray( "/Testing/Test Files/R3/R3T6 INPUT.txt"), fileToStringArray("/Testing/Test Files/R3/R3T6 OUTPUT.txt"),
-                getFileFromResource("/Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        runAndTest(fileToStringArray( "Testing/Test Files/R3/R3T6 INPUT.txt"), fileToStringArray("Testing/Test Files/R3/R3T6 OUTPUT.txt"),
+                getFileFromResource("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R4T1() throws Exception {
-        runAndTest(fileToStringArray( "/Testing/Test Files/R4/R4T1 INPUT.txt"), fileToStringArray("/Testing/Test Files/R4/R4T1 OUTPUT.txt"),
-                getFileFromResource("/Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        runAndTest(fileToStringArray( "Testing/Test Files/R4/R4T1 INPUT.txt"), fileToStringArray("Testing/Test Files/R4/R4T1 OUTPUT.txt"),
+                getFileFromResource("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R5T1() throws Exception {
-        runAndTest(fileToStringArray( "/Testing/Test Files/R5/R5T1 INPUT.txt"), fileToStringArray("/Testing/Test Files/R5/R5T1 OUTPUT.txt"),
-                getFileFromResource("/Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        runAndTest(fileToStringArray( "Testing/Test Files/R5/R5T1 INPUT.txt"), fileToStringArray("Testing/Test Files/R5/R5T1 OUTPUT.txt"),
+                getFileFromResource("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R5T2() throws Exception {
-        runAndTest(fileToStringArray( "/Testing/Test Files/R5/R5T2 INPUT.txt"), fileToStringArray("/Testing/Test Files/R5/R5T2 2OUTPUT"),
-                getFileFromResource("/Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        runAndTest(fileToStringArray( "Testing/Test Files/R5/R5T2 INPUT.txt"), fileToStringArray("Testing/Test Files/R5/R5T2 2OUTPUT"),
+                getFileFromResource("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R6T1() throws Exception {
-        runAndTest(fileToStringArray( "/Testing/Test Files/R6/R6T1 INPUT.txt"), fileToStringArray("/Testing/Test Files/R6/R6T1 OUTPUT.txt"),
-                getFileFromResource("/Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        runAndTest(fileToStringArray( "Testing/Test Files/R6/R6T1 INPUT.txt"), fileToStringArray("Testing/Test Files/R6/R6T1 OUTPUT.txt"),
+                getFileFromResource("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R6T2() throws Exception {
-        runAndTest(fileToStringArray( "/Testing/Test Files/R6/R6T2 INPUT.txt"), fileToStringArray("/Testing/Test Files/R6/R6T2 OUTPUT.txt"),
-                getFileFromResource("/Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        runAndTest(fileToStringArray( "Testing/Test Files/R6/R6T2 INPUT.txt"), fileToStringArray("Testing/Test Files/R6/R6T2 OUTPUT.txt"),
+                getFileFromResource("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R6T3() throws Exception {
-        runAndTest(fileToStringArray( "/Testing/Test Files/R6/R6T3 INPUT.txt"), fileToStringArray("/Testing/Test Files/R6/R6T3 OUTPUT.txt"),
-                getFileFromResource("/Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        runAndTest(fileToStringArray( "Testing/Test Files/R6/R6T3 INPUT.txt"), fileToStringArray("Testing/Test Files/R6/R6T3 OUTPUT.txt"),
+                getFileFromResource("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R6T4() throws Exception {
-        runAndTest(fileToStringArray( "/Testing/Test Files/R6/R6T4 INPUT.txt"), fileToStringArray("/Testing/Test Files/R6/R6T4 OUTPUT.txt"),
-                getFileFromResource("/Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        runAndTest(fileToStringArray( "Testing/Test Files/R6/R6T4 INPUT.txt"), fileToStringArray("Testing/Test Files/R6/R6T4 OUTPUT.txt"),
+                getFileFromResource("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R7T1() throws Exception {
-        runAndTest(fileToStringArray( "/Testing/Test Files/R7/R7T1 INPUT.txt"), fileToStringArray("/Testing/Test Files/R7/R7T1 OUTPUT.txt"),
-                getFileFromResource("/Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        runAndTest(fileToStringArray( "Testing/Test Files/R7/R7T1 INPUT.txt"), fileToStringArray("Testing/Test Files/R7/R7T1 OUTPUT.txt"),
+                getFileFromResource("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R7T2() throws Exception {
-        runAndTest(fileToStringArray( "/Testing/Test Files/R7/R7T2 INPUT.txt"), fileToStringArray("/Testing/Test Files/R7/R7T2 OUTPUT.txt"),
-                getFileFromResource("/Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        runAndTest(fileToStringArray( "Testing/Test Files/R7/R7T2 INPUT.txt"), fileToStringArray("Testing/Test Files/R7/R7T2 OUTPUT.txt"),
+                getFileFromResource("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R7T3() throws Exception {
-        runAndTest(fileToStringArray( "/Testing/Test Files/R7/R7T3 INPUT.txt"), fileToStringArray("/Testing/Test Files/R7/R7T3 OUTPUT.txt"),
-                getFileFromResource("/Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        runAndTest(fileToStringArray( "Testing/Test Files/R7/R7T3 INPUT.txt"), fileToStringArray("Testing/Test Files/R7/R7T3 OUTPUT.txt"),
+                getFileFromResource("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R7T4() throws Exception {
-        runAndTest(fileToStringArray( "/Testing/Test Files/R7/R7T4 INPUT.txt"), fileToStringArray("/Testing/Test Files/R7/R7T4 OUTPUT.txt"),
-                getFileFromResource("/Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        runAndTest(fileToStringArray( "Testing/Test Files/R7/R7T4 INPUT.txt"), fileToStringArray("Testing/Test Files/R7/R7T4 OUTPUT.txt"),
+                getFileFromResource("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R8T1() throws Exception {
-        runAndTest(fileToStringArray( "/Testing/Test Files/R8/R8T1 INPUT.txt"), fileToStringArray("/Testing/Test Files/R8/R8T1 OUTPUT.txt"),
-                getFileFromResource("/Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        runAndTest(fileToStringArray( "Testing/Test Files/R8/R8T1 INPUT.txt"), fileToStringArray("Testing/Test Files/R8/R8T1 OUTPUT.txt"),
+                getFileFromResource("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
@@ -308,10 +317,8 @@ public class FrontEndTest {
         Scanner file = null;
         try {
             file = new Scanner(new FileInputStream(filename));
-        }
-
-        catch (FileNotFoundException e) {
-            System.out.println("ERROR: "+e.getMessage());
+        } catch (FileNotFoundException e) {
+            System.out.println("ERROR: " + e.getMessage());
             System.exit(0);
         }
 
@@ -327,12 +334,15 @@ public class FrontEndTest {
         return newList;
     }
 
+
     // Functions below this point are credited to Steven Ding
+
     /**
      * Helper function to run the main function and verify the output
-     * @param terminal_input A list of string as the terminal input to run the program
+     *
+     * @param terminal_input          A list of string as the terminal input to run the program
      * @param expected_terminal_tails A list of string expected at the tail of terminal output
-     * @param expected_output_file A file that contains the expected content for the output file
+     * @param expected_output_file    A file that contains the expected content for the output file
      * @throws Exception
      */
     public void runAndTest(List<String> terminal_input, List<String> expected_terminal_tails,
@@ -342,7 +352,7 @@ public class FrontEndTest {
         // create a temporary file
         File tmpFile1 = File.createTempFile("testTransactionSummaryFile", ".txt");
         File tmpFile2 = File.createTempFile("testValidAccountListFile", ".txt");
-        String[] args = { tmpFile1.getAbsolutePath(), tmpFile2.getAbsolutePath() };
+        String[] args = {tmpFile1.getAbsolutePath(), tmpFile2.getAbsolutePath()};
 
         // setup user input
         String userInput = String.join(System.lineSeparator(), terminal_input);
@@ -362,7 +372,7 @@ public class FrontEndTest {
         String[] printed_lines = outContent.toString().split("[\r\n]+");
         String[] expected_output = new String(Files.readAllBytes(Paths.get(expected_output_file)), "UTF-8").split("[\r\n]+");
 
-        for(int x = 0; x < printed_lines.length; x++) {
+        for (int x = 0; x < printed_lines.length; x++) {
             System.out.println(printed_lines[x]);
             assertEquals(printed_lines[x], expected_output[x]);
         }
@@ -371,6 +381,7 @@ public class FrontEndTest {
 
     /**
      * Retrieve the absolute path of the files in the resources folder
+     *
      * @param relativePath The file's relative path in the resources folder (/test/resources)
      * @return the absolute path of the file in the resource folder.
      */
