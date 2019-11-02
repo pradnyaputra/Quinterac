@@ -324,7 +324,67 @@ public class FrontEndTest {
         runAndTest(fileToStringArray( "Testing/Test Files/R19/R19T10 INPUT.txt"), fileToStringArray("Testing/Test Files/R19/R19T10 OUTPUT.txt"),
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
+    
+    @Test
+    public void R20T1() throws Exception {
+        runAndTest(fileToStringArray( "Testing/Test Files/R20/R20T1 INPUT.txt"), fileToStringArray("Testing/Test Files/R20/R20T1 OUTPUT.txt"),
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+    }
+    
+    @Test
+    public void R21T1() throws Exception {
+        runAndTest(fileToStringArray( "Testing/Test Files/R21/R21T1 INPUT.txt"), fileToStringArray("Testing/Test Files/R21/R21T1 OUTPUT.txt"),
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+    }
+    
+    @Test
+    public void R21T2() throws Exception {
+        runAndTest(fileToStringArray( "Testing/Test Files/R21/R21T2 INPUT.txt"), fileToStringArray("Testing/Test Files/R21/R21T2 OUTPUT.txt"),
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+    }
+    
+    @Test
+    public void R22T1() throws Exception {
+        runAndTest(fileToStringArray( "Testing/Test Files/R22/R22T1 INPUT.txt"), fileToStringArray("Testing/Test Files/R22/R22T1 OUTPUT.txt"),
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+    }
+    
+    @Test
+    public void R22T2() throws Exception {
+        runAndTest(fileToStringArray( "Testing/Test Files/R22/R22T2 INPUT.txt"), fileToStringArray("Testing/Test Files/R22/R22T2 OUTPUT.txt"),
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+    }
+    
+    @Test
+    public void R22T3() throws Exception {
+        runAndTest(fileToStringArray( "Testing/Test Files/R22/R22T3 INPUT.txt"), fileToStringArray("Testing/Test Files/R22/R22T3 OUTPUT.txt"),
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+    }
+    
+    @Test
+    public void R23T1() throws Exception {
+        runAndTest(fileToStringArray( "Testing/Test Files/R23/R23T1 INPUT.txt"), fileToStringArray("Testing/Test Files/R23/R23T1 OUTPUT.txt"),
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+    }
 
+    @Test
+    public void R23T2() throws Exception {
+        runAndTest(fileToStringArray( "Testing/Test Files/R23/R23T2 INPUT.txt"), fileToStringArray("Testing/Test Files/R23/R23T2 OUTPUT.txt"),
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+    }
+    
+    @Test
+    public void R24T1() throws Exception {
+        runAndTest(fileToStringArray( "Testing/Test Files/R24/R24T1 INPUT.txt"), fileToStringArray("Testing/Test Files/R24/R24T1 OUTPUT.txt"),
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+    }
+    
+    @Test
+    public void R24T2() throws Exception {
+        runAndTest(fileToStringArray( "Testing/Test Files/R24/R24T2 INPUT.txt"), fileToStringArray("Testing/Test Files/R24/R24T2 OUTPUT.txt"),
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+    }
+    
     public List<String> fileToStringArray(String filename) {
         List<String> newList = new ArrayList();
 
