@@ -24,9 +24,8 @@ public class FrontEnd {
     private static Scanner input = new Scanner(System.in);
 
     //takes in valid accounts list and transaction summary file from command line and sets them to global values to be referenced by other methods
-    //initiates the startUp method to display the welcome screen which then allows a system login and subsequent commands before a system logout
+    rtUp method to display the welcome screen which then allows a system login and subsequent commands before a system logout
     public static void main(String[] args) {
-
 
         if (args.length == 2) {
             // capture the arguments passed in from the commandline
