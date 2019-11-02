@@ -12,8 +12,8 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-// Acts as Quinterac's front end 
-public class FrontEnd {
+// Acts as Quinterac's front end
+public class FrontEndInjected {
 
     //declaring global values that will be used through direct reference throughout the program
     private static Queue<String> tsfQueue = new LinkedList<>();
@@ -29,8 +29,8 @@ public class FrontEnd {
 
         if (args.length == 2) {
             // capture the arguments passed in from the commandline
-            accountListFileLocation = args[0];
-            transactionSummaryFileLocation = args[1];
+            accountListFileLocation = (String)args[0];
+            transactionSummaryFileLocation = (String)args[1];
             startUp(accountListFileLocation);
         } else {
             startUp("");
