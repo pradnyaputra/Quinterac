@@ -195,112 +195,134 @@ public class FrontEndTest {
 
     @Test
     public void R16T1() throws Exception {
-
+        runAndTest(fileToStringArray( "Testing/Test Files/R16/R16T1 INPUT.txt"), fileToStringArray("Testing/Test Files/R16/R16T1 OUTPUT.txt"),
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R17T1() throws Exception {
-
+        runAndTest(fileToStringArray( "Testing/Test Files/R17/R17T1 INPUT.txt"), fileToStringArray("Testing/Test Files/R17/R17T1 OUTPUT.txt"),
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R17T2() throws Exception {
-
+        runAndTest(fileToStringArray( "Testing/Test Files/R17/R17T2 INPUT.txt"), fileToStringArray("Testing/Test Files/R17/R17T2 OUTPUT.txt"),
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R17T3() throws Exception {
-
+        runAndTest(fileToStringArray( "Testing/Test Files/R17/R17T3 INPUT.txt"), fileToStringArray("Testing/Test Files/R17/R17T3 OUTPUT.txt"),
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R17T4() throws Exception {
-
+        runAndTest(fileToStringArray( "Testing/Test Files/R17/R17T4 INPUT.txt"), fileToStringArray("Testing/Test Files/R17/R17T4 OUTPUT.txt"),
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R17T5() throws Exception {
-
+        runAndTest(fileToStringArray( "Testing/Test Files/R17/R17T5 INPUT.txt"), fileToStringArray("Testing/Test Files/R17/R17T5 OUTPUT.txt"),
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R17T6() throws Exception {
-
+        runAndTest(fileToStringArray( "Testing/Test Files/R17/R17T6 INPUT.txt"), fileToStringArray("Testing/Test Files/R17/R17T6 OUTPUT.txt"),
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R17T7() throws Exception {
-
+        runAndTest(fileToStringArray( "Testing/Test Files/R17/R17T7 INPUT.txt"), fileToStringArray("Testing/Test Files/R17/R17T7 OUTPUT.txt"),
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R17T8() throws Exception {
-
+        runAndTest(fileToStringArray( "Testing/Test Files/R17/R17T8 INPUT.txt"), fileToStringArray("Testing/Test Files/R17/R17T8 OUTPUT.txt"),
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R17T9() throws Exception {
-
+        runAndTest(fileToStringArray( "Testing/Test Files/R17/R17T9 INPUT.txt"), fileToStringArray("Testing/Test Files/R17/R17T9 OUTPUT.txt"),
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R17T10() throws Exception {
-
+        runAndTest(fileToStringArray( "Testing/Test Files/R17/R17T10 INPUT.txt"), fileToStringArray("Testing/Test Files/R17/R17T10 OUTPUT.txt"),
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R18T1() throws Exception {
-
+        runAndTest(fileToStringArray( "Testing/Test Files/R18/R18T1 INPUT.txt"), fileToStringArray("Testing/Test Files/R18/R18T1 OUTPUT.txt"),
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R19T1() throws Exception {
-
+        runAndTest(fileToStringArray( "Testing/Test Files/R19/R19T1 INPUT.txt"), fileToStringArray("Testing/Test Files/R19/R19T1 OUTPUT.txt"),
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R19T2() throws Exception {
-
+        runAndTest(fileToStringArray( "Testing/Test Files/R19/R19T2 INPUT.txt"), fileToStringArray("Testing/Test Files/R19/R19T2 OUTPUT.txt"),
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R19T3() throws Exception {
-
+        runAndTest(fileToStringArray( "Testing/Test Files/R19/R19T3 INPUT.txt"), fileToStringArray("Testing/Test Files/R19/R19T3 OUTPUT.txt"),
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R19T4() throws Exception {
-
+        runAndTest(fileToStringArray( "Testing/Test Files/R19/R19T4 INPUT.txt"), fileToStringArray("Testing/Test Files/R19/R19T4 OUTPUT.txt"),
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R19T5() throws Exception {
-
+        runAndTest(fileToStringArray( "Testing/Test Files/R19/R19T5 INPUT.txt"), fileToStringArray("Testing/Test Files/R19/R19T5 OUTPUT.txt"),
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R19T6() throws Exception {
-
+        runAndTest(fileToStringArray( "Testing/Test Files/R19/R19T6 INPUT.txt"), fileToStringArray("Testing/Test Files/R19/R19T6 OUTPUT.txt"),
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R19T7() throws Exception {
-
+        runAndTest(fileToStringArray( "Testing/Test Files/R19/R19T7 INPUT.txt"), fileToStringArray("Testing/Test Files/R19/R19T7 OUTPUT.txt"),
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R19T8() throws Exception {
-
+        runAndTest(fileToStringArray( "Testing/Test Files/R19/R19T8 INPUT.txt"), fileToStringArray("Testing/Test Files/R19/R19T8 OUTPUT.txt"),
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R19T9() throws Exception {
-
+        runAndTest(fileToStringArray( "Testing/Test Files/R19/R19T9 INPUT.txt"), fileToStringArray("Testing/Test Files/R19/R19T9 OUTPUT.txt"),
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     @Test
     public void R19T10() throws Exception {
-
+        runAndTest(fileToStringArray( "Testing/Test Files/R19/R19T10 INPUT.txt"), fileToStringArray("Testing/Test Files/R19/R19T10 OUTPUT.txt"),
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
     }
 
     public List<String> fileToStringArray(String filename) {
