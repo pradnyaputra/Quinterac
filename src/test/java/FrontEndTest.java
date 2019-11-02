@@ -419,7 +419,7 @@ public class FrontEndTest {
         // create a temporary file
         File tmpFile1 = File.createTempFile("testTransactionSummaryFile", ".txt");
         File tmpFile2 = File.createTempFile("testValidAccountListFile", ".txt");
-        Object[] args = {tmpFile1.getAbsolutePath(), tmpFile2.getAbsolutePath(), terminal_input};
+        String[] args = {tmpFile1.getAbsolutePath(), tmpFile2.getAbsolutePath()};
 
         // setup user input
         String userInput = String.join(System.lineSeparator(), terminal_input);
