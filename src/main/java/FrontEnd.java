@@ -21,10 +21,13 @@ public class FrontEnd {
     private static String accountListFileLocation = "";
     private static String transactionSummaryFileLocation = "";
     private static HashSet<String> accountList = new HashSet<>();
+    private static Scanner input = new Scanner(System.in);
 
     //takes in valid accounts list and transaction summary file from command line and sets them to global values to be referenced by other methods
     //initiates the startUp method to display the welcome screen which then allows a system login and subsequent commands before a system logout
     public static void main(String[] args) {
+
+
         if (args.length == 2) {
             // capture the arguments passed in from the commandline
             accountListFileLocation = args[0];
@@ -37,7 +40,6 @@ public class FrontEnd {
 
     //startUp method acts as a welcome screen, requests for initial user commands and keeps on running until a system logout
     private static void startUp(String fileLocation) {
-        Scanner input = new Scanner(System.in);
         System.out.println("Welcome to Quinterac, developed by YES-MEN");
         System.out.println("Please enter 'login' to begin using the service");
         while (!input.nextLine().equals("login")) {
@@ -79,7 +81,6 @@ public class FrontEnd {
     //login method starts a front end session and asks for a type of session
     private static boolean login(String fileLocation) {
         System.out.println("Do you want a machine or agent session?");
-        Scanner input = new Scanner(System.in);
         boolean agent;
         String sessionType = input.nextLine();
 
@@ -124,7 +125,6 @@ public class FrontEnd {
 
     //createAcct creates a new account using user input and adds transaction code to tsfQueue
     private static void createAcct(boolean agent) {
-        Scanner input = new Scanner(System.in);
 
         String accName;
         String accNum;
@@ -163,7 +163,6 @@ public class FrontEnd {
 
     //deleteAcct deletes an existing account and adds transaction code to tsfQueue
     private static void deleteacct(boolean agent) {
-        Scanner input = new Scanner(System.in);
         String accName;
         String accNum;
         String tsfData;
@@ -200,7 +199,6 @@ public class FrontEnd {
 
     //deposits money into an account and adds transaction code to tsfQueue
     private static void deposit(boolean agent) {
-        Scanner input = new Scanner(System.in);
         String amount;
         String accNum;
         String tsfData;
@@ -272,7 +270,6 @@ public class FrontEnd {
 
     //withdraws from an account and adds transaction code to tsfQueue
     private static void withdraw(boolean agent) {
-        Scanner input = new Scanner(System.in);
         String amount;
         String accNum;
         String tsfData;
@@ -345,7 +342,6 @@ public class FrontEnd {
 
     //transfers money from one account to another and adds transaction code to tsfQueue
     private static void transfer(boolean agent) {
-        Scanner input = new Scanner(System.in);
         String amount;
         String accNumFrom;
         String accNumTo;
