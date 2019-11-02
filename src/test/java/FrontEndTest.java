@@ -13,12 +13,6 @@ import static org.junit.Assert.assertEquals;
 public class FrontEndTest {
 
     @Test
-    public void PROF_EXAMPLE() throws Exception {
-        runAndTest(Arrays.asList("327"), Arrays.asList("Hello 327", "file written!"),
-                fileToStringArray("/R2/expected.txt"));
-    }
-
-    @Test
     public void R1T1() throws Exception {
         runAndTest(fileToStringArray( "Testing/Test Files/R1/R1T1 INPUT.txt"), fileToStringArray("Testing/Test Files/R1/R1T1 OUTPUT.txt"),
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
@@ -425,7 +419,7 @@ public class FrontEndTest {
         // create a temporary file
         File tmpFile1 = File.createTempFile("testTransactionSummaryFile", ".txt");
         File tmpFile2 = File.createTempFile("testValidAccountListFile", ".txt");
-        String[] args = {tmpFile1.getAbsolutePath(), tmpFile2.getAbsolutePath()};
+        Object[] args = {tmpFile1.getAbsolutePath(), tmpFile2.getAbsolutePath(), terminal_input};
 
         // setup user input
         String userInput = String.join(System.lineSeparator(), terminal_input);

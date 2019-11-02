@@ -25,13 +25,13 @@ public class FrontEnd {
 
     //takes in valid accounts list and transaction summary file from command line and sets them to global values to be referenced by other methods
     //initiates the startUp method to display the welcome screen which then allows a system login and subsequent commands before a system logout
-    public static void main(String[] args) {
+    public static void main(Object[] args) {
 
 
         if (args.length == 2) {
             // capture the arguments passed in from the commandline
-            accountListFileLocation = args[0];
-            transactionSummaryFileLocation = args[1];
+            accountListFileLocation = (String)args[0];
+            transactionSummaryFileLocation = (String)args[1];
             startUp(accountListFileLocation);
         } else {
             System.out.println("Please specify the locations of the account list txt file and the transaction summary txt file");
