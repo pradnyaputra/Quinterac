@@ -25,12 +25,13 @@ public class FrontEndInjected {
 
     //takes in valid accounts list and transaction summary file from command line and sets them to global values to be referenced by other methods
     //startUp method to display the welcome screen which then allows a system login and subsequent commands before a system logout
-    public static void main(String[] args) {
+    public static void main(Object[] args) {
 
         if (args.length == 2) {
             // capture the arguments passed in from the commandline
             accountListFileLocation = (String)args[0];
             transactionSummaryFileLocation = (String)args[1];
+            input = (Scanner)args[3];
             startUp(accountListFileLocation);
         } else {
             startUp("");

@@ -419,12 +419,13 @@ public class FrontEndTest {
         // create a temporary file
         File tmpFile1 = File.createTempFile("testTransactionSummaryFile", ".txt");
         File tmpFile2 = File.createTempFile("testValidAccountListFile", ".txt");
-        String[] args = {tmpFile1.getAbsolutePath(), tmpFile2.getAbsolutePath()};
 
         // setup user input
         String userInput = String.join(System.lineSeparator(), terminal_input);
         ByteArrayInputStream in = new ByteArrayInputStream(userInput.getBytes());
         System.setIn(in);
+        Object[] args = {tmpFile1.getAbsolutePath(), tmpFile2.getAbsolutePath(), in};
+
 
         // setup stdin & stdout:
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -433,7 +434,7 @@ public class FrontEndTest {
         System.setErr(new PrintStream(errContent));
 
         // run the program
-        FrontEnd.main(args);
+        FrontEndInjected.main(args);
 
         // capture terminal outputs:
         String[] printed_lines = outContent.toString().split("[\r\n]+");
