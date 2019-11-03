@@ -12,8 +12,8 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-// Acts as Quinterac's front end 
-public class FrontEnd {
+// Acts as Quinterac's front end
+public class FrontEndInjected {
 
     //declaring global values that will be used through direct reference throughout the program
     private static Queue<String> tsfQueue = new LinkedList<>();
@@ -21,16 +21,25 @@ public class FrontEnd {
     private static String accountListFileLocation = "";
     private static String transactionSummaryFileLocation = "";
     private static HashSet<String> accountList = new HashSet<>();
-    private static Scanner input = new Scanner(System.in);
+    //private static Scanner input = new Scanner(System.in);
+    private static Scanner inputTest;
 
     //takes in valid accounts list and transaction summary file from command line and sets them to global values to be referenced by other methods
     //startUp method to display the welcome screen which then allows a system login and subsequent commands before a system logout
     public static void main(String[] args) {
 
-        if (args.length == 2) {
+        if (args.length == 3) {
             // capture the arguments passed in from the commandline
-            accountListFileLocation = args[0];
-            transactionSummaryFileLocation = args[1];
+            transactionSummaryFileLocation = args[0];
+            accountListFileLocation = args[1];
+            String inputTestString = args[2];
+            File inputFile = new File(inputTestString);
+            try{
+                inputTest = new Scanner(inputFile);
+            } catch (Exception e) {
+                System.out.println("Test input File not found");
+            }
+
             startUp(accountListFileLocation);
         } else {
             startUp("");
@@ -41,7 +50,8 @@ public class FrontEnd {
     private static void startUp(String fileLocation) {
         System.out.println("Welcome to Quinterac, developed by YES-MEN");
         System.out.println("Please enter 'login' to begin using the service");
-        while (!input.nextLine().equals("login")) {
+
+        while (!inputTest.nextLine().equals("login")) {
             System.out.println("Please login first");
         }
 
@@ -51,7 +61,7 @@ public class FrontEnd {
         while (!loggedOut) {
 
             //switch case to check user input and execute the corresponding method
-            switch (input.nextLine()) {
+            switch (inputTest.nextLine()) {
                 case "logout":
                     logout();
                     break;
@@ -80,12 +90,12 @@ public class FrontEnd {
     private static boolean login(String fileLocation) {
         System.out.println("Do you want a machine or agent session?");
         boolean agent;
-        String sessionType = input.nextLine();
+        String sessionType = inputTest.nextLine();
 
         //While loop to ensure either machine or agent is entered (all other options invalid)
         while (!sessionType.equals("machine") && !sessionType.equals("agent")) {
             System.out.println("The only valid options are 'machine' or 'agent'");
-            sessionType = input.nextLine();
+            sessionType = inputTest.nextLine();
         }
 
         //determines whether agent boolean is true or false based on input
@@ -132,12 +142,12 @@ public class FrontEnd {
             return;
         } else {// machine mode
             System.out.println("Please enter the new account number: ");
-            accNum = input.nextLine();
+            accNum = inputTest.nextLine();
 
             //proceeds with account creation after account number has been validated, and there is no current account with that account number
             if (accountNumberValid(accNum) && !accountNumberExists(accNum)) {
                 System.out.println("Please enter an account name: ");
-                accName = input.nextLine();
+                accName = inputTest.nextLine();
 
                 //verifies the validity of the account name, and then adds the corresponding transaction code tsfQueue
                 if (accountNameValid(accName)) {
@@ -169,12 +179,12 @@ public class FrontEnd {
             return;
         } else {
             System.out.println("Please enter the your account number: ");
-            accNum = input.nextLine();
+            accNum = inputTest.nextLine();
 
             //proceeds with account deletion after account number has been validated, and there is currently an account with that account number
             if (accountNumberValid(accNum) && accountNumberExists(accNum)) {
                 System.out.println("Please enter your account name: ");
-                accName = input.nextLine();
+                accName = inputTest.nextLine();
 
                 //verifies the validity of the account name, and then adds the corresponding transaction code tsfQueue
                 if (accountNameValid(accName)) {
@@ -200,12 +210,12 @@ public class FrontEnd {
         String tsfData;
 
         System.out.println("Please enter the your account number: ");
-        accNum = input.nextLine();
+        accNum = inputTest.nextLine();
 
         //proceeds with deposit after account number has been validated, and there is currently an account with that account number
         if (accountNumberValid(accNum) && accountNumberExists(accNum)) {
             System.out.println("Please enter the amount you wish to deposit: ");
-            amount = input.nextLine();
+            amount = inputTest.nextLine();
 
             if (isAllDigits(amount)) {
 
@@ -271,12 +281,12 @@ public class FrontEnd {
         String tsfData;
 
         System.out.println("Please enter the your account number: ");
-        accNum = input.nextLine();
+        accNum = inputTest.nextLine();
 
         //proceeds with withdrawal after account number has been validated, and there is currently an account with that account number
         if (accountNumberValid(accNum) && accountNumberExists(accNum)) {
             System.out.println("Please enter the amount you wish to withdraw in cents: ");
-            amount = input.nextLine();
+            amount = inputTest.nextLine();
 
             if (isAllDigits(amount)) {
 
@@ -344,14 +354,14 @@ public class FrontEnd {
         String tsfData;
 
         System.out.println("Please enter the account number you want to transfer from: ");
-        accNumFrom = input.nextLine();
+        accNumFrom = inputTest.nextLine();
         System.out.println("Please enter the account you want to transfer to: ");
-        accNumTo = input.nextLine();
+        accNumTo = inputTest.nextLine();
 
         //proceeds with transfer after account numbers have been validated, and there are currently accounts with those account numbers
         if (accountNumberValid(accNumTo) && accountNumberExists(accNumTo) && accountNumberValid(accNumFrom) && accountNumberExists(accNumFrom)) {
             System.out.println("Please enter the amount you wish to transfer in cents: ");
-            amount = input.nextLine();
+            amount = inputTest.nextLine();
 
             if (isAllDigits(amount)) {
 
