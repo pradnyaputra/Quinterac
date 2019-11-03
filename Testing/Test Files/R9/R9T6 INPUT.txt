@@ -1,4 +1,4 @@
-Login 
-Machine 
-Logout 
-withdraw 
+login
+machine
+logout
+withdraw

@@ -1,5 +1,5 @@
-Login
-Machine
-Logout
-Login
-Machine
+login
+machine
+logout
+login
+machine

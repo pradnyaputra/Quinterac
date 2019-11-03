@@ -1,1 +1,1 @@
-Account number must have 7 digits
+invalid account number

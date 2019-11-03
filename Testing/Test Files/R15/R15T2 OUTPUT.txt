@@ -1,1 +1,1 @@
-Account name is too long
+Invalid account name

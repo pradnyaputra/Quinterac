@@ -1,1 +1,1 @@
-Login successful
+Do you want a machine or agent session?

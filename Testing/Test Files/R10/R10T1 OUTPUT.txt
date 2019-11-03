@@ -1,1 +1,1 @@
-Please use agent mode to access this command
+Please enter one of the commands as input

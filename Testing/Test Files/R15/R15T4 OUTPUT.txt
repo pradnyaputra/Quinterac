@@ -1,1 +1,1 @@
-Names cannot end with space
+Invalid account name
