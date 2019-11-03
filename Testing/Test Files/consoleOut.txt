@@ -2,7 +2,6 @@ Welcome to Quinterac, developed by YES-MEN
 Please enter 'login' to begin using the service
 Do you want a machine or agent session?
 Logged in
-Logged out successfully
-Welcome to Quinterac, developed by YES-MEN
-Please enter 'login' to begin using the service
-Please login first
+Please enter the your account number: 
+ERROR: Invalid account number
+ERROR: Testing\Test Files\R5\R5T2 2OUTPUT (The system cannot find the file specified)

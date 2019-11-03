@@ -1,3 +1,3 @@
-Login
-Machine
-Deleteacct
+login
+machine
+deleteacct

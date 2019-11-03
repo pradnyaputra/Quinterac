@@ -209,7 +209,7 @@ public class FrontEndTest {
     @Test
     public void R5T2() throws Exception {
         try{
-        runAndTest( "Testing/Test Files/R5/R5T2 INPUT.txt", fileToStringArray("Testing/Test Files/R5/R5T2 2OUTPUT"),
+        runAndTest( "Testing/Test Files/R5/R5T2 INPUT.txt", fileToStringArray("Testing/Test Files/R5/R5T2 OUTPUT"),
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
@@ -917,6 +917,8 @@ public class FrontEndTest {
 
     //returns true if the output file matches the expected output file output
     public boolean compareOutputFile(String output){
+    	
+    	
 return true;
     }
 
