@@ -1,4 +1,4 @@
-Login 
-machine 
-Withdraw 
+login
+machine
+withdraw
 1234567 abc

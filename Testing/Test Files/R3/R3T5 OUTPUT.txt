@@ -1,1 +1,1 @@
-Please enter account number and amount to withdraw in cents
+Please enter the your account number: 

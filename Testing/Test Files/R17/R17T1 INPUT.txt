@@ -1,4 +1,4 @@
-Login 
-machine 
-Withdraw 
-1234567 100 
+login
+machine
+withdraw
+1234567 100

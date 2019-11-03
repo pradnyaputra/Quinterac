@@ -1,1 +1,1 @@
-Deposit success
+Amount successfully deposited

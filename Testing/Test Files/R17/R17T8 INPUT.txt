@@ -1,6 +1,6 @@
-Login 
-Machine 
-Withdraw 
-1234567 450000 
-Withdraw  
-1234567 20000 
+login
+machine
+withdraw
+1234567 450000
+withdraw
+1234567 20000
