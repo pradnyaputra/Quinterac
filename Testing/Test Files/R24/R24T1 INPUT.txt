@@ -1,5 +1,5 @@
-Login  
-Machine 
+login  
+machine 
 createacc 
 aaaaaaa 
 abc 

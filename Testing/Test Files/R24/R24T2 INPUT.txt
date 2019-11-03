@@ -1,5 +1,5 @@
-Login 
-Machine 
+login 
+machine 
 createacc 
 1234567 
 111111 
