@@ -30,8 +30,8 @@ public class FrontEndInjected {
 
         if (args.length == 3) {
             // capture the arguments passed in from the commandline
-            accountListFileLocation = args[0];
-            transactionSummaryFileLocation = args[1];
+            transactionSummaryFileLocation = args[0];
+            accountListFileLocation = args[1];
             String inputTestString = args[2];
             File inputFile = new File(inputTestString);
             try{
