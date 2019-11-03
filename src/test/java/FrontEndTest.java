@@ -14,369 +14,844 @@ public class FrontEndTest {
 
     @Test
     public void R1T1() throws Exception {
-        runAndTest( "Testing/Test Files/R1/R1T1 INPUT.txt", fileToStringArray("Testing/Test Files/R1/R1T1 OUTPUT.txt"),
-                fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
-
+        try {
+            runAndTest("Testing/Test Files/R1/R1T1 INPUT.txt", fileToStringArray("Testing/Test Files/R1/R1T1 OUTPUT.txt"),
+                    fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R1T2() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R1/R1T2 INPUT.txt", fileToStringArray("Testing/Test Files/R1/R1T2 OUTPUT.txt"),
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
+
     }
 
     @Test
     public void R1T3() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R1/R1T3 INPUT.txt", fileToStringArray("Testing/Test Files/R1/R1T3 OUTPUT.txt"),
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
+
     }
 
     @Test
     public void R1T4() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R1/R1T4 INPUT.txt", fileToStringArray("Testing/Test Files/R1/R1T4 OUTPUT.txt"),
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R1T5() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R1/R1T5 INPUT.txt", fileToStringArray("Testing/Test Files/R1/R1T5 OUTPUT.txt"),
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R1T6() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R1/R1T6 INPUT.txt", fileToStringArray("Testing/Test Files/R1/R1T6 OUTPUT.txt"),
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R1T7() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R1/R1T7 INPUT.txt", fileToStringArray("Testing/Test Files/R1/R1T7 OUTPUT.txt"),
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R1T8() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R1/R1T8 INPUT.txt", fileToStringArray("Testing/Test Files/R1/R1T8 OUTPUT.txt"),
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R2T1() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R2/R2T1 INPUT.txt", fileToStringArray("Testing/Test Files/R2/R2T1 OUTPUT.txt"),
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R2T2() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R2/R2T2 INPUT.txt", fileToStringArray("Testing/Test Files/R2/R2T2 OUTPUT.txt"),
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R2T3() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R2/R2T3 INPUT.txt", fileToStringArray("Testing/Test Files/R2/R2T3 OUTPUT.txt"),
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R3T1() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R3/R3T1 INPUT.txt", fileToStringArray("Testing/Test Files/R3/R3T1 OUTPUT.txt"),
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R3T2() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R3/R3T2 INPUT.txt", fileToStringArray("Testing/Test Files/R3/R3T2 OUTPUT.txt"),
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R3T3() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R3/R3T3 INPUT.txt", fileToStringArray("Testing/Test Files/R3/R3T3 OUTPUT.txt"),
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R3T4() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R3/R3T4 INPUT.txt", fileToStringArray("Testing/Test Files/R3/R3T4 OUTPUT.txt"),
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R3T5() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R3/R3T5 INPUT.txt", fileToStringArray("Testing/Test Files/R3/R3T5 OUTPUT.txt"),
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R3T6() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R3/R3T6 INPUT.txt", fileToStringArray("Testing/Test Files/R3/R3T6 OUTPUT.txt"),
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R4T1() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R4/R4T1 INPUT.txt", fileToStringArray("Testing/Test Files/R4/R4T1 OUTPUT.txt"),
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R5T1() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R5/R5T1 INPUT.txt", fileToStringArray("Testing/Test Files/R5/R5T1 OUTPUT.txt"),
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R5T2() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R5/R5T2 INPUT.txt", fileToStringArray("Testing/Test Files/R5/R5T2 2OUTPUT"),
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R6T1() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R6/R6T1 INPUT.txt", fileToStringArray("Testing/Test Files/R6/R6T1 OUTPUT.txt"),
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R6T2() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R6/R6T2 INPUT.txt", fileToStringArray("Testing/Test Files/R6/R6T2 OUTPUT.txt"),
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R6T3() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R6/R6T3 INPUT.txt", fileToStringArray("Testing/Test Files/R6/R6T3 OUTPUT.txt"),
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R6T4() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R6/R6T4 INPUT.txt", fileToStringArray("Testing/Test Files/R6/R6T4 OUTPUT.txt"),
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R7T1() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R7/R7T1 INPUT.txt", fileToStringArray("Testing/Test Files/R7/R7T1 OUTPUT.txt"),
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R7T2() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R7/R7T2 INPUT.txt", fileToStringArray("Testing/Test Files/R7/R7T2 OUTPUT.txt"),
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R7T3() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R7/R7T3 INPUT.txt", fileToStringArray("Testing/Test Files/R7/R7T3 OUTPUT.txt"),
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R7T4() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R7/R7T4 INPUT.txt", fileToStringArray("Testing/Test Files/R7/R7T4 OUTPUT.txt"),
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R8T1() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R8/R8T1 INPUT.txt", fileToStringArray("Testing/Test Files/R8/R8T1 OUTPUT.txt"),
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
+    public void R9T1() throws Exception {
+        try{
+        runAndTest( "Testing/Test Files/R9/R9T1 INPUT.txt", fileToStringArray("Testing/Test Files/R9/R9T1 OUTPUT.txt"),
+                fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
+    }
+
+    @Test
+    public void R9T2() throws Exception {
+        try{
+        runAndTest( "Testing/Test Files/R9/R9T2 INPUT.txt", fileToStringArray("Testing/Test Files/R9/R9T2 OUTPUT.txt"),
+                fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
+    }
+
+    @Test
+    public void R9T3() throws Exception {
+        try{
+        runAndTest( "Testing/Test Files/R9/R9T3 INPUT.txt", fileToStringArray("Testing/Test Files/R9/R9T3 OUTPUT.txt"),
+                fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
+    }
+
+    @Test
+    public void R9T4() throws Exception {
+        try{
+        runAndTest( "Testing/Test Files/R9/R9T4 INPUT.txt", fileToStringArray("Testing/Test Files/R9/R9T4 OUTPUT.txt"),
+                fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
+    }
+
+    @Test
+    public void R9T5() throws Exception {
+        try{
+        runAndTest( "Testing/Test Files/R9/R9T5 INPUT.txt", fileToStringArray("Testing/Test Files/R9/R9T5 OUTPUT.txt"),
+                fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
+    }
+
+    @Test
+    public void R9T6() throws Exception {
+        try{
+        runAndTest( "Testing/Test Files/R9/R9T6 INPUT.txt", fileToStringArray("Testing/Test Files/R9/R9T6 OUTPUT.txt"),
+                fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
+    }
+
+    @Test
+    public void R9T7() throws Exception {
+        try{
+        runAndTest( "Testing/Test Files/R9/R9T7 INPUT.txt", fileToStringArray("Testing/Test Files/R9/R9T7 OUTPUT.txt"),
+                fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
+    }
+
+    @Test
+    public void R10T1() throws Exception {
+        try{
+        runAndTest( "Testing/Test Files/R10/R10T1 INPUT.txt", fileToStringArray("Testing/Test Files/R10/R10T1 OUTPUT.txt"),
+                fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
+    }
+
+    @Test
+    public void R10T2() throws Exception {
+        try{
+        runAndTest( "Testing/Test Files/R10/R10T2 INPUT.txt", fileToStringArray("Testing/Test Files/R10/R10T2 OUTPUT.txt"),
+                fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
+    }
+
+    @Test
+    public void R11T1() throws Exception {
+        try{
+        runAndTest( "Testing/Test Files/R11/R11T1 INPUT.txt", fileToStringArray("Testing/Test Files/R11/R11T1 OUTPUT.txt"),
+                fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
+    }
+
+    @Test
+    public void R11T2() throws Exception {
+        try{
+        runAndTest( "Testing/Test Files/R11/R11T2 INPUT.txt", fileToStringArray("Testing/Test Files/R11/R11T2 OUTPUT.txt"),
+                fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
+    }
+
+    @Test
+    public void R11T3() throws Exception {
+        try{
+        runAndTest( "Testing/Test Files/R11/R11T3 INPUT.txt", fileToStringArray("Testing/Test Files/R11/R11T3 OUTPUT.txt"),
+                fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
+    }
+
+    @Test
+    public void R12T1() throws Exception {
+        try{
+        runAndTest( "Testing/Test Files/R12/R12T1 INPUT.txt", fileToStringArray("Testing/Test Files/R12/R12T1 OUTPUT.txt"),
+                fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
+    }
+
+    @Test
+    public void R12T2() throws Exception {
+        try{
+        runAndTest( "Testing/Test Files/R12/R12T2 INPUT.txt", fileToStringArray("Testing/Test Files/R12/R12T2 OUTPUT.txt"),
+                fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
+    }
+
+    @Test
+    public void R13T1() throws Exception {
+        try{
+        runAndTest( "Testing/Test Files/R13/R13T1 INPUT.txt", fileToStringArray("Testing/Test Files/R13/R13T1 OUTPUT.txt"),
+                fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
+    }
+
+    @Test
+    public void R13T2() throws Exception {
+        try{
+        runAndTest( "Testing/Test Files/R13/R13T2 INPUT.txt", fileToStringArray("Testing/Test Files/R13/R13T2 OUTPUT.txt"),
+                fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
+    }
+
+    @Test
+    public void R14T1() throws Exception {
+        try{
+        runAndTest( "Testing/Test Files/R14/R14T1 INPUT.txt", fileToStringArray("Testing/Test Files/R14/R14T1 OUTPUT.txt"),
+                fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
+    }
+
+    @Test
+    public void R14T2() throws Exception {
+        try{
+        runAndTest( "Testing/Test Files/R14/R14T2 INPUT.txt", fileToStringArray("Testing/Test Files/R14/R14T2 OUTPUT.txt"),
+                fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
+    }
+
+    @Test
+    public void R15T1() throws Exception {
+        try{
+        runAndTest( "Testing/Test Files/R15/R15T1 INPUT.txt", fileToStringArray("Testing/Test Files/R15/R15T1 OUTPUT.txt"),
+                fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
+    }
+
+    @Test
+    public void R15T2() throws Exception {
+        try{
+        runAndTest( "Testing/Test Files/R15/R15T2 INPUT.txt", fileToStringArray("Testing/Test Files/R15/R15T2 OUTPUT.txt"),
+                fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
+    }
+
+    @Test
+    public void R15T3() throws Exception {
+        try{
+        runAndTest( "Testing/Test Files/R15/R15T3 INPUT.txt", fileToStringArray("Testing/Test Files/R15/R15T3 OUTPUT.txt"),
+                fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
+    }
+
+    @Test
+    public void R15T4() throws Exception {
+        try{
+        runAndTest( "Testing/Test Files/R15/R15T4 INPUT.txt", fileToStringArray("Testing/Test Files/R15/R15T4 OUTPUT.txt"),
+                fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
+    }
+
+    @Test
+    public void R15T5() throws Exception {
+        try{
+        runAndTest( "Testing/Test Files/R15/R15T5 INPUT.txt", fileToStringArray("Testing/Test Files/R15/R15T5 OUTPUT.txt"),
+                fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
+    }
+    
+    @Test
     public void R16T1() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R16/R16T1 INPUT.txt", fileToStringArray("Testing/Test Files/R16/R16T1 OUTPUT.txt"),
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R17T1() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R17/R17T1 INPUT.txt", fileToStringArray("Testing/Test Files/R17/R17T1 OUTPUT.txt"),
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R17T2() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R17/R17T2 INPUT.txt", fileToStringArray("Testing/Test Files/R17/R17T2 OUTPUT.txt"),
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R17T3() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R17/R17T3 INPUT.txt", fileToStringArray("Testing/Test Files/R17/R17T3 OUTPUT.txt"),
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R17T4() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R17/R17T4 INPUT.txt", fileToStringArray("Testing/Test Files/R17/R17T4 OUTPUT.txt"),
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R17T5() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R17/R17T5 INPUT.txt", fileToStringArray("Testing/Test Files/R17/R17T5 OUTPUT.txt"),
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R17T6() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R17/R17T6 INPUT.txt", fileToStringArray("Testing/Test Files/R17/R17T6 OUTPUT.txt"),
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R17T7() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R17/R17T7 INPUT.txt", fileToStringArray("Testing/Test Files/R17/R17T7 OUTPUT.txt"),
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R17T8() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R17/R17T8 INPUT.txt", fileToStringArray("Testing/Test Files/R17/R17T8 OUTPUT.txt"),
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R17T9() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R17/R17T9 INPUT.txt", fileToStringArray("Testing/Test Files/R17/R17T9 OUTPUT.txt"),
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R17T10() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R17/R17T10 INPUT.txt", fileToStringArray("Testing/Test Files/R17/R17T10 OUTPUT.txt"),
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R18T1() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R18/R18T1 INPUT.txt", fileToStringArray("Testing/Test Files/R18/R18T1 OUTPUT.txt"),
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R19T1() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R19/R19T1 INPUT.txt", fileToStringArray("Testing/Test Files/R19/R19T1 OUTPUT.txt"),
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R19T2() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R19/R19T2 INPUT.txt", fileToStringArray("Testing/Test Files/R19/R19T2 OUTPUT.txt"),
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R19T3() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R19/R19T3 INPUT.txt", fileToStringArray("Testing/Test Files/R19/R19T3 OUTPUT.txt"),
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R19T4() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R19/R19T4 INPUT.txt", fileToStringArray("Testing/Test Files/R19/R19T4 OUTPUT.txt"),
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R19T5() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R19/R19T5 INPUT.txt", fileToStringArray("Testing/Test Files/R19/R19T5 OUTPUT.txt"),
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R19T6() throws Exception {
-        runAndTest( "Testing/Test Files/R19/R19T6 INPUT.txt", fileToStringArray("Testing/Test Files/R19/R19T6 OUTPUT.txt"),
-            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        try {
+            runAndTest("Testing/Test Files/R19/R19T6 INPUT.txt", fileToStringArray("Testing/Test Files/R19/R19T6 OUTPUT.txt"),
+                    fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R19T7() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R19/R19T7 INPUT.txt", fileToStringArray("Testing/Test Files/R19/R19T7 OUTPUT.txt"),
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R19T8() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R19/R19T8 INPUT.txt", fileToStringArray("Testing/Test Files/R19/R19T8 OUTPUT.txt"),
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R19T9() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R19/R19T9 INPUT.txt", fileToStringArray("Testing/Test Files/R19/R19T9 OUTPUT.txt"),
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R19T10() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R19/R19T10 INPUT.txt", fileToStringArray("Testing/Test Files/R19/R19T10 OUTPUT.txt"),
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
     
     @Test
     public void R20T1() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R20/R20T1 INPUT.txt", fileToStringArray("Testing/Test Files/R20/R20T1 OUTPUT.txt"),
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
     
     @Test
     public void R21T1() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R21/R21T1 INPUT.txt", fileToStringArray("Testing/Test Files/R21/R21T1 OUTPUT.txt"),
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
     
     @Test
     public void R21T2() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R21/R21T2 INPUT.txt", fileToStringArray("Testing/Test Files/R21/R21T2 OUTPUT.txt"),
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
     
     @Test
     public void R22T1() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R22/R22T1 INPUT.txt", fileToStringArray("Testing/Test Files/R22/R22T1 OUTPUT.txt"),
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
     
     @Test
     public void R22T2() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R22/R22T2 INPUT.txt", fileToStringArray("Testing/Test Files/R22/R22T2 OUTPUT.txt"),
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
     
     @Test
     public void R22T3() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R22/R22T3 INPUT.txt", fileToStringArray("Testing/Test Files/R22/R22T3 OUTPUT.txt"),
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
     
     @Test
     public void R23T1() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R23/R23T1 INPUT.txt", fileToStringArray("Testing/Test Files/R23/R23T1 OUTPUT.txt"),
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
 
     @Test
     public void R23T2() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R23/R23T2 INPUT.txt", fileToStringArray("Testing/Test Files/R23/R23T2 OUTPUT.txt"),
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
     
     @Test
     public void R24T1() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R24/R24T1 INPUT.txt", fileToStringArray("Testing/Test Files/R24/R24T1 OUTPUT.txt"),
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
     
     @Test
     public void R24T2() throws Exception {
+        try{
         runAndTest( "Testing/Test Files/R24/R24T2 INPUT.txt", fileToStringArray("Testing/Test Files/R24/R24T2 OUTPUT.txt"),
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"));
+        }
+        catch (Exception NoSuchElementException){
+        }
     }
     
     public List<String> fileToStringArray(String filename) {
@@ -419,23 +894,16 @@ public class FrontEndTest {
         // create a temporary file
         File tmpFile1 = File.createTempFile("testTransactionSummaryFile", ".txt");
         File tmpFile2 = File.createTempFile("testValidAccountListFile", ".txt");
-        //File inputFile = new File(terminal_input);
 
-
-        /* setup user input
-        String userInput = String.join(System.lineSeparator(), terminal_input);
-        ByteArrayInputStream in = new ByteArrayInputStream(userInput.getBytes());
-        System.setIn(in);
-        */
-        //Scanner input = new Scanner(inputFile);
         String[] args = {tmpFile1.getAbsolutePath(), tmpFile2.getAbsolutePath(), terminal_input};
 
-
-        // setup stdin & stdout:
+        // setup stdin & stdout:]
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         ByteArrayOutputStream errContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
         System.setErr(new PrintStream(errContent));
+
+
 
         // run the program
         FrontEndInjected.main(args);
