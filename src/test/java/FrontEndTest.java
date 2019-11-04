@@ -24,6 +24,7 @@ public class FrontEndTest {
         }
     }
 
+    
     @Test
     public void R1T2() throws Exception {
         try{
@@ -47,7 +48,7 @@ public class FrontEndTest {
         }
 
     }
-
+    
     @Test
     public void R1T4() throws Exception {
         try{
@@ -102,6 +103,7 @@ public class FrontEndTest {
             assertTrue(compareOutputConsole("Testing/Test Files/R1/R1T8 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
+    
 
     @Test
     public void R2T1() throws Exception {
@@ -135,7 +137,7 @@ public class FrontEndTest {
             assertTrue(compareOutputConsole("Testing/Test Files/R2/R2T3 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
-
+    
     @Test
     public void R3T1() throws Exception {
         try{
@@ -146,7 +148,7 @@ public class FrontEndTest {
             assertTrue(compareOutputConsole("Testing/Test Files/R3/R3T1 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
-
+    
     @Test
     public void R3T2() throws Exception {
         try{
@@ -212,7 +214,7 @@ public class FrontEndTest {
             assertTrue(compareOutputConsole("Testing/Test Files/R4/R4T1 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
-
+    
     @Test
     public void R5T1() throws Exception {
         try{
@@ -223,7 +225,7 @@ public class FrontEndTest {
             assertTrue(compareOutputConsole("Testing/Test Files/R5/R5T1 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
-
+    
     @Test
     public void R5T2() throws Exception {
         try{
@@ -234,6 +236,7 @@ public class FrontEndTest {
             assertTrue(compareOutputConsole("Testing/Test Files/R5/R5T2 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
+    
 
     @Test
     public void R6T1() throws Exception {
@@ -414,6 +417,7 @@ public class FrontEndTest {
             assertTrue(compareOutputConsole("Testing/Test Files/R9/R9T7 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
+    
 
     @Test
     public void R10T1() throws Exception {
@@ -602,6 +606,7 @@ public class FrontEndTest {
         }
     }
 
+    
     @Test
     public void R17T1() throws Exception {
         try{
@@ -994,13 +999,8 @@ public class FrontEndTest {
         //ByteArrayOutputStream errContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
         //System.setErr(new PrintStream(errContent));
-
-
-
-// run the program
+        // run the program
         FrontEndInjected.main(args);
-
-
     }
 
     //returns true if the output file matches the expected output file output
