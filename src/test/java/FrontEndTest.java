@@ -736,6 +736,7 @@ public class FrontEndTest {
             assertTrue(compareOutputConsole("Testing/Test Files/R18/R18T1 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
+    
 
     @Test
     public void R19T1() throws Exception {
@@ -934,30 +935,6 @@ public class FrontEndTest {
             assertTrue(compareOutputConsole("Testing/Test Files/R23/R23T2 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
-    
-    @Test
-    public void R24T1() throws Exception {
-        try{
-        runAndTest( "Testing/Test Files/R24/R24T1 INPUT.txt", fileToStringArray("Testing/Test Files/R24/R24T1 OUTPUT.txt"),
-            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
-        }
-        catch (Exception NoSuchElementException){
-            assertTrue(compareOutputConsole("Testing/Test Files/R24/R24T1 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
-        }
-    }
-    
-    @Test
-    public void R24T2() throws Exception {
-        try{
-        runAndTest( "Testing/Test Files/R24/R24T2 INPUT.txt", fileToStringArray("Testing/Test Files/R24/R24T2 OUTPUT.txt"),
-            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
-        }
-        catch (Exception NoSuchElementException){
-            assertTrue(compareOutputConsole("Testing/Test Files/R24/R24T2 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
-
-        }
-    }
-
     
     public List<String> fileToStringArray(String filename) {
         List<String> newList = new ArrayList();
