@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class FrontEndTest {
 
@@ -19,7 +20,7 @@ public class FrontEndTest {
                     fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
-            compareOutputConsole("Testing/Test Files/R1/R1T1 OUTPUT.txt", "Testing/Test Files/consoleOut.txt");
+            assertTrue(compareOutputConsole("Testing/Test Files/R1/R1T1 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -30,6 +31,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R1/R1T2 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
 
     }
@@ -41,6 +43,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R1/R1T3 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
 
     }
@@ -52,6 +55,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R1/R1T4 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -62,6 +66,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R1/R1T5 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -72,6 +77,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R1/R1T6 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -82,7 +88,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
-            compareOutputConsole("Testing/Test Files/R1/R1T7 OUTPUT.txt", "Testing/Test Files/consoleOut.txt");
+            assertTrue(compareOutputConsole("Testing/Test Files/R1/R1T7 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -93,6 +99,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R1/R1T8 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -103,6 +110,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R2/R2T1 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -113,6 +121,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R2/R2T2 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -123,6 +132,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R2/R2T3 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -133,6 +143,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R3/R3T1 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -143,6 +154,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R3/R3T2 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -153,6 +165,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R3/R3T3 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -163,6 +176,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R3/R3T4 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -173,6 +187,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R3/R3T5 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -183,6 +198,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R3/R3T6 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -193,6 +209,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R4/R4T1 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -203,6 +220,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R5/R5T1 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -213,6 +231,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R5/R5T2 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -223,6 +242,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R6/R6T1 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -233,6 +253,8 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R6/R6T2 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
+
         }
     }
 
@@ -243,6 +265,8 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R6/R6T3 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
+
         }
     }
 
@@ -253,6 +277,8 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R6/R6T4 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
+
         }
     }
 
@@ -263,6 +289,8 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R7/R7T1 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
+
         }
     }
 
@@ -273,6 +301,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R7/R7T2 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -283,6 +312,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R7/R7T3 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -293,6 +323,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R7/R7T4 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -303,6 +334,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R8/R8T1 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -313,6 +345,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R9/R9T1 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -323,6 +356,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R9/R9T2 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -333,6 +367,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R9/R9T3 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -343,6 +378,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R9/R9T4 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -353,6 +389,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R9/R9T5 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -363,6 +400,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R9/R9T6 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -373,6 +411,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R9/R9T7 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -383,6 +422,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R10/R10T1 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -393,6 +433,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R10/R10T2 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -403,6 +444,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R11/R11T1 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -413,6 +455,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R11/R11T2 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -423,6 +466,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R11/R11T3 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -433,6 +477,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R12/R12T1 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -443,6 +488,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R12/R12T2 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -453,6 +499,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R13/R13T1 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -463,6 +510,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R13/R13T2 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -473,6 +521,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R14/R14T1 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -483,6 +532,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R14/R14T2 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -493,6 +543,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R15/R15T1 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -503,6 +554,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R15/R15T2 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -513,6 +565,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R15/R15T3 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -523,6 +576,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R15/R15T4 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -533,6 +587,7 @@ public class FrontEndTest {
                 fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R15/R15T5 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
     
@@ -543,6 +598,7 @@ public class FrontEndTest {
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R16/R16T1 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -553,6 +609,7 @@ public class FrontEndTest {
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R17/R17T1 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -563,6 +620,7 @@ public class FrontEndTest {
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R17/R17T2 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -573,6 +631,7 @@ public class FrontEndTest {
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R17/R17T3 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -583,6 +642,7 @@ public class FrontEndTest {
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R17/R17T4 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -593,6 +653,7 @@ public class FrontEndTest {
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R17/R17T5 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -603,6 +664,7 @@ public class FrontEndTest {
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R17/R17T6 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -613,6 +675,7 @@ public class FrontEndTest {
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R17/R17T7 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -623,6 +686,7 @@ public class FrontEndTest {
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R17/R17T8 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -633,6 +697,7 @@ public class FrontEndTest {
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R17/R17T9 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -643,6 +708,7 @@ public class FrontEndTest {
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R17/R17T10 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -653,6 +719,7 @@ public class FrontEndTest {
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R18/R18T1 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -664,6 +731,7 @@ public class FrontEndTest {
         }
         catch (Exception NoSuchElementException){
         }
+        assertTrue(compareOutputConsole("Testing/Test Files/R19/R19T1 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
     }
 
     @Test
@@ -673,6 +741,7 @@ public class FrontEndTest {
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R19/R19T2 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -683,6 +752,7 @@ public class FrontEndTest {
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R19/R19T3 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -693,6 +763,7 @@ public class FrontEndTest {
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R19/R19T4 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -703,6 +774,7 @@ public class FrontEndTest {
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R19/R19T5 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -713,6 +785,7 @@ public class FrontEndTest {
                     fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R19/R19T6 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -723,6 +796,7 @@ public class FrontEndTest {
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R19/R19T7 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -733,6 +807,7 @@ public class FrontEndTest {
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R19/R19T8 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -743,6 +818,7 @@ public class FrontEndTest {
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R19/R19T9 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -753,6 +829,7 @@ public class FrontEndTest {
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R19/R19T10 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
     
@@ -763,6 +840,7 @@ public class FrontEndTest {
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R20/R20T1 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
     
@@ -773,6 +851,7 @@ public class FrontEndTest {
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R21/R21T1 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
     
@@ -783,6 +862,7 @@ public class FrontEndTest {
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R21/R21T2 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
     
@@ -793,6 +873,7 @@ public class FrontEndTest {
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R22/R22T1 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
     
@@ -803,6 +884,7 @@ public class FrontEndTest {
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R22/R22T2 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
     
@@ -813,6 +895,7 @@ public class FrontEndTest {
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R22/R22T3 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
     
@@ -823,6 +906,7 @@ public class FrontEndTest {
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R23/R23T1 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
 
@@ -833,6 +917,7 @@ public class FrontEndTest {
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R23/R23T2 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
     
@@ -843,6 +928,7 @@ public class FrontEndTest {
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R24/R24T1 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
         }
     }
     
@@ -853,6 +939,8 @@ public class FrontEndTest {
             fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
         }
         catch (Exception NoSuchElementException){
+            assertTrue(compareOutputConsole("Testing/Test Files/R24/R24T2 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
+
         }
     }
     
@@ -950,7 +1038,7 @@ return true;
         } catch (Exception e) {
             System.out.println("didn't find file");
         }
-
+//
         if (outputArr.get(outputArr.size() - 1).equals(consoleOutputArr.get(consoleOutputArr.size() - 1))) {
             return true;
         } else {
