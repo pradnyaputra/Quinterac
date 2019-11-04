@@ -1005,10 +1005,39 @@ public class FrontEndTest {
 
     //returns true if the output file matches the expected output file output
     public boolean compareOutputFile(String output){
-    	
-    	
-    return true;
+        File outputFile = new File("transactionSummaryFile.txt");
+        Scanner input1;
+        Scanner input2;
+        ArrayList<String> tsfArray = new ArrayList<String>();
+        ArrayList<String> ExpectedTsfArray = new ArrayList<String>();
+
+        try {
+            input1 = new Scanner(outputFile);
+            while (input1.hasNextLine() == true) {
+                tsfArray.add(input1.nextLine());
+            }
+        } catch (Exception e) {
+            System.out.println("didn't find file");
+        }
+
+        File expectedOutputFile = new File(output);
+        try {
+            input2 = new Scanner(expectedOutputFile);
+            while (input2.hasNextLine() == true) {
+                ExpectedTsfArray.add(input2.nextLine());
+        }
+        } catch (Exception e) {
+            System.out.println("didn't find file");
+        }
+//
+        if (tsfArray.get(tsfArray.size() - 1).equals(ExpectedTsfArray.get(ExpectedTsfArray.size() - 1))) {
+            return true;
+        } else {
+            return false;
     }
+
+
+}
 
     //returns true if the terminal output matches the expected output
     public boolean compareOutputConsole(String output, String consoleOutput) {
@@ -1017,7 +1046,6 @@ public class FrontEndTest {
         Scanner input2;
         ArrayList<String> outputArr = new ArrayList<String>();
         ArrayList<String> consoleOutputArr = new ArrayList<String>();
-        int i = 0;
 
         try {
             input1 = new Scanner(outputFile);
@@ -1030,7 +1058,6 @@ public class FrontEndTest {
 
         File consoleOutputFile = new File(consoleOutput);
         try {
-            i = 0;
             input2 = new Scanner(consoleOutputFile);
             while (input2.hasNextLine() == true) {
                 consoleOutputArr.add(input2.nextLine());
