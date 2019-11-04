@@ -2,5 +2,10 @@ Welcome to Quinterac, developed by YES-MEN
 Please enter 'login' to begin using the service
 Do you want a machine or agent session?
 Logged in
-Please enter the your account number: 
+Please enter the account number you want to transfer from: 
+Please enter the account you want to transfer to: 
 ERROR: Invalid account number
+<<<<<<< HEAD
+=======
+Please enter one of the commands as input
+>>>>>>> ceeb9d8fa96526b4a16f62d2814865765faa0ae9
