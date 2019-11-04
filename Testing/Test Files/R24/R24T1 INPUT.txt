@@ -1,5 +1,0 @@
-login  
-machine 
-createacc 
-aaaaaaa 
-abc 
