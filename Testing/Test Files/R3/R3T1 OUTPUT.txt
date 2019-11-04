@@ -1,1 +1,2 @@
 Logged out successfully
+Please enter 'login' to begin using the service
