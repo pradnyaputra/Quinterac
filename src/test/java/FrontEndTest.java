@@ -226,6 +226,7 @@ public class FrontEndTest {
         }
     }
     
+    /*
     @Test
     public void R5T2() throws Exception {
         try{
@@ -950,6 +951,7 @@ public class FrontEndTest {
 
         }
     }
+    */
     
     public List<String> fileToStringArray(String filename) {
         List<String> newList = new ArrayList();
@@ -1031,7 +1033,7 @@ public class FrontEndTest {
         } catch (Exception e) {
             System.out.println("didn't find file");
         }
-//
+
         if (tsfArray.get(tsfArray.size() - 1).equals(ExpectedTsfArray.get(ExpectedTsfArray.size() - 1))) {
             return true;
         } else {
@@ -1067,7 +1069,7 @@ public class FrontEndTest {
         } catch (Exception e) {
             System.out.println("didn't find file");
         }
-//
+
         if (outputArr.get(outputArr.size() - 1).equals(consoleOutputArr.get(consoleOutputArr.size() - 1))) {
             return true;
         } else {
