@@ -1007,7 +1007,7 @@ public class FrontEndTest {
     public boolean compareOutputFile(String output){
     	
     	
-return true;
+    return true;
     }
 
     //returns true if the terminal output matches the expected output
