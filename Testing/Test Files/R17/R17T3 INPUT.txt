@@ -1,4 +1,5 @@
 login
 machine
 withdraw
-1234567 abc
+1234567
+abc

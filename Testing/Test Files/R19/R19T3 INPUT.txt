@@ -1,4 +1,6 @@
 login
 machine
 transfer
-1234567 1234568 abc
+1234567
+1234568
+abc

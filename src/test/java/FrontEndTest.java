@@ -357,6 +357,8 @@ public class FrontEndTest {
         }
         catch (Exception NoSuchElementException){
             assertTrue(compareOutputConsole("Testing/Test Files/R9/R9T2 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
+            assertTrue(compareOutputFile("Testing/Test Files/R9/R9T2 TSF.txt"));
+
         }
     }
 
@@ -705,7 +707,7 @@ public class FrontEndTest {
     public void R17T10() throws Exception {
         try{
         runAndTest( "Testing/Test Files/R17/R17T10 INPUT.txt", fileToStringArray("Testing/Test Files/R17/R17T10 OUTPUT.txt"),
-            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "Testing/Test Files/R17/R17T10 VAL.txt");
         }
         catch (Exception NoSuchElementException){
             assertTrue(compareOutputConsole("Testing/Test Files/R17/R17T10 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
@@ -1074,14 +1076,4 @@ public class FrontEndTest {
 
 
     }
-    /**
-     * Retrieve the absolute path of the files in the resources folder
-     *
-     * @param relativePath The file's relative path in the resources folder (/test/resources)
-     * @return the absolute path of the file in the resource folder.
-     */
-
-    //String getFileFromResource(String relativePath) {
-    //   return new File(this.getClass().getResource(relativePath).getFile()).getAbsolutePath();
-    //}
 }

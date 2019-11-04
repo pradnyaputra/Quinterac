@@ -1,4 +1,4 @@
 login
 machine
 withdraw
-1234567 100100
+1234567100100
