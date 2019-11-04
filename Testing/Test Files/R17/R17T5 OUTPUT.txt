@@ -1,1 +1,1 @@
-Error: Cannot withdraw more than $1000 in ATM mode
+ERROR: Invalid amount

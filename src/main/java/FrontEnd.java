@@ -168,7 +168,7 @@ public class FrontEnd {
             System.out.println("Please use agent mode to access this command.");
             return;
         } else {
-            System.out.println("Please enter the your account number: ");
+            System.out.println("Please enter account number: ");
             accNum = input.nextLine();
 
             //proceeds with account deletion after account number has been validated, and there is currently an account with that account number
@@ -199,7 +199,7 @@ public class FrontEnd {
         String accNum;
         String tsfData;
 
-        System.out.println("Please enter the your account number: ");
+        System.out.println("Please enter account number: ");
         accNum = input.nextLine();
 
         //proceeds with deposit after account number has been validated, and there is currently an account with that account number
@@ -255,7 +255,7 @@ public class FrontEnd {
                 }
 
             } else {
-                System.out.println("ERROR: Invalid account name");
+                System.out.println("ERROR: Invalid amount");
                 return;
             }
         } else {
@@ -270,7 +270,7 @@ public class FrontEnd {
         String accNum;
         String tsfData;
 
-        System.out.println("Please enter the your account number: ");
+        System.out.println("Please enter account number: ");
         accNum = input.nextLine();
 
         //proceeds with withdrawal after account number has been validated, and there is currently an account with that account number
@@ -326,7 +326,7 @@ public class FrontEnd {
                 }
 
             } else {
-                System.out.println("ERROR: Invalid account name");
+                System.out.println("Error: Please enter a valid value");
                 return;
             }
         } else {

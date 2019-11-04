@@ -178,7 +178,7 @@ public class FrontEndInjected {
             System.out.println("Please use agent mode to access this command.");
             return;
         } else {
-            System.out.println("Please enter the your account number: ");
+            System.out.println("Please enter account number: ");
             accNum = inputTest.nextLine();
 
             //proceeds with account deletion after account number has been validated, and there is currently an account with that account number
@@ -209,7 +209,7 @@ public class FrontEndInjected {
         String accNum;
         String tsfData;
 
-        System.out.println("Please enter the your account number: ");
+        System.out.println("Please enter account number: ");
         accNum = inputTest.nextLine();
 
         //proceeds with deposit after account number has been validated, and there is currently an account with that account number
@@ -242,7 +242,7 @@ public class FrontEndInjected {
                         for (int i = 0; i < tsfQueue.size(); i++) {
                             String queueVal = tsfQueue.poll();
                             String[] queueValArr = queueVal.split(" ");
-                            if (queueValArr[0].equals("WDR") && queueValArr[1].equals(accNum)) {
+                            if (queueValArr[0].equals("DEP") && queueValArr[1].equals(accNum)) {
                                 dailyTotal += Integer.parseInt(queueValArr[2]);
                             }
                             tsfQueue.add(queueVal);
@@ -265,7 +265,7 @@ public class FrontEndInjected {
                 }
 
             } else {
-                System.out.println("ERROR: Invalid account name");
+                System.out.println("ERROR: Invalid amount");
                 return;
             }
         } else {
@@ -280,7 +280,7 @@ public class FrontEndInjected {
         String accNum;
         String tsfData;
 
-        System.out.println("Please enter the your account number: ");
+        System.out.println("Please enter account number: ");
         accNum = inputTest.nextLine();
 
         //proceeds with withdrawal after account number has been validated, and there is currently an account with that account number
@@ -336,7 +336,7 @@ public class FrontEndInjected {
                 }
 
             } else {
-                System.out.println("ERROR: Invalid account name");
+                System.out.println("Error: Please enter a valid value");
                 return;
             }
         } else {
