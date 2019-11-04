@@ -2,6 +2,7 @@ Welcome to Quinterac, developed by YES-MEN
 Please enter 'login' to begin using the service
 Do you want a machine or agent session?
 Logged in
-Please enter the your account number: 
-Please enter the amount you wish to withdraw in cents: 
-Amount successfully withdrawn
+Please enter the account number you want to transfer from: 
+Please enter the account you want to transfer to: 
+ERROR: Invalid account number
+Please enter one of the commands as input

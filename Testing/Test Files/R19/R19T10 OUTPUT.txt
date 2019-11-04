@@ -1,1 +1,1 @@
-Error: Please enter a valid value
+Please enter one of the commands as input

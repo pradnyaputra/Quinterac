@@ -608,7 +608,7 @@ public class FrontEndTest {
     public void R17T1() throws Exception {
         try{
         runAndTest( "Testing/Test Files/R17/R17T1 INPUT.txt", fileToStringArray("Testing/Test Files/R17/R17T1 OUTPUT.txt"),
-            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "Testing/Test Files/R17/R17T1 VAL.txt");
         }
         catch (Exception NoSuchElementException){
             assertTrue(compareOutputConsole("Testing/Test Files/R17/R17T1 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
@@ -619,7 +619,7 @@ public class FrontEndTest {
     public void R17T2() throws Exception {
         try{
         runAndTest( "Testing/Test Files/R17/R17T2 INPUT.txt", fileToStringArray("Testing/Test Files/R17/R17T2 OUTPUT.txt"),
-            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "Testing/Test Files/R17/R17T2 VAL.txt");
         }
         catch (Exception NoSuchElementException){
             assertTrue(compareOutputConsole("Testing/Test Files/R17/R17T2 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
@@ -630,7 +630,7 @@ public class FrontEndTest {
     public void R17T3() throws Exception {
         try{
         runAndTest( "Testing/Test Files/R17/R17T3 INPUT.txt", fileToStringArray("Testing/Test Files/R17/R17T3 OUTPUT.txt"),
-            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "Testing/Test Files/R17/R17T3 VAL.txt");
         }
         catch (Exception NoSuchElementException){
             assertTrue(compareOutputConsole("Testing/Test Files/R17/R17T3 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
@@ -641,7 +641,7 @@ public class FrontEndTest {
     public void R17T4() throws Exception {
         try{
         runAndTest( "Testing/Test Files/R17/R17T4 INPUT.txt", fileToStringArray("Testing/Test Files/R17/R17T4 OUTPUT.txt"),
-            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "Testing/Test Files/R17/R17T4 VAL.txt");
         }
         catch (Exception NoSuchElementException){
             assertTrue(compareOutputConsole("Testing/Test Files/R17/R17T4 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
@@ -652,7 +652,7 @@ public class FrontEndTest {
     public void R17T5() throws Exception {
         try{
         runAndTest( "Testing/Test Files/R17/R17T5 INPUT.txt", fileToStringArray("Testing/Test Files/R17/R17T5 OUTPUT.txt"),
-            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "Testing/Test Files/R17/R17T5 VAL.txt");
         }
         catch (Exception NoSuchElementException){
             assertTrue(compareOutputConsole("Testing/Test Files/R17/R17T5 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
@@ -663,7 +663,7 @@ public class FrontEndTest {
     public void R17T6() throws Exception {
         try{
         runAndTest( "Testing/Test Files/R17/R17T6 INPUT.txt", fileToStringArray("Testing/Test Files/R17/R17T6 OUTPUT.txt"),
-            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "Testing/Test Files/R17/R17T6 VAL.txt");
         }
         catch (Exception NoSuchElementException){
             assertTrue(compareOutputConsole("Testing/Test Files/R17/R17T6 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
@@ -674,7 +674,7 @@ public class FrontEndTest {
     public void R17T7() throws Exception {
         try{
         runAndTest( "Testing/Test Files/R17/R17T7 INPUT.txt", fileToStringArray("Testing/Test Files/R17/R17T7 OUTPUT.txt"),
-            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "Testing/Test Files/R17/R17T7 VAL.txt");
         }
         catch (Exception NoSuchElementException){
             assertTrue(compareOutputConsole("Testing/Test Files/R17/R17T7 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
@@ -685,7 +685,7 @@ public class FrontEndTest {
     public void R17T8() throws Exception {
         try{
         runAndTest( "Testing/Test Files/R17/R17T8 INPUT.txt", fileToStringArray("Testing/Test Files/R17/R17T8 OUTPUT.txt"),
-            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "Testing/Test Files/R17/R17T8 VAL.txt");
         }
         catch (Exception NoSuchElementException){
             assertTrue(compareOutputConsole("Testing/Test Files/R17/R17T8 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
@@ -696,7 +696,7 @@ public class FrontEndTest {
     public void R17T9() throws Exception {
         try{
         runAndTest( "Testing/Test Files/R17/R17T9 INPUT.txt", fileToStringArray("Testing/Test Files/R17/R17T9 OUTPUT.txt"),
-            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "VALIDACCOUNTLIST.txt");
+            fileToStringArray("Testing/Test Files/BLANKOUTPUTFILE.txt"), "Testing/Test Files/R17/R17T9 VAL.txt");
         }
         catch (Exception NoSuchElementException){
             assertTrue(compareOutputConsole("Testing/Test Files/R17/R17T9 OUTPUT.txt", "Testing/Test Files/consoleOut.txt"));
