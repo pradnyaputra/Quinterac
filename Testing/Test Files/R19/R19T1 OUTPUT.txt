@@ -1,1 +1,1 @@
-Please enter a valid account number
+Please enter one of the commands as input
