@@ -4,5 +4,4 @@ deleteacct 
 1234567  
 abc  
 withdraw  
-1234567  
-111111  
+1234567
