@@ -1,1 +1,0 @@
-Please enter decimal digits for the account number 
