@@ -5,5 +5,4 @@ deleteacct 
 abc  
 transfer 
 1234567 
-7664321  
-111111  
+7664321
