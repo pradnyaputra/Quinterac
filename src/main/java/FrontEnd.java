@@ -6,7 +6,7 @@
  * Student4#: 20070181
  */
 
-import java.io.*;
+import java.io.*; 
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -32,9 +32,7 @@ public class FrontEnd {
             accountListFileLocation = args[0];
             transactionSummaryFileLocation = args[1];
             startUp(accountListFileLocation);
-        } else {
-            startUp("");
-        }
+        } 
     }
 
     //startUp method acts as a welcome screen, requests for initial user commands and keeps on running until a system logout
