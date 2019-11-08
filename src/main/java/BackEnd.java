@@ -57,7 +57,7 @@ public class BackEnd {
             while (file.hasNextLine()) {
                 String line = file.nextLine();
                 String words[] = line.split(" ");
-                Account tempAccount = new Account(words[0], Integer.parseInt(words[1]), words[2]);
+                Account tempAccount = new Account(words[0], Integer.parseInt(words[1]), String.join(" ", Arrays.copyOfRange(words, 2, words.length)));
                 temp.put(words[0], tempAccount);
             }
             file.close();
