@@ -439,22 +439,8 @@ public class FrontEnd {
         return number.charAt(0) != '0';
     }
 
-    //checks whether an account number exists in the valid account list file
-    private static boolean accountNumberExists(String number) {
-        return accountList.contains(number);
-    }
 
-    //Checks whether an account name is valid by following constraints
-    private static boolean accountNameValid(String name) {
 
-        //returns a boolean variable if the following conditions are true
-        return (name.matches("[a-zA-Z0-9]+"))
-                && (name.length() <= 30)
-                && (name.length() >= 3)
-                && !((name.charAt(0) == ' ')
-                && name.charAt(name.length() - 1) == ' ');
-
-    }
 
     // Writes out every transaction that has been made in the session day to the transaction summary file by emptying out tsfQueue
     private static void writeTransactionsToSummaryFile(String fileName) throws IOException {

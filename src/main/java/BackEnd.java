@@ -142,6 +142,13 @@ public class BackEnd {
         accounts.put(accountNumber, tempAccount);
     }
 
+
+    private static void inputValid(){
+        if(validAccountListValidityCheck){
+
+        }
+    }
+
     private static boolean validAccountListValidityCheck(String filename) {
         Scanner file = null;
         try {
@@ -256,49 +263,7 @@ public class BackEnd {
         System.exit(1);
     }
 
-    private static boolean accountNumberValid(String number) {
-        // trims leading and trailing spaces of the string
-        number = number.trim();
-        if (!isAllDigits(number)) {
-            return false;
-        }
 
-        if (number.length() != 7) {
-            return false;
-        }
 
-        return number.charAt(0) != '0';
-    }
 
-    private static boolean validMonetaryAmount(String number) {
-        int value = Integer.parseInt(number);
-        if (number.length() >= 3 && number.length() <= 8) {
-            if (value >= 0 && value <= 99999999) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private static boolean isAllDigits(String number) {
-
-        //loops through all characters of the string and checks if it is a digit
-        for (Character x : number.toCharArray()) {
-            if (!Character.isDigit(x)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    private static boolean accountNameValid(String name) {
-
-        //returns a boolean variable if the following conditions are true
-        return (name.matches("[a-zA-Z0-9]+"))
-                && (name.length() <= 30)
-                && (name.length() >= 3)
-                && !((name.charAt(0) == ' ')
-                && name.charAt(name.length() - 1) == ' ');
-
-    }
 }
