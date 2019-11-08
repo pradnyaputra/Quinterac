@@ -2,15 +2,23 @@
  * Created by Tyler D.S. Elliott on 06-Nov-19.
  */
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.*;
 import java.util.HashMap; // import the HashMap class
+import java.util.Map;
+import java.util.Scanner;
+import java.io.FileWriter;
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 public class BackEnd {
-    private static String oldMasterAccountsFile = "";
-    private static String mergedTransactionSummaryFile = "";
-    private static HashMap<Integer, Account> accounts = new HashMap<Integer, Account>();
+    private static String oldMasterAccountsFile = "oldMasterAccFIle.txt";
+    private static String mergedTransactionSummaryFile = "mergedTransactionSummaryFile.txt";
+    private static HashMap<String, Account> accounts = new HashMap<String, Account>();
 
 
     public static void main(String[] args) {
@@ -22,7 +30,7 @@ public class BackEnd {
         accounts = readOldMasterAccountsFile(oldMasterAccountsFile);
         processMergedTransactions(mergedTransactionSummaryFile);
 
-        for (Integer i : accounts.keySet()) {
+        for (String i : accounts.keySet()) {
             System.out.println("key: " + i + " value: " + accounts.get(i).getBalance() + " " + accounts.get(i).getAccountName());
         }
 
@@ -31,6 +39,12 @@ public class BackEnd {
         } catch (IOException e) {
             System.out.println("ERROR: " + e);
         }
+
+      try {
+        newValidAccList();
+      } catch (IOException e) {
+        System.out.println("ERROR: " + e);
+      }
     }
     
     
@@ -43,16 +57,15 @@ public class BackEnd {
 
     	for (int i = 0; i < transactions.size(); i++) {
             String words[] = transactions.get(i).split(" ");
-            if (words[1] ==temp.getAccountID() )
-			
-		}	
-    	if (words[0].equals("DEP"))
-			dailyDepositLimit -= Integer.parseInt(words[2]);
-		else if (words[0].equals("WDR"))
-			dailyWithdrawLimit -= Integer.parseInt(words[2]);
-		else if (words[0].equals("XFR"))
-			dailyTransferLimit -= Integer.parseInt(words[2]);
-    	
+            if (words[1].equals(temp.getAccountID()) && String.join(" ", Arrays.copyOfRange(words, 2, words.length)).equals(temp.getAccountName())) {
+            	if (words[0].equals("DEP"))
+        			dailyDepositLimit -= Integer.parseInt(words[2]);
+        		else if (words[0].equals("WDR"))
+        			dailyWithdrawLimit -= Integer.parseInt(words[2]);
+        		else if (words[0].equals("XFR"))
+        			dailyTransferLimit -= Integer.parseInt(words[2]);
+            }
+		}		
     	
     	if (command.equals("DEP")) {
     		if (dailyDepositLimit - amount < 0) {
@@ -78,8 +91,8 @@ public class BackEnd {
     
     
 
-    public static HashMap<Integer, Account> readOldMasterAccountsFile(String filename) {
-        HashMap<Integer, Account> temp = new HashMap<Integer, Account>();
+    public static HashMap<String, Account> readOldMasterAccountsFile(String filename) {
+        HashMap<String, Account> temp = new HashMap<String, Account>();
         Scanner file = null;
         try {
             file = new Scanner(new FileInputStream(filename));
@@ -88,8 +101,8 @@ public class BackEnd {
             while (file.hasNextLine()) {
                 String line = file.nextLine();
                 String words[] = line.split(" ");
-                Account tempAccount = new Account(Integer.parseInt(words[0]), Integer.parseInt(words[1]), words[2]);
-                temp.put(Integer.parseInt(words[0]), tempAccount);
+                Account tempAccount = new Account(words[0], Integer.parseInt(words[1]), String.join(" ", Arrays.copyOfRange(words, 2, words.length)));
+                temp.put(words[0], tempAccount);
             }
             file.close();
         } catch (FileNotFoundException e) {
@@ -105,28 +118,40 @@ public class BackEnd {
             file = new Scanner(new FileInputStream(filename));
 
             //while loop to ensure all lines are read within the file
+
             while (file.hasNextLine()) {
                 String line = file.nextLine();
                 String words[] = line.split(" ");
-                switch (words[0]) {
+                String command = words[0];
+                String accountFrom = words[1];
+                int amount = Integer.parseInt(words[2]);
+                String accountTo = words[3];
+                String accountName = words[4];
+                //adds every account number from the valid account list file to the hashset
+                switch (command) {
                     case "NEW":
-                        createAcct(Integer.parseInt(words[1]), words[4]);
+                        createAcct(accountFrom, accountName);
                         break;
                     case "DEP":
-                    	if (!overDailyLimit(words[2], "DEP", Integer.parseInt(words[1]), transactions))
-                        deposit(Integer.parseInt(words[1]), Integer.parseInt(words[2]), words[4]);
-                        transactions.add(line);
+                    	if (!overDailyLimit(amount, command, accountFrom, transactions)) {
+                    		deposit(accountFrom, amount, accountName);
+                        	transactions.add(line);
+                    	}
                         break;
                     case "WDR":
-                        withdraw(Integer.parseInt(words[1]), Integer.parseInt(words[2]), words[4]);
-                        transactions.add(line);
+                    	if (!overDailyLimit(amount, command, accountFrom, transactions)) {
+                    		withdraw(accountFrom, amount, accountName);
+                    		transactions.add(line);
+                    	}
                         break;
                     case "XFR":
-                        transfer(Integer.parseInt(words[1]), Integer.parseInt(words[2]), Integer.parseInt(words[3]));
-                        transactions.add(line);
+                    	if (!overDailyLimit(amount, command, accountFrom, transactions)) {
+                    		transactions.add(line);
+                    		transfer(accountFrom, amount, accountTo);
+                    	}
                         break;
                     case "DEL":
-                        deleteAcct(Integer.parseInt(words[1]), words[4]);
+                        deleteAcct(accountFrom, accountName);
                         break;
                     case "EOS":
                         break;
@@ -141,7 +166,7 @@ public class BackEnd {
 
     }
 
-    private static void deleteAcct(int accountNumber, String accountName) {
+    private static void deleteAcct(String accountNumber, String accountName) {
         Account tempAccount = accounts.get(accountNumber);
         if (!tempAccount.getAccountName().equals(accountName)) {
             System.out.println("Error, name does not match");
@@ -152,7 +177,7 @@ public class BackEnd {
 
     }
 
-    private static void transfer(int accountNumberFrom, int amount, int accountNumberTo) {
+    private static void transfer(String accountNumberFrom, int amount, String accountNumberTo) {
         Account fromAccount = accounts.get(accountNumberFrom);
         Account toAccount = accounts.get(accountNumberTo);
 
@@ -165,7 +190,7 @@ public class BackEnd {
 
     }
 
-    private static void withdraw(int accountNumber, int amount, String accountName) {
+    private static void withdraw(String accountNumber, int amount, String accountName) {
         Account tempAccount = accounts.get(accountNumber);
         if (!tempAccount.getAccountName().equals(accountName)) {
             System.out.println("Error, name does not match");
@@ -178,7 +203,7 @@ public class BackEnd {
         }
     }
 
-    private static void deposit(int accountNumber, int amount, String accountName) {
+    private static void deposit(String accountNumber, int amount, String accountName) {
         Account tempAccount = accounts.get(accountNumber);
         if (!tempAccount.getAccountName().equals(accountName)) {
             System.out.println("Error, name does not match");
@@ -187,7 +212,7 @@ public class BackEnd {
         tempAccount.setBalance(amount + tempAccount.getBalance());      
     }
 
-    private static void createAcct(int accountNumber, String accountName) {
+    private static void createAcct(String accountNumber, String accountName) {
         Account tempAccount = new Account(accountNumber, 0, accountName);
         accounts.put(accountNumber, tempAccount);
     }
@@ -279,13 +304,16 @@ public class BackEnd {
     private static void newMasterAcctFile() throws IOException {
         //Creating the new Master Accounts File, and creating a set of all keys
         BufferedWriter writer = new BufferedWriter(new FileWriter("NewMasterAccountsFile.txt"));
-        Set<Integer> keySet = accounts.keySet();
 
-        int keyArray[] = new int[keySet.size()];
+        Set<Integer> intKeySet = accounts.keySet().stream()
+                .map(s -> Integer.parseInt(s))
+                .collect(Collectors.toSet());
+
+        int keyArray[] = new int[intKeySet.size()];
 
         //converting keySet to array to prepare for sorting
         int count = 0;
-        for (int key : keySet)
+        for (int key : intKeySet)
             keyArray[count++] = key;
 
         //for loop to sort the keys in descending order
@@ -301,7 +329,7 @@ public class BackEnd {
 
         //for loop to ensure all accounts from hashset are added to new Master Account File
         for (int i = 0; i < keyArray.length; i++) {
-            Account acc = accounts.get(keyArray[i]);
+            Account acc = accounts.get(Integer.toString(keyArray[i]));
             writer.write(keyArray[i] + " " + acc.getBalance() + " " + acc.getAccountName());
             writer.newLine();
         }
@@ -311,6 +339,15 @@ public class BackEnd {
 
     //The following are helper functions to assist tsfValidityCheck
 
+	public static void newValidAccList()throws IOException{
+	    BufferedWriter writer = new BufferedWriter(new FileWriter("newValidAccList.txt"));
+	    for (Map.Entry<String, Account> entry : accounts.entrySet()) {
+	      writer.write(entry.getKey());
+	      writer.newLine();
+	    }
+	    writer.write("0000000");
+	    writer.newLine();
+	}
 
 
 }

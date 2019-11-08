@@ -1,2 +1,9 @@
+<<<<<<< HEAD
 1234567 1000 abc
 1111111 1 aaa
+=======
+7777777 666 jimmy
+1234568 50000 bobby
+1234567 1234 abc
+1234566 70000 god
+>>>>>>> branch 'backEnd' of https://github.com/pradnyaputra/Quinterac

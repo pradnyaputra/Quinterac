@@ -2,17 +2,17 @@
  * Created by Tyler D.S. Elliott on 06-Nov-19.
  */
 public class Account {
-	private int accountID;
+	private String accountID;
 	private int balance;
 	private String accountName;
 	
-	public Account(int accID, int bal, String accName){
+	public Account(String accID, int bal, String accName){
 		accountID = accID;
 		balance = bal;
 		accountName = accName;
 	}
 	
-	public int getAccountID() {
+	public String getAccountID() {
 		return accountID;	
 	}
 	
@@ -24,7 +24,7 @@ public class Account {
 		return accountName;	
 	}
 	
-	public void setAccountID(int accID) {
+	public void setAccountID(String accID) {
 		accountID = accID;
 	}
 	
