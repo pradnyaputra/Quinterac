@@ -4,8 +4,8 @@ import java.util.stream.Collectors;
 
 
 public class BackEnd {
-    private static String oldMasterAccountsFile = "oldMasterAccFile.txt";
-    private static String mergedTransactionSummaryFile = "mergedTransactionSummaryFile.txt";
+    private static String oldMasterAccountsFile = "";
+    private static String mergedTransactionSummaryFile = "";
     private static HashMap<String, Account> accounts = new HashMap<String, Account>();
 
 
