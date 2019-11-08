@@ -32,6 +32,51 @@ public class BackEnd {
             System.out.println("ERROR: " + e);
         }
     }
+    
+    
+    public static boolean overDailyLimit(int amount, String command, String accountNum, ArrayList<String> transactions) {
+    	Account temp = accounts.get(accountNum);
+    	
+    	int dailyDepositLimit = 5000;
+    	int dailyWithdrawLimit = 5000;
+    	int dailyTransferLimit = 10000;
+
+    	for (int i = 0; i < transactions.size(); i++) {
+            String words[] = transactions.get(i).split(" ");
+            if (words[1] ==temp.getAccountID() )
+			
+		}	
+    	if (words[0].equals("DEP"))
+			dailyDepositLimit -= Integer.parseInt(words[2]);
+		else if (words[0].equals("WDR"))
+			dailyWithdrawLimit -= Integer.parseInt(words[2]);
+		else if (words[0].equals("XFR"))
+			dailyTransferLimit -= Integer.parseInt(words[2]);
+    	
+    	
+    	if (command.equals("DEP")) {
+    		if (dailyDepositLimit - amount < 0) {
+    			System.out.println("Daily deposit limit is $5000 per amount!");
+    			return true;
+        	}    	
+    	}
+    	else if (command.equals("WDR")) {
+    		if (dailyWithdrawLimit - amount < 0) {
+    			System.out.println("Daily withdraw limit is $5000 per amount!");
+    			return true;
+        	}    	    	
+    	}
+    	else if (command.equals("XFR")) {
+    		if (dailyTransferLimit - amount < 0) {
+    			System.out.println("Daily transfer limit is $10000 per amount!");
+    			return true;
+        	}    	
+    	}		
+    	return false;
+    }
+    
+    
+    
 
     public static HashMap<Integer, Account> readOldMasterAccountsFile(String filename) {
         HashMap<Integer, Account> temp = new HashMap<Integer, Account>();
@@ -54,6 +99,7 @@ public class BackEnd {
     }
 
     public static void processMergedTransactions(String filename) {
+    	ArrayList<String> transactions = new ArrayList<String>();
         Scanner file = null;
         try {
             file = new Scanner(new FileInputStream(filename));
@@ -67,13 +113,17 @@ public class BackEnd {
                         createAcct(Integer.parseInt(words[1]), words[4]);
                         break;
                     case "DEP":
+                    	if (!overDailyLimit(words[2], "DEP", Integer.parseInt(words[1]), transactions))
                         deposit(Integer.parseInt(words[1]), Integer.parseInt(words[2]), words[4]);
+                        transactions.add(line);
                         break;
                     case "WDR":
                         withdraw(Integer.parseInt(words[1]), Integer.parseInt(words[2]), words[4]);
+                        transactions.add(line);
                         break;
                     case "XFR":
                         transfer(Integer.parseInt(words[1]), Integer.parseInt(words[2]), Integer.parseInt(words[3]));
+                        transactions.add(line);
                         break;
                     case "DEL":
                         deleteAcct(Integer.parseInt(words[1]), words[4]);
@@ -134,7 +184,7 @@ public class BackEnd {
             System.out.println("Error, name does not match");
             return;
         }
-        tempAccount.setBalance(amount + tempAccount.getBalance());
+        tempAccount.setBalance(amount + tempAccount.getBalance());      
     }
 
     private static void createAcct(int accountNumber, String accountName) {
