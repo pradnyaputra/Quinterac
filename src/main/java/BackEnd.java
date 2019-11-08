@@ -22,7 +22,7 @@ public class BackEnd {
         accounts = readOldMasterAccountsFile(oldMasterAccountsFile);
         processMergedTransactions(mergedTransactionSummaryFile);
 
-        for (Integer i : accounts.keySet()) {
+        for (String i : accounts.keySet()) {
             System.out.println("key: " + i + " value: " + accounts.get(i).getBalance() + " " + accounts.get(i).getAccountName());
         }
 
