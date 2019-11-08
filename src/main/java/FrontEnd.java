@@ -133,12 +133,12 @@ public class FrontEnd {
             accNum = input.nextLine();
 
             //proceeds with account creation after account number has been validated, and there is no current account with that account number
-            if (accountNumberValid(accNum) && !accountNumberExists(accNum)) {
+            if (Validation.accountNumberValid(accNum) && !Validation.accountNumberExists(accountList, accNum)) {
                 System.out.println("Please enter an account name: ");
                 accName = input.nextLine();
 
                 //verifies the validity of the account name, and then adds the corresponding transaction code tsfQueue
-                if (accountNameValid(accName)) {
+                if (Validation.accountNameValid(accName)) {
                     tsfData = "NEW " + accNum + " 000 0000000 " + accName;
                     tsfQueue.add(tsfData);
                     System.out.println("Account successfully created");
@@ -170,12 +170,12 @@ public class FrontEnd {
             accNum = input.nextLine();
 
             //proceeds with account deletion after account number has been validated, and there is currently an account with that account number
-            if (accountNumberValid(accNum) && accountNumberExists(accNum)) {
+            if (Validation.accountNumberValid(accNum) && Validation.accountNumberExists(accountList, accNum)) {
                 System.out.println("Please enter your account name: ");
                 accName = input.nextLine();
 
                 //verifies the validity of the account name, and then adds the corresponding transaction code tsfQueue
-                if (accountNameValid(accName)) {
+                if (Validation.accountNameValid(accName)) {
                     tsfData = "DEL " + accNum + " 000 0000000 " + accName;
                     tsfQueue.add(tsfData);
                     System.out.println("Account successfully deleted");
@@ -201,11 +201,11 @@ public class FrontEnd {
         accNum = input.nextLine();
 
         //proceeds with deposit after account number has been validated, and there is currently an account with that account number
-        if (accountNumberValid(accNum) && accountNumberExists(accNum)) {
+        if (Validation.accountNumberValid(accNum) && Validation.accountNumberExists(accountList, accNum)) {
             System.out.println("Please enter the amount you wish to deposit: ");
             amount = input.nextLine();
 
-            if (isAllDigits(amount)) {
+            if (Validation.isAllDigits(amount)) {
 
                 //checking whether in agent or machine mode
                 if (agent) {
@@ -272,11 +272,11 @@ public class FrontEnd {
         accNum = input.nextLine();
 
         //proceeds with withdrawal after account number has been validated, and there is currently an account with that account number
-        if (accountNumberValid(accNum) && accountNumberExists(accNum)) {
+        if (Validation.accountNumberValid(accNum) && Validation.accountNumberExists(accountList, accNum)) {
             System.out.println("Please enter the amount you wish to withdraw in cents: ");
             amount = input.nextLine();
 
-            if (isAllDigits(amount)) {
+            if (Validation.isAllDigits(amount)) {
 
                 //checking whether in agent or machine mode
                 if (agent) {
@@ -347,11 +347,11 @@ public class FrontEnd {
         accNumTo = input.nextLine();
 
         //proceeds with transfer after account numbers have been validated, and there are currently accounts with those account numbers
-        if (accountNumberValid(accNumTo) && accountNumberExists(accNumTo) && accountNumberValid(accNumFrom) && accountNumberExists(accNumFrom)) {
+        if (Validation.accountNumberValid(accNumTo) && Validation.accountNumberExists(accountList,accNumTo) && Validation.accountNumberValid(accNumFrom) && Validation.accountNumberExists(accountList, accNumFrom)) {
             System.out.println("Please enter the amount you wish to transfer in cents: ");
             amount = input.nextLine();
 
-            if (isAllDigits(amount)) {
+            if (Validation.isAllDigits(amount)) {
 
                 //checking whether in agent or machine mode
                 if (agent) {
@@ -411,33 +411,6 @@ public class FrontEnd {
     /*
      * Common helper functions
      */
-
-    //checks whether the account number entered consists only of decimal digits
-    private static boolean isAllDigits(String number) {
-
-        //loops through all characters of the string and checks if it is a digit
-        for (Character x : number.toCharArray()) {
-            if (!Character.isDigit(x)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    //checks whether the account number is exactly seven decimal digits not beginning with 0
-    private static boolean accountNumberValid(String number) {
-        // trims leading and trailing spaces of the string
-        number = number.trim();
-        if (!isAllDigits(number)) {
-            return false;
-        }
-
-        if (number.length() != 7) {
-            return false;
-        }
-
-        return number.charAt(0) != '0';
-    }
 
 
 

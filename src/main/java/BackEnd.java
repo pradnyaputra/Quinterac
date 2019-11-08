@@ -143,10 +143,13 @@ public class BackEnd {
     }
 
 
-    private static void inputValid(){
-        if(validAccountListValidityCheck){
-
+    private static void inputValid(String filename){
+        if(validAccountListValidityCheck(filename)){
+            if(tsfValidityCheck(filename))
+                return;
         }
+        System.out.println("FATAL ERROR: Input file validity check failed.");
+        System.exit(1);
     }
 
     private static boolean validAccountListValidityCheck(String filename) {
@@ -202,15 +205,15 @@ public class BackEnd {
                     file.close();
                     return false;
                 }
-                if (!accountNumberValid(words[1]) || !accountNumberValid(words[3])) {
+                if (!Validation.accountNumberValid(words[1]) || !Validation.accountNumberValid(words[3])) {
                     file.close();
                     return false;
                 }
-                if (!validMonetaryAmount(words[2])) {
+                if (!Validation.validMonetaryAmount(words[2])) {
                     file.close();
                     return false;
                 }
-                if (!accountNameValid(words[4]) && !words[4].equals("***")) {
+                if (!Validation.accountNameValid(words[4]) && !words[4].equals("***")) {
                     file.close();
                     return false;
                 }
@@ -257,12 +260,6 @@ public class BackEnd {
     }
 
     //The following are helper functions to assist tsfValidityCheck
-
-    private static void terminate() {
-        System.out.println("FATAL ERROR: Input file validity check failed.");
-        System.exit(1);
-    }
-
 
 
 

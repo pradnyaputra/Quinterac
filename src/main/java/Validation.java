@@ -1,4 +1,9 @@
+import java.util.HashSet;
+
+
 public class Validation {
+
+
     public static boolean accountNumberValid(String number) {
         // trims leading and trailing spaces of the string
         number = number.trim();
@@ -24,7 +29,7 @@ public class Validation {
         return true;
     }
 
-    private static boolean accountNameValid(String name) {
+    public static boolean accountNameValid(String name) {
 
         //returns a boolean variable if the following conditions are true
         return (name.matches("[a-zA-Z0-9]+"))
@@ -36,12 +41,12 @@ public class Validation {
     }
 
     //checks whether an account number exists in the valid account list file
-    private static boolean accountNumberExists(Hashset <String> accountList) {
+    public static boolean accountNumberExists(HashSet <String> accountList, String number) {
         return accountList.contains(number);
     }
 
 
-    private static boolean validMonetaryAmount(String number) {
+    public static boolean validMonetaryAmount(String number) {
         int value = Integer.parseInt(number);
         if (number.length() >= 3 && number.length() <= 8) {
             if (value >= 0 && value <= 99999999) {
