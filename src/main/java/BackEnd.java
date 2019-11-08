@@ -16,8 +16,8 @@ import java.util.stream.Collectors;
 
 
 public class BackEnd {
-    private static String oldMasterAccountsFile = "";
-    private static String mergedTransactionSummaryFile = "";
+    private static String oldMasterAccountsFile = "oldMasterAccFIle.txt";
+    private static String mergedTransactionSummaryFile = "mergedTransactionSummaryFile.txt";
     private static HashMap<String, Account> accounts = new HashMap<String, Account>();
 
 
@@ -39,6 +39,12 @@ public class BackEnd {
         } catch (IOException e) {
             System.out.println("ERROR: " + e);
         }
+
+      try {
+        newValidAccList();
+      } catch (IOException e) {
+        System.out.println("ERROR: " + e);
+      }
     }
 
     public static HashMap<String, Account> readOldMasterAccountsFile(String filename) {
@@ -274,38 +280,14 @@ public class BackEnd {
 
     //The following are helper functions to assist tsfValidityCheck
 
-  public static File newValidAccList(){
-    File valF = new File("VALIDACCOUNTSLIST.txt");
-    FileWriter fr = null;
-    for (Map.Entry<Integer, Account> entry : accounts.entrySet()) {
-      try {
-        fr = new FileWriter(valF);
-        fr.write(entry.getKey());
-      } catch (IOException e) {
-        e.printStackTrace();
-      }finally{
-        //close resources
-        try {
-          fr.close();
-        } catch (IOException e) {
-          e.printStackTrace();
-        }
-      }
+  public static void newValidAccList()throws IOException{
+    BufferedWriter writer = new BufferedWriter(new FileWriter("newValidAccList.txt"));
+    for (Map.Entry<String, Account> entry : accounts.entrySet()) {
+      writer.write(entry.getKey());
+      writer.newLine();
     }
-    try {
-      fr = new FileWriter(valF);
-      fr.write("0000000");
-    } catch (IOException e) {
-      e.printStackTrace();
-    }finally{
-      //close resources
-      try {
-        fr.close();
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
-    }
-    return valF;
+    writer.write("0000000");
+    writer.newLine();
   }
 
 
