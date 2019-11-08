@@ -16,8 +16,8 @@ import java.util.stream.Collectors;
 
 
 public class BackEnd {
-    private static String oldMasterAccountsFile = "";
-    private static String mergedTransactionSummaryFile = "";
+    private static String oldMasterAccountsFile = "oldMasterAccFile.txt";
+    private static String mergedTransactionSummaryFile = "mergedTransactionSummaryFile.txt";
     private static HashMap<String, Account> accounts = new HashMap<String, Account>();
 
 
@@ -264,7 +264,7 @@ public class BackEnd {
 
         //for loop to ensure all accounts from hashset are added to new Master Account File
         for (int i = 0; i < keyArray.length; i++) {
-            Account acc = accounts.get(keyArray[i]);
+            Account acc = accounts.get(Integer.toString(keyArray[i]));
             writer.write(keyArray[i] + " " + acc.getBalance() + " " + acc.getAccountName());
             writer.newLine();
         }
@@ -277,7 +277,7 @@ public class BackEnd {
   public static File newValidAccList(){
     File valF = new File("VALIDACCOUNTSLIST.txt");
     FileWriter fr = null;
-    for (Map.Entry<Integer, Account> entry : accounts.entrySet()) {
+    for (Map.Entry<String, Account> entry : accounts.entrySet()) {
       try {
         fr = new FileWriter(valF);
         fr.write(entry.getKey());
