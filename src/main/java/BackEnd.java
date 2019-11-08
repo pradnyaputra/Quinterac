@@ -2,10 +2,14 @@
  * Created by Tyler D.S. Elliott on 06-Nov-19.
  */
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.HashMap; // import the HashMap class
+import java.util.Map;
 import java.util.Scanner;
+import java.io.FileWriter;
 
 public class BackEnd {
 	private static String oldMasterAccountsFile = "";
@@ -25,7 +29,7 @@ public class BackEnd {
 		for (Integer i : accounts.keySet()) {
 			  System.out.println("key: " + i + " value: " + accounts.get(i).getBalance() + " " + accounts.get(i).getAccountName() );
 		}
-		
+		newValidAccList();
 	}
 	
 	public static HashMap<Integer, Account> readOldMasterAccountsFile(String filename) {
@@ -138,6 +142,41 @@ public class BackEnd {
 	private static void createAcct(int accountNumber, String accountName) {
 		Account tempAccount = new Account(accountNumber, 0, accountName);
 		accounts.put(accountNumber, tempAccount);
+	}
+
+
+	public static File newValidAccList(){
+		File valF = new File("VALIDACCOUNTSLIST.txt");
+		FileWriter fr = null;
+		for (Map.Entry<Integer, Account> entry : accounts.entrySet()) {
+			try {
+				fr = new FileWriter(valF);
+				fr.write(entry.getKey());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}finally{
+				//close resources
+				try {
+					fr.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		try {
+			fr = new FileWriter(valF);
+			fr.write("0000000");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}finally{
+			//close resources
+			try {
+				fr.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return valF;
 	}
 	
 }
