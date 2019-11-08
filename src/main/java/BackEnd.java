@@ -10,7 +10,7 @@ import java.util.*;
 public class BackEnd {
     private static String oldMasterAccountsFile = "";
     private static String mergedTransactionSummaryFile = "";
-    private static HashMap<Integer, Account> accounts = new HashMap<Integer, Account>();
+    private static HashMap<String, Account> accounts = new HashMap<String, Account>();
 
 
     public static void main(String[] args) {
@@ -33,8 +33,8 @@ public class BackEnd {
         }
     }
 
-    public static HashMap<Integer, Account> readOldMasterAccountsFile(String filename) {
-        HashMap<Integer, Account> temp = new HashMap<Integer, Account>();
+    public static HashMap<String, Account> readOldMasterAccountsFile(String filename) {
+        HashMap<String, Account> temp = new HashMap<String, Account>();
         Scanner file = null;
         try {
             file = new Scanner(new FileInputStream(filename));
@@ -43,8 +43,8 @@ public class BackEnd {
             while (file.hasNextLine()) {
                 String line = file.nextLine();
                 String words[] = line.split(" ");
-                Account tempAccount = new Account(Integer.parseInt(words[0]), Integer.parseInt(words[1]), words[2]);
-                temp.put(Integer.parseInt(words[0]), tempAccount);
+                Account tempAccount = new Account(words[0], Integer.parseInt(words[1]), words[2]);
+                temp.put(words[0], tempAccount);
             }
             file.close();
         } catch (FileNotFoundException e) {
@@ -64,19 +64,19 @@ public class BackEnd {
                 String words[] = line.split(" ");
                 switch (words[0]) {
                     case "NEW":
-                        createAcct(Integer.parseInt(words[1]), words[4]);
+                        createAcct(words[1], words[4]);
                         break;
                     case "DEP":
-                        deposit(Integer.parseInt(words[1]), Integer.parseInt(words[2]), words[4]);
+                        deposit(words[1], Integer.parseInt(words[2]), words[4]);
                         break;
                     case "WDR":
-                        withdraw(Integer.parseInt(words[1]), Integer.parseInt(words[2]), words[4]);
+                        withdraw(words[1], Integer.parseInt(words[2]), words[4]);
                         break;
                     case "XFR":
-                        transfer(Integer.parseInt(words[1]), Integer.parseInt(words[2]), Integer.parseInt(words[3]));
+                        transfer(words[1], Integer.parseInt(words[2]), Integer.parseInt(words[3]));
                         break;
                     case "DEL":
-                        deleteAcct(Integer.parseInt(words[1]), words[4]);
+                        deleteAcct(words[1], words[4]);
                         break;
                     case "EOS":
                         break;
@@ -91,7 +91,7 @@ public class BackEnd {
 
     }
 
-    private static void deleteAcct(int accountNumber, String accountName) {
+    private static void deleteAcct(String accountNumber, String accountName) {
         Account tempAccount = accounts.get(accountNumber);
         if (!tempAccount.getAccountName().equals(accountName)) {
             System.out.println("Error, name does not match");
@@ -102,7 +102,7 @@ public class BackEnd {
 
     }
 
-    private static void transfer(int accountNumberFrom, int amount, int accountNumberTo) {
+    private static void transfer(String accountNumberFrom, int amount, int accountNumberTo) {
         Account fromAccount = accounts.get(accountNumberFrom);
         Account toAccount = accounts.get(accountNumberTo);
 
@@ -115,7 +115,7 @@ public class BackEnd {
 
     }
 
-    private static void withdraw(int accountNumber, int amount, String accountName) {
+    private static void withdraw(String accountNumber, int amount, String accountName) {
         Account tempAccount = accounts.get(accountNumber);
         if (!tempAccount.getAccountName().equals(accountName)) {
             System.out.println("Error, name does not match");
@@ -128,7 +128,7 @@ public class BackEnd {
         }
     }
 
-    private static void deposit(int accountNumber, int amount, String accountName) {
+    private static void deposit(String accountNumber, int amount, String accountName) {
         Account tempAccount = accounts.get(accountNumber);
         if (!tempAccount.getAccountName().equals(accountName)) {
             System.out.println("Error, name does not match");
@@ -137,7 +137,7 @@ public class BackEnd {
         tempAccount.setBalance(amount + tempAccount.getBalance());
     }
 
-    private static void createAcct(int accountNumber, String accountName) {
+    private static void createAcct(String accountNumber, String accountName) {
         Account tempAccount = new Account(accountNumber, 0, accountName);
         accounts.put(accountNumber, tempAccount);
     }
@@ -202,7 +202,7 @@ public class BackEnd {
                     file.close();
                     return false;
                 }
-                if (!accountNumberValid(words[1]) || !accountNumberValid(words[3])) {
+                if (!Validation.accountNumberValid(words[1]) || !Validation.accountNumberValid(words[3])) {
                     file.close();
                     return false;
                 }
@@ -239,7 +239,7 @@ public class BackEnd {
         for (int i = 0; i < keyArray.length; i++) {
             for (int j = 0; j < keyArray.length; j++) {
                 if (keyArray[j] < keyArray[i]) {
-                    int temp = keyArray[i];
+                    String temp = keyArray[i];
                     keyArray[i] = keyArray[j];
                     keyArray[j] = temp;
                 }
