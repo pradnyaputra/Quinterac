@@ -16,7 +16,11 @@ import java.util.stream.Collectors;
 
 
 public class BackEnd {
+<<<<<<< HEAD
     private static String oldMasterAccountsFile = "oldMasterAccFile.txt";
+=======
+    private static String oldMasterAccountsFile = "oldMasterAccFIle.txt";
+>>>>>>> 560e11d4bbe93a5149ddb94169c59f70d5dfdc19
     private static String mergedTransactionSummaryFile = "mergedTransactionSummaryFile.txt";
     private static HashMap<String, Account> accounts = new HashMap<String, Account>();
 
@@ -39,6 +43,12 @@ public class BackEnd {
         } catch (IOException e) {
             System.out.println("ERROR: " + e);
         }
+
+      try {
+        newValidAccList();
+      } catch (IOException e) {
+        System.out.println("ERROR: " + e);
+      }
     }
 
     public static HashMap<String, Account> readOldMasterAccountsFile(String filename) {
@@ -51,7 +61,7 @@ public class BackEnd {
             while (file.hasNextLine()) {
                 String line = file.nextLine();
                 String words[] = line.split(" ");
-                Account tempAccount = new Account(words[0], Integer.parseInt(words[1]), words[2]);
+                Account tempAccount = new Account(words[0], Integer.parseInt(words[1]), String.join(" ", Arrays.copyOfRange(words, 2, words.length)));
                 temp.put(words[0], tempAccount);
             }
             file.close();
@@ -274,6 +284,7 @@ public class BackEnd {
 
     //The following are helper functions to assist tsfValidityCheck
 
+<<<<<<< HEAD
   public static File newValidAccList(){
     File valF = new File("VALIDACCOUNTSLIST.txt");
     FileWriter fr = null;
@@ -304,8 +315,16 @@ public class BackEnd {
       } catch (IOException e) {
         e.printStackTrace();
       }
+=======
+  public static void newValidAccList()throws IOException{
+    BufferedWriter writer = new BufferedWriter(new FileWriter("newValidAccList.txt"));
+    for (Map.Entry<String, Account> entry : accounts.entrySet()) {
+      writer.write(entry.getKey());
+      writer.newLine();
+>>>>>>> 560e11d4bbe93a5149ddb94169c59f70d5dfdc19
     }
-    return valF;
+    writer.write("0000000");
+    writer.newLine();
   }
 
 
