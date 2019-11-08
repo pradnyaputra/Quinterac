@@ -18,18 +18,23 @@ public class BackEnd {
         accounts = readOldMasterAccountsFile(oldMasterAccountsFile);
         processMergedTransactions(mergedTransactionSummaryFile);
 
+        //checking whether the input files are valid or not
+        inputFileValidity(mergedTransactionSummaryFile,oldMasterAccountsFile);
+
         for (String i : accounts.keySet()) {
             System.out.println(
                     "key: " + i + " value: " + accounts.get(i).getBalance() + " " + accounts.get(i)
                             .getAccountName());
         }
 
+        //Calls the function that creates a new master account file
         try {
             newMasterAcctFile();
         } catch (IOException e) {
             System.out.println("ERROR: " + e);
         }
 
+        //Calls the function that creates a new valid account list file
         try {
             newValidAccList();
         } catch (IOException e) {
@@ -205,16 +210,17 @@ public class BackEnd {
     }
 
 
-    private static void inputValid(String filename) {
-        if (validAccountListValidityCheck(filename)) {
-            if (tsfValidityCheck(filename))
+    private static void inputFileValidity(String tsf, String val) {
+        if (isValValid(tsf)) {
+            if (isTsfValid(val))
                 return;
         }
         System.out.println("FATAL ERROR: Input file validity check failed.");
         System.exit(1);
     }
 
-    private static boolean validAccountListValidityCheck(String filename) {
+    //Checks the Valid Account List file to see if it is valid or not
+    private static boolean isValValid(String filename) {
         Scanner file = null;
         try {
             file = new Scanner(new FileInputStream(filename));
@@ -244,7 +250,8 @@ public class BackEnd {
         return false;
     }
 
-    private static boolean tsfValidityCheck(String filename) {
+    //Checks the Transaction Summary File to see if it is valid or not
+    private static boolean isTsfValid(String filename) {
         Scanner file = null;
         try {
             file = new Scanner(new FileInputStream(filename));
@@ -324,8 +331,6 @@ public class BackEnd {
 
         writer.close();
     }
-
-    //The following are helper functions to assist tsfValidityCheck
 
     public static void newValidAccList() throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter("newValidAccList.txt"));
