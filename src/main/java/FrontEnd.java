@@ -116,7 +116,6 @@ public class FrontEnd {
 
         //sets the logout variable to true, preventing the main menu from looping
         loggedOut = true;
-        startUp(accountListFileLocation);
     }
 
     //createAcct creates a new account using user input and adds transaction code to tsfQueue
