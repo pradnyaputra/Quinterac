@@ -114,7 +114,6 @@ public class FrontEnd {
 
         //sets the logout variable to true, preventing the main menu from looping
         loggedOut = true;
-        startUp(accountListFileLocation);
     }
 
     //createAcct creates a new account using user input and adds transaction code to tsfQueue
@@ -448,4 +447,6 @@ public class FrontEnd {
         //will return the data from the valid account list in the form of a hashset
         return buildingAccountList;
     }
+
+
 }

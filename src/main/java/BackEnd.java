@@ -2,8 +2,15 @@
  * Created by Tyler D.S. Elliott on 06-Nov-19.
  */
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.*;
 import java.util.HashMap; // import the HashMap class
+import java.util.Map;
+import java.util.Scanner;
+import java.io.FileWriter;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -60,9 +67,11 @@ public class BackEnd {
             file = new Scanner(new FileInputStream(filename));
 
             //while loop to ensure all lines are read within the file
+
             while (file.hasNextLine()) {
                 String line = file.nextLine();
                 String words[] = line.split(" ");
+                //adds every account number from the valid account list file to the hashset
                 switch (words[0]) {
                     case "NEW":
                         createAcct(words[1], words[4]);
@@ -265,6 +274,39 @@ public class BackEnd {
 
     //The following are helper functions to assist tsfValidityCheck
 
+  public static File newValidAccList(){
+    File valF = new File("VALIDACCOUNTSLIST.txt");
+    FileWriter fr = null;
+    for (Map.Entry<Integer, Account> entry : accounts.entrySet()) {
+      try {
+        fr = new FileWriter(valF);
+        fr.write(entry.getKey());
+      } catch (IOException e) {
+        e.printStackTrace();
+      }finally{
+        //close resources
+        try {
+          fr.close();
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
+      }
+    }
+    try {
+      fr = new FileWriter(valF);
+      fr.write("0000000");
+    } catch (IOException e) {
+      e.printStackTrace();
+    }finally{
+      //close resources
+      try {
+        fr.close();
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    }
+    return valF;
+  }
 
 
 }
