@@ -146,8 +146,8 @@ public class BackEnd {
                         break;
                     case "XFR":
                     	if (!overDailyLimit(amount, command, accountFrom, transactions)) {
-                    		transactions.add(line);
                     		transfer(accountFrom, amount, accountTo);
+                    		transactions.add(line);
                     	}
                         break;
                     case "DEL":
