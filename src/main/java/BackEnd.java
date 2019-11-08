@@ -2,25 +2,13 @@
  * Created by Tyler D.S. Elliott on 06-Nov-19.
  */
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.*;
-import java.util.HashMap; // import the HashMap class
-import java.util.Map;
-import java.util.Scanner;
-import java.io.FileWriter;
 import java.util.*;
 import java.util.stream.Collectors;
 
 
 public class BackEnd {
-<<<<<<< HEAD
     private static String oldMasterAccountsFile = "oldMasterAccFile.txt";
-=======
-    private static String oldMasterAccountsFile = "oldMasterAccFIle.txt";
->>>>>>> 560e11d4bbe93a5149ddb94169c59f70d5dfdc19
     private static String mergedTransactionSummaryFile = "mergedTransactionSummaryFile.txt";
     private static HashMap<String, Account> accounts = new HashMap<String, Account>();
 
@@ -44,11 +32,11 @@ public class BackEnd {
             System.out.println("ERROR: " + e);
         }
 
-      try {
-        newValidAccList();
-      } catch (IOException e) {
-        System.out.println("ERROR: " + e);
-      }
+        try {
+            newValidAccList();
+        } catch (IOException e) {
+            System.out.println("ERROR: " + e);
+        }
     }
 
     public static HashMap<String, Account> readOldMasterAccountsFile(String filename) {
@@ -163,9 +151,9 @@ public class BackEnd {
     }
 
 
-    private static void inputValid(String filename){
-        if(validAccountListValidityCheck(filename)){
-            if(tsfValidityCheck(filename))
+    private static void inputValid(String filename) {
+        if (validAccountListValidityCheck(filename)) {
+            if (tsfValidityCheck(filename))
                 return;
         }
         System.out.println("FATAL ERROR: Input file validity check failed.");
@@ -181,20 +169,20 @@ public class BackEnd {
             while (file.hasNextLine()) {
                 String line = file.nextLine();
 
-				if (line.equals("0000000") && (file.hasNextLine()==false)) {
-					break;
-				}
+                if (line.equals("0000000") && (file.hasNextLine() == false)) {
+                    break;
+                }
 
                 if (line.length() != 7) {
-					file.close();
+                    file.close();
                     return false;
                 }
                 if (line.substring(0, 1).equals("0")) {
-					file.close();
+                    file.close();
                     return false;
                 }
             }
-			file.close();
+            file.close();
             return true;
         } catch (FileNotFoundException e) {
             System.out.println("ERROR: " + e.getMessage());
@@ -212,9 +200,9 @@ public class BackEnd {
                 String line = file.nextLine();
                 String words[] = line.split(" ");
 
-				if (line.equals("EOS") && (file.hasNextLine()==false)) {
-					break;
-				}
+                if (line.equals("EOS") && (file.hasNextLine() == false)) {
+                    break;
+                }
 
                 if (line.length() > 61) {
                     file.close();
@@ -283,49 +271,15 @@ public class BackEnd {
     }
 
     //The following are helper functions to assist tsfValidityCheck
-
-<<<<<<< HEAD
-  public static File newValidAccList(){
-    File valF = new File("VALIDACCOUNTSLIST.txt");
-    FileWriter fr = null;
-    for (Map.Entry<String, Account> entry : accounts.entrySet()) {
-      try {
-        fr = new FileWriter(valF);
-        fr.write(entry.getKey());
-      } catch (IOException e) {
-        e.printStackTrace();
-      }finally{
-        //close resources
-        try {
-          fr.close();
-        } catch (IOException e) {
-          e.printStackTrace();
+    public static void newValidAccList() throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter("newValidAccList.txt"));
+        for (Map.Entry<String, Account> entry : accounts.entrySet()) {
+            writer.write(entry.getKey());
+            writer.newLine();
         }
-      }
+        writer.write("0000000");
+        writer.newLine();
     }
-    try {
-      fr = new FileWriter(valF);
-      fr.write("0000000");
-    } catch (IOException e) {
-      e.printStackTrace();
-    }finally{
-      //close resources
-      try {
-        fr.close();
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
-=======
-  public static void newValidAccList()throws IOException{
-    BufferedWriter writer = new BufferedWriter(new FileWriter("newValidAccList.txt"));
-    for (Map.Entry<String, Account> entry : accounts.entrySet()) {
-      writer.write(entry.getKey());
-      writer.newLine();
->>>>>>> 560e11d4bbe93a5149ddb94169c59f70d5dfdc19
-    }
-    writer.write("0000000");
-    writer.newLine();
-  }
 
 
 }
