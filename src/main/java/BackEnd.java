@@ -1,17 +1,4 @@
-<<<<<<< HEAD
-/**
- * Created by Tyler D.S. Elliott on 06-Nov-19.
- */
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.*;
-import java.util.HashMap; // import the HashMap class
-import java.util.Map;
-import java.util.Scanner;
-import java.io.FileWriter;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -33,8 +20,8 @@ public class BackEnd {
 
         for (String i : accounts.keySet()) {
             System.out.println(
-                "key: " + i + " value: " + accounts.get(i).getBalance() + " " + accounts.get(i)
-                    .getAccountName());
+                    "key: " + i + " value: " + accounts.get(i).getBalance() + " " + accounts.get(i)
+                            .getAccountName());
         }
 
         try {
@@ -49,50 +36,46 @@ public class BackEnd {
             System.out.println("ERROR: " + e);
         }
     }
-    
-    
-    public static boolean overDailyLimit(int amount, String command, String accountNum, ArrayList<String> transactions) {
-    	Account temp = accounts.get(accountNum);
-    	
-    	int dailyDepositLimit = 5000;
-    	int dailyWithdrawLimit = 5000;
-    	int dailyTransferLimit = 10000;
 
-    	for (int i = 0; i < transactions.size(); i++) {
+
+    public static boolean overDailyLimit(int amount, String command, String accountNum, ArrayList<String> transactions) {
+        Account temp = accounts.get(accountNum);
+
+        int dailyDepositLimit = 5000;
+        int dailyWithdrawLimit = 5000;
+        int dailyTransferLimit = 10000;
+
+        for (int i = 0; i < transactions.size(); i++) {
             String words[] = transactions.get(i).split(" ");
             if (words[1].equals(temp.getAccountID()) && String.join(" ", Arrays.copyOfRange(words, 2, words.length)).equals(temp.getAccountName())) {
-            	if (words[0].equals("DEP"))
-        			dailyDepositLimit -= Integer.parseInt(words[2]);
-        		else if (words[0].equals("WDR"))
-        			dailyWithdrawLimit -= Integer.parseInt(words[2]);
-        		else if (words[0].equals("XFR"))
-        			dailyTransferLimit -= Integer.parseInt(words[2]);
+                if (words[0].equals("DEP"))
+                    dailyDepositLimit -= Integer.parseInt(words[2]);
+                else if (words[0].equals("WDR"))
+                    dailyWithdrawLimit -= Integer.parseInt(words[2]);
+                else if (words[0].equals("XFR"))
+                    dailyTransferLimit -= Integer.parseInt(words[2]);
             }
-		}		
-    	
-    	if (command.equals("DEP")) {
-    		if (dailyDepositLimit - amount < 0) {
-    			System.out.println("Daily deposit limit is $5000 per amount!");
-    			return true;
-        	}    	
-    	}
-    	else if (command.equals("WDR")) {
-    		if (dailyWithdrawLimit - amount < 0) {
-    			System.out.println("Daily withdraw limit is $5000 per amount!");
-    			return true;
-        	}    	    	
-    	}
-    	else if (command.equals("XFR")) {
-    		if (dailyTransferLimit - amount < 0) {
-    			System.out.println("Daily transfer limit is $10000 per amount!");
-    			return true;
-        	}    	
-    	}		
-    	return false;
+        }
+
+        if (command.equals("DEP")) {
+            if (dailyDepositLimit - amount < 0) {
+                System.out.println("Daily deposit limit is $5000 per amount!");
+                return true;
+            }
+        } else if (command.equals("WDR")) {
+            if (dailyWithdrawLimit - amount < 0) {
+                System.out.println("Daily withdraw limit is $5000 per amount!");
+                return true;
+            }
+        } else if (command.equals("XFR")) {
+            if (dailyTransferLimit - amount < 0) {
+                System.out.println("Daily transfer limit is $10000 per amount!");
+                return true;
+            }
+        }
+        return false;
     }
-    
-    
-    
+
 
     public static HashMap<String, Account> readOldMasterAccountsFile(String filename) {
         HashMap<String, Account> temp = new HashMap<String, Account>();
@@ -105,7 +88,7 @@ public class BackEnd {
                 String line = file.nextLine();
                 String words[] = line.split(" ");
                 Account tempAccount = new Account(words[0], Integer.parseInt(words[1]),
-                    String.join(" ", Arrays.copyOfRange(words, 2, words.length)));
+                        String.join(" ", Arrays.copyOfRange(words, 2, words.length)));
                 temp.put(words[0], tempAccount);
             }
             file.close();
@@ -116,7 +99,7 @@ public class BackEnd {
     }
 
     public static void processMergedTransactions(String filename) {
-    	ArrayList<String> transactions = new ArrayList<String>();
+        ArrayList<String> transactions = new ArrayList<String>();
         Scanner file = null;
         try {
             file = new Scanner(new FileInputStream(filename));
@@ -137,22 +120,22 @@ public class BackEnd {
                         createAcct(accountFrom, accountName);
                         break;
                     case "DEP":
-                    	if (!overDailyLimit(amount, command, accountFrom, transactions)) {
-                    		deposit(accountFrom, amount, accountName);
-                        	transactions.add(line);
-                    	}
+                        if (!overDailyLimit(amount, command, accountFrom, transactions)) {
+                            deposit(accountFrom, amount, accountName);
+                            transactions.add(line);
+                        }
                         break;
                     case "WDR":
-                    	if (!overDailyLimit(amount, command, accountFrom, transactions)) {
-                    		withdraw(accountFrom, amount, accountName);
-                    		transactions.add(line);
-                    	}
+                        if (!overDailyLimit(amount, command, accountFrom, transactions)) {
+                            withdraw(accountFrom, amount, accountName);
+                            transactions.add(line);
+                        }
                         break;
                     case "XFR":
-                    	if (!overDailyLimit(amount, command, accountFrom, transactions)) {
-                    		transfer(accountFrom, amount, accountTo);
-                    		transactions.add(line);
-                    	}
+                        if (!overDailyLimit(amount, command, accountFrom, transactions)) {
+                            transfer(accountFrom, amount, accountTo);
+                            transactions.add(line);
+                        }
                         break;
                     case "DEL":
                         deleteAcct(accountFrom, accountName);
@@ -213,7 +196,7 @@ public class BackEnd {
             System.out.println("Error, name does not match");
             return;
         }
-        tempAccount.setBalance(amount + tempAccount.getBalance());      
+        tempAccount.setBalance(amount + tempAccount.getBalance());
     }
 
     private static void createAcct(String accountNumber, String accountName) {
@@ -280,12 +263,12 @@ public class BackEnd {
                     return false;
                 }
                 if (!words[0].equals("DEP") && !words[0].equals("WDR") && !words[0].equals("XFR") &&
-                    !words[0].equals("NEW") && !words[0].equals("DEL") && !words[0].equals("EOS")) {
+                        !words[0].equals("NEW") && !words[0].equals("DEL") && !words[0].equals("EOS")) {
                     file.close();
                     return false;
                 }
                 if (!Validation.accountNumberValid(words[1]) || !Validation
-                    .accountNumberValid(words[3])) {
+                        .accountNumberValid(words[3])) {
                     file.close();
                     return false;
                 }
@@ -311,8 +294,8 @@ public class BackEnd {
         BufferedWriter writer = new BufferedWriter(new FileWriter("NewMasterAccountsFile.txt"));
 
         Set<Integer> intKeySet = accounts.keySet().stream()
-            .map(s -> Integer.parseInt(s))
-            .collect(Collectors.toSet());
+                .map(s -> Integer.parseInt(s))
+                .collect(Collectors.toSet());
 
         int keyArray[] = new int[intKeySet.size()];
 
@@ -344,7 +327,7 @@ public class BackEnd {
 
     //The following are helper functions to assist tsfValidityCheck
 
-    public static void newValidAccList() throws IOException{
+    public static void newValidAccList() throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter("newValidAccList.txt"));
         for (Map.Entry<String, Account> entry : accounts.entrySet()) {
             writer.write(entry.getKey());
