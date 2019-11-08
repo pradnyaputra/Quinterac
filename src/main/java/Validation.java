@@ -1,8 +1,6 @@
 import java.util.HashSet;
 
-
 public class Validation {
-
 
     public static boolean accountNumberValid(String number) {
         // trims leading and trailing spaces of the string

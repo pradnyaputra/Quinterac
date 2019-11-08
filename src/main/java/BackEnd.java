@@ -5,6 +5,7 @@
 import java.io.*;
 import java.util.HashMap; // import the HashMap class
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 public class BackEnd {
@@ -229,20 +230,23 @@ public class BackEnd {
     private static void newMasterAcctFile() throws IOException {
         //Creating the new Master Accounts File, and creating a set of all keys
         BufferedWriter writer = new BufferedWriter(new FileWriter("NewMasterAccountsFile.txt"));
-        Set<Integer> keySet = accounts.keySet();
 
-        int keyArray[] = new int[keySet.size()];
+        Set<Integer> intKeySet = accounts.keySet().stream()
+                .map(s -> Integer.parseInt(s))
+                .collect(Collectors.toSet());
+
+        int keyArray[] = new int[intKeySet.size()];
 
         //converting keySet to array to prepare for sorting
         int count = 0;
-        for (int key : keySet)
+        for (int key : intKeySet)
             keyArray[count++] = key;
 
         //for loop to sort the keys in descending order
         for (int i = 0; i < keyArray.length; i++) {
             for (int j = 0; j < keyArray.length; j++) {
                 if (keyArray[j] < keyArray[i]) {
-                    String temp = keyArray[i];
+                    int temp = keyArray[i];
                     keyArray[i] = keyArray[j];
                     keyArray[j] = temp;
                 }
