@@ -2,10 +2,10 @@
  * Created by Tyler D.S. Elliott on 06-Nov-19.
  */
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.HashMap; // import the HashMap class
-import java.util.Scanner;
+import java.util.*;
+
 
 public class BackEnd {
 	private static String oldMasterAccountsFile = "";
@@ -25,7 +25,12 @@ public class BackEnd {
 		for (Integer i : accounts.keySet()) {
 			  System.out.println("key: " + i + " value: " + accounts.get(i).getBalance() + " " + accounts.get(i).getAccountName() );
 		}
-		
+
+		try{
+			newMasterAcctFile();
+		}catch (IOException e){
+			System.out.println("ERROR: "+e);
+		}
 	}
 	
 	public static HashMap<Integer, Account> readOldMasterAccountsFile(String filename) {
@@ -139,5 +144,37 @@ public class BackEnd {
 		Account tempAccount = new Account(accountNumber, 0, accountName);
 		accounts.put(accountNumber, tempAccount);
 	}
-	
+
+	private static void newMasterAcctFile()throws IOException{
+		//Creating the new Master Accounts File, and creating a set of all keys
+		BufferedWriter writer = new BufferedWriter(new FileWriter("NewMasterAccountsFile.txt"));
+		Set <Integer> keySet = accounts.keySet();
+
+		int keyArray[] = new int[keySet.size()];
+
+		//converting keySet to array to prepare for sorting
+		int count = 0;
+		for (int key : keySet)
+			keyArray[count++] = key;
+
+		//for loop to sort the keys in descending order
+		for(int i=0;i<keyArray.length;i++){
+			for(int j=0; j<keyArray.length;j++){
+				if(keyArray[j]<keyArray[i]){
+					int temp = keyArray[i];
+					keyArray[i]=keyArray[j];
+					keyArray[j] = temp;
+				}
+			}
+		}
+
+		//for loop to ensure all accounts from hashset are added to new Master Account File
+		for(int i=0;i<keyArray.length;i++) {
+			Account acc = accounts.get(keyArray[i]);
+			writer.write(keyArray[i]+" "+acc.getBalance()+" "+acc.getAccountName());
+			writer.newLine();
+		}
+
+		writer.close();
+	}
 }
