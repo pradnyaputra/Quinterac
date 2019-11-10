@@ -1,1 +1,1 @@
-Please enter account number and amount to transfer in cents
+Please enter the account number you want to transfer from: 

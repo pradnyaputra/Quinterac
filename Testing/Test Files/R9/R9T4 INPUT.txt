@@ -1,4 +1,4 @@
-Login 
-Machine 
-Logout 
-deleteacct 
+login
+machine
+logout
+deleteacct

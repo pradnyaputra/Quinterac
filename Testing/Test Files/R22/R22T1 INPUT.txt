@@ -1,8 +1,7 @@
-Login  
-Agent  
-Deleteacct  
+login  
+agent  
+deleteacct  
 1234567  
 abc  
-Deposit  
-1234567  
-111111  
+deposit  
+1234567

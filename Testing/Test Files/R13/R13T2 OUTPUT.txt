@@ -1,1 +1,1 @@
-Account number cannot start with a 0
+invalid account number

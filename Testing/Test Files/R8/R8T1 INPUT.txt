@@ -2,7 +2,10 @@ login
 machine
 deposit
 1234567
-250000
+200000
 deposit
 1234567
-250001
+200000
+deposit
+1234567
+200000

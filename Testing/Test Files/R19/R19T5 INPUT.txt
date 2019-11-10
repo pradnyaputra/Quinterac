@@ -1,4 +1,6 @@
-Login 
-machine 
-Transfer 
-1234567 1234566 1000100 
+login
+machine
+transfer
+1234567
+1234566
+1000100

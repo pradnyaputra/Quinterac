@@ -1,5 +1,4 @@
-login 
-agent 
-createacct 
-123456 
-abc 
+login
+agent
+createacct
+123456

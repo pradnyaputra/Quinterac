@@ -1,1 +1,1 @@
-Withdrawal successful 
+Amount successfully withdrawn

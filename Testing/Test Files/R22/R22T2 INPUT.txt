@@ -1,8 +1,7 @@
-Login  
-Agent  
-Deleteacct 
+login  
+agent  
+deleteacct 
 1234567  
 abc  
-Withdraw  
-1234567  
-111111  
+withdraw  
+1234567

@@ -1,6 +1,7 @@
-login 
-agent 
-createacct 
-1234567 
-abc 
-deposit 
+login
+agent
+createacct
+1234567
+abc
+deposit
+1234567

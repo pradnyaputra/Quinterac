@@ -1,4 +1,5 @@
-Login machine 
-Withdraw 
-1234567 
-99900 
+login
+machine
+withdraw
+1234567
+99900

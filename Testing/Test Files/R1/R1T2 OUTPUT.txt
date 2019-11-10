@@ -1,1 +1,1 @@
-Please select a mode: "machine" or "agent"
+Do you want a machine or agent session?

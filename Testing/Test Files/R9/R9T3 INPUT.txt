@@ -1,4 +1,4 @@
-Login 
-Machine 
-Logout 
-Createacct 
+login
+machine
+logout
+createacct

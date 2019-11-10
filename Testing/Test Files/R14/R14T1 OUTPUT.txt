@@ -1,1 +1,1 @@
-Account number already exists
+invalid account number

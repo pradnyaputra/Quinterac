@@ -1,5 +1,5 @@
-Login   
-Agent  
-Deleteacct 
+login   
+agent  
+deleteacct 
 1234567  
 abc  

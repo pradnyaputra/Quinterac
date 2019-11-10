@@ -1,1 +1,1 @@
-Account deletion successful
+Account successfully deleted

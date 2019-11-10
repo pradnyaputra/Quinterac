@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: FrontEndTest
+-------------------------------------------------------------------------------
+Tests run: 64, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.54 s <<< FAILURE! - in FrontEndTest
+R17T8(FrontEndTest)  Time elapsed: 0.012 s  <<< FAILURE!
+java.lang.AssertionError
+	at FrontEndTest.R17T8(FrontEndTest.java:703)
+
+R17T9(FrontEndTest)  Time elapsed: 0.003 s  <<< FAILURE!
+java.lang.AssertionError
+	at FrontEndTest.R17T9(FrontEndTest.java:714)
+
+R18T1(FrontEndTest)  Time elapsed: 0.004 s  <<< FAILURE!
+java.lang.AssertionError
+	at FrontEndTest.R18T1(FrontEndTest.java:736)
+

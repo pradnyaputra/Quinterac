@@ -1,1 +1,1 @@
-Error: Cannot transfer more than $10000 in ATM mode 
+Error: Cannot transfer more than $10000 in ATM mode
