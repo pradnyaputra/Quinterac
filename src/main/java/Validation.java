@@ -17,7 +17,6 @@ public class Validation {
     }
 
     public static boolean isAllDigits(String number) {
-
         //loops through all characters of the string and checks if it is a digit
         for (Character x : number.toCharArray()) {
             if (!Character.isDigit(x)) {
@@ -28,7 +27,6 @@ public class Validation {
     }
 
     public static boolean accountNameValid(String name) {
-
         //returns a boolean variable if the following conditions are true
         return (name.matches("[a-zA-Z0-9]+"))
                 && (name.length() <= 30)
