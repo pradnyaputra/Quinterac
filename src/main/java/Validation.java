@@ -13,11 +13,10 @@ public class Validation {
             return false;
         }
 
-        if (number.equals("0000000")) {
-            return true;
-        } else {
-            return number.charAt(0) != '0';
+        if (number.charAt(0) == '0' && !number.equals("0000000")) {
+            return false;
         }
+        return true;
     }
 
     public static boolean isAllDigits(String number) {
@@ -53,6 +52,106 @@ public class Validation {
             }
         }
         return false;
+    }
+
+    public static void BackendFileValidity(String tsf, String maf) {
+        if (isMafValid(maf)) {
+            if (isTsfValid(tsf))
+                return;
+        }
+        System.out.println("FATAL ERROR: Input file validity check failed.");
+        System.exit(1);
+    }
+
+
+    //Checks the Valid Account List file to see if it is valid or not
+    public static boolean isMafValid(String filename) {
+        Scanner file = null;
+        try {
+            file = new Scanner(new FileInputStream(filename));
+
+            String prevAccNumber="9999999";
+            //while loop to ensure all lines are read within the file
+            while (file.hasNextLine()) {
+                String line = file.nextLine();
+                String[] words = line.split(" ");
+
+                if(Integer.parseInt(words[0])>=Integer.parseInt(prevAccNumber)){
+                    return false;
+                }
+
+                if (line.length()>47){
+                    file.close();
+                    return false;
+                }
+
+                if(accountNumberValid(words[0])==false){
+                    file.close();
+                    return false;
+                }
+
+                if(accountNameValid(words[2])){
+                    return false;
+                }
+
+                if (line.substring(0, 1).equals("0")) {
+                    file.close();
+                    return false;
+                }
+
+                prevAccNumber = words[0];
+            }
+            file.close();
+            return true;
+        } catch (FileNotFoundException e) {
+            System.out.println("ERROR: " + e.getMessage());
+        }
+        return false;
+    }
+
+    //Checks the Transaction Summary File to see if it is valid or not
+    public static boolean isTsfValid(String filename) {
+        Scanner file = null;
+        try {
+            file = new Scanner(new FileInputStream(filename));
+
+            //while loop to ensure all lines are read within the file
+            while (file.hasNextLine()) {
+                String line = file.nextLine();
+                String[] words = line.split(" ");
+
+                if (line.equals("EOS") && (file.hasNextLine() == false)) {
+                    break;
+                }
+
+                if (line.length() > 61) {
+                    file.close();
+                    return false;
+                }
+                if (!words[0].equals("DEP") && !words[0].equals("WDR") && !words[0].equals("XFR") &&
+                        !words[0].equals("NEW") && !words[0].equals("DEL") && !words[0].equals("EOS")) {
+                    file.close();
+                    return false;
+                }
+                if (!Validation.accountNumberValid(words[1]) || !Validation
+                        .accountNumberValid(words[3])) {
+                    file.close();
+                    return false;
+                }
+                if (!Validation.validMonetaryAmount(words[2])) {
+                    file.close();
+                    return false;
+                }
+                if (!Validation.accountNameValid(words[4]) && !words[4].equals("***")) {
+                    file.close();
+                    return false;
+                }
+                file.close();
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("ERROR: " + e.getMessage());
+        }
+        return true;
     }
 }
 
