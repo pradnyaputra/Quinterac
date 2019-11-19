@@ -75,25 +75,36 @@ public class Validation {
         try {
             file = new Scanner(new FileInputStream(filename));
 
+            String prevAccNumber="9999999";
             //while loop to ensure all lines are read within the file
             while (file.hasNextLine()) {
                 String line = file.nextLine();
                 String[] words = line.split(" ");
 
-                if (line.length()>47){
+                if(Integer.parseInt(words[0])>=Integer.parseInt(prevAccNumber)){
                     return false;
                 }
 
-                if()
-
-                if (line.length() != 7) {
+                if (line.length()>47){
                     file.close();
                     return false;
                 }
+
+                if(accountNumberValid(words[0])==false){
+                    file.close();
+                    return false;
+                }
+
+                if(accountNameValid(words[2])){
+                    return false;
+                }
+
                 if (line.substring(0, 1).equals("0")) {
                     file.close();
                     return false;
                 }
+
+                prevAccNumber = words[0];
             }
             file.close();
             return true;
