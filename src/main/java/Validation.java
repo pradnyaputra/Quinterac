@@ -146,7 +146,8 @@ public class Validation {
                     file.close();
                     return false;
                 }
-                if (!Validation.accountNameValid(words[4]) && !words[4].equals("***")) {
+                if (!Validation.accountNameValid(String.join(" ",
+                        Arrays.copyOfRange(words, 2, words.length))) && !words[4].equals("***")) {
                     file.close();
                     return false;
                 }
