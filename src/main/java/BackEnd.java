@@ -6,8 +6,8 @@ import java.util.stream.Collectors;
  * The Back End of the Quinterac ATM system
  */
 public class BackEnd {
-	private static String oldMasterAccountsFile = "";
-	private static String mergedTransactionSummaryFile = "";
+	private static String oldMasterAccountsFile = "oldMasterAccounts.txt";
+	private static String mergedTransactionSummaryFile = "mergedTransactionSummaryFile.txt";
 	private static HashMap<String, Account> accounts = new HashMap<String, Account>();
 
 	public static void main(String[] args) {
@@ -254,90 +254,16 @@ public class BackEnd {
 		accounts.put(accountNumber, tempAccount);
 	}
 
-	private static void inputFileValidity(String tsf, String val) {
-		if (isValValid(tsf)) {
-			if (isTsfValid(val))
+	private static void inputFileValidity(String tsf, String maf) {
+		if (Validation.isMafValid(maf)) {
+			if (Validation.isTsfValid(tsf))
 				return;
 		}
 		System.out.println("FATAL ERROR: Input file validity check failed.");
 		System.exit(1);
 	}
 
-	//Checks the Valid Account List file to see if it is valid or not
-	private static boolean isValValid(String filename) {
-		Scanner file = null;
-		try {
-			file = new Scanner(new FileInputStream(filename));
 
-			//while loop to ensure all lines are read within the file
-			while (file.hasNextLine()) {
-				String line = file.nextLine();
-
-				if (line.equals("0000000") && (file.hasNextLine() == false)) {
-					break;
-				}
-
-				if (line.length() != 7) {
-					file.close();
-					return false;
-				}
-				if (line.substring(0, 1).equals("0")) {
-					file.close();
-					return false;
-				}
-			}
-			file.close();
-			return true;
-		} catch (FileNotFoundException e) {
-			System.out.println("ERROR: " + e.getMessage());
-		}
-		return false;
-	}
-
-	//Checks the Transaction Summary File to see if it is valid or not
-	private static boolean isTsfValid(String filename) {
-		Scanner file = null;
-		try {
-			file = new Scanner(new FileInputStream(filename));
-
-			//while loop to ensure all lines are read within the file
-			while (file.hasNextLine()) {
-				String line = file.nextLine();
-				String[] words = line.split(" ");
-
-				if (line.equals("EOS") && (file.hasNextLine() == false)) {
-					break;
-				}
-
-				if (line.length() > 61) {
-					file.close();
-					return false;
-				}
-				if (!words[0].equals("DEP") && !words[0].equals("WDR") && !words[0].equals("XFR") &&
-						!words[0].equals("NEW") && !words[0].equals("DEL") && !words[0].equals("EOS")) {
-					file.close();
-					return false;
-				}
-				if (!Validation.accountNumberValid(words[1]) || !Validation
-						.accountNumberValid(words[3])) {
-					file.close();
-					return false;
-				}
-				if (!Validation.validMonetaryAmount(words[2])) {
-					file.close();
-					return false;
-				}
-				if (!Validation.accountNameValid(words[4]) && !words[4].equals("***")) {
-					file.close();
-					return false;
-				}
-				file.close();
-			}
-		} catch (FileNotFoundException e) {
-			System.out.println("ERROR: " + e.getMessage());
-		}
-		return true;
-	}
 
 	private static void newMasterAcctFile() throws IOException {
 		//Creating the new Master Accounts File, and creating a set of all keys
