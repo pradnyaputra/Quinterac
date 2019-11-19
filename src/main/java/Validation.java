@@ -1,5 +1,6 @@
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Scanner;
 
@@ -34,12 +35,11 @@ public class Validation {
 
     public static boolean accountNameValid(String name) {
         //returns a boolean variable if the following conditions are true
-        return (name.matches("[a-zA-Z0-9]+"))
+        return (name.matches("[a-zA-Z0-9 ]+"))
                 && (name.length() <= 30)
                 && (name.length() >= 3)
                 && !((name.charAt(0) == ' ')
                 && name.charAt(name.length() - 1) == ' ');
-
     }
 
     //checks whether an account number exists in the valid account list file
@@ -79,7 +79,7 @@ public class Validation {
                 String line = file.nextLine();
                 String[] words = line.split(" ");
 
-                if(Integer.parseInt(words[0])>=Integer.parseInt(prevAccNumber)){
+                if(Integer.parseInt(words[0]) >= Integer.parseInt(prevAccNumber)){
                     return false;
                 }
 
@@ -88,12 +88,13 @@ public class Validation {
                     return false;
                 }
 
-                if(accountNumberValid(words[0])==false){
+                if(!accountNumberValid(words[0])){
                     file.close();
                     return false;
                 }
 
-                if(accountNameValid(words[2])){
+                if(!accountNameValid(String.join(" ", Arrays.copyOfRange(words, 2, words.length)))){
+                    file.close();
                     return false;
                 }
 
@@ -123,8 +124,8 @@ public class Validation {
                 String line = file.nextLine();
                 String[] words = line.split(" ");
 
-                if (line.equals("EOS") && (file.hasNextLine() == false)) {
-                    break;
+                if (line.equals("EOS")) {
+                    continue;
                 }
 
                 if (line.length() > 61) {
@@ -149,8 +150,8 @@ public class Validation {
                     file.close();
                     return false;
                 }
-                file.close();
             }
+            file.close();
         } catch (FileNotFoundException e) {
             System.out.println("ERROR: " + e.getMessage());
         }

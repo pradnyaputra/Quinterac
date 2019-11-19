@@ -224,7 +224,8 @@ public class BackEnd {
 	private static void withdraw(String accountNumber, int amount, String accountName) {
 		Account tempAccount = accounts.get(accountNumber);
 		if (!tempAccount.getAccountName().equals(accountName)) {
-			System.out.println("Error, name does not match");
+			System.out.println("Failed Constraint Log: the name given in a withdraw transaction" +
+					" must match the name associated with the withdrawing account");
 			return;
 		}
 		if (tempAccount.getBalance() - amount < 0) {
@@ -243,7 +244,8 @@ public class BackEnd {
 	private static void deposit(String accountNumber, int amount, String accountName) {
 		Account tempAccount = accounts.get(accountNumber);
 		if (!tempAccount.getAccountName().equals(accountName)) {
-			System.out.println("Error, name does not match");
+			System.out.println("Failed Constraint Log: the name given in a deposit transaction " +
+					"must match the name associated with the depositing account");
 			return;
 		}
 		tempAccount.setBalance(amount + tempAccount.getBalance());
