@@ -22,7 +22,7 @@ public class BackEnd {
         }
 
         //check whether the input files are valid or not
-        inputFileValidity(mergedTransactionSummaryFile, oldMasterAccountsFile);
+        Validation.BackendFileValidity(mergedTransactionSummaryFile, oldMasterAccountsFile);
 
 		accounts = readOldMasterAccountsFile(oldMasterAccountsFile);
 		processMergedTransactions(mergedTransactionSummaryFile);
@@ -253,16 +253,6 @@ public class BackEnd {
 		Account tempAccount = new Account(accountNumber, 0, accountName);
 		accounts.put(accountNumber, tempAccount);
 	}
-
-	private static void inputFileValidity(String tsf, String maf) {
-		if (Validation.isMafValid(maf)) {
-			if (Validation.isTsfValid(tsf))
-				return;
-		}
-		System.out.println("FATAL ERROR: Input file validity check failed.");
-		System.exit(1);
-	}
-
 
 
 	private static void newMasterAcctFile() throws IOException {

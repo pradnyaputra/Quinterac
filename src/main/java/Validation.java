@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Validation {
 
+    //returns true if valid
     public static boolean accountNumberValid(String number) {
         // trims leading and trailing spaces of the string
         number = number.trim();
@@ -16,7 +17,10 @@ public class Validation {
             return false;
         }
 
-        return number.charAt(0) != '0';
+        if (number.charAt(0) == '0' && number != "0000000") {
+            return false;
+        }
+        return true;
     }
 
     public static boolean isAllDigits(String number) {
@@ -55,6 +59,16 @@ public class Validation {
         return false;
     }
 
+    public static void BackendFileValidity(String tsf, String maf) {
+        if (isMafValid(maf)) {
+            if (isTsfValid(tsf))
+                return;
+        }
+        System.out.println("FATAL ERROR: Input file validity check failed.");
+        System.exit(1);
+    }
+
+
     //Checks the Valid Account List file to see if it is valid or not
     public static boolean isMafValid(String filename) {
         Scanner file = null;
@@ -64,10 +78,13 @@ public class Validation {
             //while loop to ensure all lines are read within the file
             while (file.hasNextLine()) {
                 String line = file.nextLine();
+                String[] words = line.split(" ");
 
-                if (line.equals("0000000") && (file.hasNextLine() == false)) {
-                    break;
+                if (line.length()>47){
+                    return false;
                 }
+
+                if()
 
                 if (line.length() != 7) {
                     file.close();
