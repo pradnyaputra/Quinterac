@@ -13,7 +13,11 @@ public class Validation {
             return false;
         }
 
-        return number.charAt(0) != '0';
+        if (number.equals("0000000")) {
+            return true;
+        } else {
+            return number.charAt(0) != '0';
+        }
     }
 
     public static boolean isAllDigits(String number) {
@@ -40,7 +44,6 @@ public class Validation {
     public static boolean accountNumberExists(HashSet <String> accountList, String number) {
         return accountList.contains(number);
     }
-
 
     public static boolean validMonetaryAmount(String number) {
         int value = Integer.parseInt(number);
