@@ -53,9 +53,9 @@ public class BackEnd {
 	private static boolean overDailyLimit(int amount, String command, String accountNum, ArrayList<String> transactions) {
 		Account temp = accounts.get(accountNum);
 
-		int dailyDepositLimit = 5000;
-		int dailyWithdrawLimit = 5000;
-		int dailyTransferLimit = 10000;
+		int dailyDepositLimit = 500000;
+		int dailyWithdrawLimit = 500000;
+		int dailyTransferLimit = 1000000;
 
 		for (int i = 0; i < transactions.size(); i++) {
 			String[] words = transactions.get(i).split(" ");

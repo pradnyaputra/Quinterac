@@ -13,4 +13,10 @@ public class BackEndTest {
         BackEnd.main(arguments);
     }
 
+    @Test
+    public void withdrawCoverageTest(){ //Basic block testing
+        String[] arguments = {"Testing/Test Files/WithdrawBackEnd/oldMasterAccounts.txt", "Testing/Test Files/WithdrawBackEnd/mergedTransactionSummaryFile.txt"};
+        BackEnd.main(arguments);
+    }
+
 }
