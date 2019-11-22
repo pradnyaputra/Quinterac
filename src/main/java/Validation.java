@@ -66,7 +66,6 @@ public class Validation {
         System.exit(1);
     }
 
-
     //Checks the Valid Account List file to see if it is valid or not
     public static boolean isMafValid(String filename) {
         Scanner file = null;
