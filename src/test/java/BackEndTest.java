@@ -22,11 +22,29 @@ public class BackEndTest {
     }
 
     /**
-     * Basic block coverage testing of the withdraw command
+     * Basic block coverage testing of the withdraw command case 1
      */
     @Test
-    public void withdrawCoverageTest(){ //Basic block testing
-        String[] arguments = {"Testing/Test Files/WithdrawBackEnd/oldMasterAccounts.txt", "Testing/Test Files/WithdrawBackEnd/mergedTransactionSummaryFile.txt"};
+    public void withdrawBasicBlockTest1(){ //Basic block testing
+        String[] arguments = {"Testing/Test Files/WithdrawBackEnd/oldMasterAccounts.txt", "Testing/Test Files/WithdrawBackEnd/mergedTransactionSummaryFile1.txt"};
+        BackEnd.main(arguments);
+    }
+
+    /**
+     * Basic block coverage testing of the withdraw command case 2
+     */
+    @Test
+    public void withdrawBasicBlockTest2(){ //Basic block testing
+        String[] arguments = {"Testing/Test Files/WithdrawBackEnd/oldMasterAccounts.txt", "Testing/Test Files/WithdrawBackEnd/mergedTransactionSummaryFile2.txt"};
+        BackEnd.main(arguments);
+    }
+
+    /**
+     * Basic block coverage testing of the withdraw command case 3
+     */
+    @Test
+    public void withdrawBasicBlockTest3(){ //Basic block testing
+        String[] arguments = {"Testing/Test Files/WithdrawBackEnd/oldMasterAccounts.txt", "Testing/Test Files/WithdrawBackEnd/mergedTransactionSummaryFile3.txt"};
         BackEnd.main(arguments);
     }
 
