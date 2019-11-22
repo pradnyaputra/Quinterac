@@ -7,9 +7,12 @@ public class BackEndTest {
         BackEnd.main(arguments);
     }
 
+    /**
+     * Statement coverage testing of the createacct command
+     */
     @Test
-    public void R1T1() {
-        String[] arguments = {"oldMasterAccounts.txt", "mergedTransactionSummaryFile.txt"};
+    public void createAcctStatementCoverageTest() {
+        String[] arguments = {"Testing/Test Files/CreateAcctBackEnd/oldMasterAccounts.txt", "Testing/Test Files/CreateAcctBackEnd/mergedTransactionSummaryFile.txt"};
         BackEnd.main(arguments);
     }
 
