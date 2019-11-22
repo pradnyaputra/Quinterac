@@ -265,6 +265,10 @@ public class BackEnd {
 		accounts.put(accountNumber, tempAccount);
 	}
 
+    /**
+     * This method will create a new master accounts file, based on the hash set of Accounts objects
+     * It also ensures that accounts are listed in descending order
+     */
 	private static void newMasterAcctFile() throws IOException {
 		//Creating the new Master Accounts File, and creating a set of all keys
 		BufferedWriter writer = new BufferedWriter(new FileWriter("NewMasterAccountsFile.txt"));
@@ -301,6 +305,9 @@ public class BackEnd {
 		writer.close();
 	}
 
+    /**
+     * This method will create a new valid accounts list using the hash set
+     */
 	private static void newValidAccList() throws IOException {
 		BufferedWriter writer = new BufferedWriter(new FileWriter("newValidAccList.txt"));
 		for (Map.Entry<String, Account> entry : accounts.entrySet()) {
