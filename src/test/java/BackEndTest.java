@@ -13,11 +13,20 @@ public class BackEndTest {
     }
 
     /**
-     * Statement coverage testing of the createacct command
+     * Statement coverage testing of the createacct command case 1
      */
     @Test
-    public void createAcctStatementCoverageTest() {
-        String[] arguments = {"Testing/Test Files/CreateAcctBackEnd/oldMasterAccounts.txt", "Testing/Test Files/CreateAcctBackEnd/mergedTransactionSummaryFile.txt"};
+    public void createAcctStatementCoverageTest1() {
+        String[] arguments = {"Testing/Test Files/CreateAcctBackEnd/oldMasterAccounts.txt", "Testing/Test Files/CreateAcctBackEnd/mergedTransactionSummaryFile1.txt"};
+        BackEnd.main(arguments);
+    }
+
+     /**
+     * Statement coverage testing of the createacct command case 2
+     */
+    @Test
+    public void createAcctStatementCoverageTest2() {
+        String[] arguments = {"Testing/Test Files/CreateAcctBackEnd/oldMasterAccounts.txt", "Testing/Test Files/CreateAcctBackEnd/mergedTransactionSummaryFile2.txt"};
         BackEnd.main(arguments);
     }
 
