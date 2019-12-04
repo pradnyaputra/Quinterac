@@ -22,7 +22,7 @@ public class BackEnd {
         }
 
         //check whether the input files are valid or not
-        inputFileValidity(mergedTransactionSummaryFile, oldMasterAccountsFile);
+        Validation.BackendFileValidity(mergedTransactionSummaryFile, oldMasterAccountsFile);
 
 		accounts = readOldMasterAccountsFile(oldMasterAccountsFile);
 		processMergedTransactions(mergedTransactionSummaryFile);
@@ -53,9 +53,9 @@ public class BackEnd {
 	private static boolean overDailyLimit(int amount, String command, String accountNum, ArrayList<String> transactions) {
 		Account temp = accounts.get(accountNum);
 
-		int dailyDepositLimit = 5000;
-		int dailyWithdrawLimit = 5000;
-		int dailyTransferLimit = 10000;
+		int dailyDepositLimit = 500000;
+		int dailyWithdrawLimit = 500000;
+		int dailyTransferLimit = 1000000;
 
 		for (int i = 0; i < transactions.size(); i++) {
 			String[] words = transactions.get(i).split(" ");
@@ -71,17 +71,17 @@ public class BackEnd {
 
 		if (command.equals("DEP")) {
 			if (dailyDepositLimit - amount < 0) {
-				System.out.println("Daily deposit limit is $5000 per amount!");
+				System.out.println("Daily deposit limit is $5000 per account!");
 				return true;
 			}
 		} else if (command.equals("WDR")) {
 			if (dailyWithdrawLimit - amount < 0) {
-				System.out.println("Daily withdraw limit is $5000 per amount!");
+				System.out.println("Daily withdraw limit is $5000 per account!");
 				return true;
 			}
 		} else if (command.equals("XFR")) {
 			if (dailyTransferLimit - amount < 0) {
-				System.out.println("Daily transfer limit is $10000 per amount!");
+				System.out.println("Daily transfer limit is $10000 per account!");
 				return true;
 			}
 		}
@@ -129,46 +129,48 @@ public class BackEnd {
 
 			while (file.hasNextLine()) {
 				String line = file.nextLine();
-				String[] words = line.split(" ");
-				String command = words[0];
-				String accountFrom = words[1];
-				int amount = Integer.parseInt(words[2]);
-				String accountTo = words[3];
-				String accountName = words[4];
+				if (!line.equals("EOS")) {
+					String[] words = line.split(" ");
+					String command = words[0];
+					String accountFrom = words[1];
+					int amount = Integer.parseInt(words[2]);
+					String accountTo = words[3];
+					String accountName = String.join(" ", Arrays.copyOfRange(words, 4, words.length));
 
-				switch (command) {
-					case "NEW":
-						createAcct(accountFrom, accountName);
-						break;
-					case "DEP":
-						if (!overDailyLimit(amount, command, accountFrom, transactions)) {
-							deposit(accountFrom, amount, accountName);
-							// this was a deposit line, so add it to the list of previous transactions
-							transactions.add(line);
-						}
-						break;
-					case "WDR":
-						if (!overDailyLimit(amount, command, accountFrom, transactions)) {
-							withdraw(accountFrom, amount, accountName);
-                            // this was a withdraw line, so add it to the list of previous transactions
-							transactions.add(line);
-						}
-						break;
-					case "XFR":
-						if (!overDailyLimit(amount, command, accountFrom, transactions)) {
-							transfer(accountFrom, amount, accountTo);
-                            // this was a transfer line, so add it to the list of previous transactions
-							transactions.add(line);
-						}
-						break;
-					case "DEL":
-						deleteAcct(accountFrom, accountName);
-						break;
-					case "EOS":
-						break;
-					default:
-					    // We couldn't process this line, it had a bad command, print it to the "error" log
-						System.out.println(line);
+					switch (command) {
+						case "NEW":
+							createAcct(accountFrom, accountName);
+							break;
+						case "DEP":
+							if (!overDailyLimit(amount, command, accountFrom, transactions)) {
+								deposit(accountFrom, amount, accountName);
+								// this was a deposit line, so add it to the list of previous transactions
+								transactions.add(line);
+							}
+							break;
+						case "WDR":
+							if (!overDailyLimit(amount, command, accountFrom, transactions)) {
+								withdraw(accountFrom, amount, accountName);
+								// this was a withdraw line, so add it to the list of previous transactions
+								transactions.add(line);
+							}
+							break;
+						case "XFR":
+							if (!overDailyLimit(amount, command, accountFrom, transactions)) {
+								transfer(accountFrom, amount, accountTo);
+								// this was a transfer line, so add it to the list of previous transactions
+								transactions.add(line);
+							}
+							break;
+						case "DEL":
+							deleteAcct(accountFrom, accountName);
+							break;
+						case "EOS":
+							break;
+						default:
+							// We couldn't process this line, it had a bad command, print it to the "error" log
+							System.out.println(line);
+					}
 				}
 			}
 			file.close();
@@ -185,8 +187,11 @@ public class BackEnd {
 	private static void deleteAcct(String accountNumber, String accountName) {
 		Account tempAccount = accounts.get(accountNumber);
 		if (!tempAccount.getAccountName().equals(accountName)) {
-			System.out.println("Error, name does not match");
-			System.out.println("should be " + accountName + tempAccount.getAccountName());
+			System.out.println("Failed Constraint Log: the name given in a delete transaction " +
+					"must match the name associated with the deleted account");
+			return;
+		} else if (tempAccount.getBalance() != 0) {
+			System.out.println("Failed Constraint Log: a deleted account must have a zero balance");
 			return;
 		}
 		accounts.remove(accountNumber);
@@ -203,7 +208,7 @@ public class BackEnd {
 		Account toAccount = accounts.get(accountNumberTo);
 
 		if (fromAccount.getBalance() - amount < 0) {
-			System.out.println("Negative balance");
+			System.out.println("Failed Constraint Log: no account should ever have a negative balance");
 		} else {
 			fromAccount.setBalance(fromAccount.getBalance() - amount);
 			toAccount.setBalance(toAccount.getBalance() + amount);
@@ -219,11 +224,12 @@ public class BackEnd {
 	private static void withdraw(String accountNumber, int amount, String accountName) {
 		Account tempAccount = accounts.get(accountNumber);
 		if (!tempAccount.getAccountName().equals(accountName)) {
-			System.out.println("Error, name does not match");
+			System.out.println("Failed Constraint Log: the name given in a withdraw transaction" +
+					" must match the name associated with the withdrawing account");
 			return;
 		}
 		if (tempAccount.getBalance() - amount < 0) {
-			System.out.println("Negative balance");
+			System.out.println("Failed Constraint Log: no account should ever have a negative balance");
 		} else {
 			tempAccount.setBalance(tempAccount.getBalance() - amount);
 		}
@@ -238,7 +244,8 @@ public class BackEnd {
 	private static void deposit(String accountNumber, int amount, String accountName) {
 		Account tempAccount = accounts.get(accountNumber);
 		if (!tempAccount.getAccountName().equals(accountName)) {
-			System.out.println("Error, name does not match");
+			System.out.println("Failed Constraint Log: the name given in a deposit transaction " +
+					"must match the name associated with the depositing account");
 			return;
 		}
 		tempAccount.setBalance(amount + tempAccount.getBalance());
@@ -250,95 +257,18 @@ public class BackEnd {
      * @param accountName The account name for the account to be created
      */
 	private static void createAcct(String accountNumber, String accountName) {
+		if (accounts.get(accountNumber) != null) {
+			System.out.println("Failed Constraint Log: a created account must have a new, unused account number");
+			return;
+		}
 		Account tempAccount = new Account(accountNumber, 0, accountName);
 		accounts.put(accountNumber, tempAccount);
 	}
 
-	private static void inputFileValidity(String tsf, String val) {
-		if (isValValid(tsf)) {
-			if (isTsfValid(val))
-				return;
-		}
-		System.out.println("FATAL ERROR: Input file validity check failed.");
-		System.exit(1);
-	}
-
-	//Checks the Valid Account List file to see if it is valid or not
-	private static boolean isValValid(String filename) {
-		Scanner file = null;
-		try {
-			file = new Scanner(new FileInputStream(filename));
-
-			//while loop to ensure all lines are read within the file
-			while (file.hasNextLine()) {
-				String line = file.nextLine();
-
-				if (line.equals("0000000") && (file.hasNextLine() == false)) {
-					break;
-				}
-
-				if (line.length() != 7) {
-					file.close();
-					return false;
-				}
-				if (line.substring(0, 1).equals("0")) {
-					file.close();
-					return false;
-				}
-			}
-			file.close();
-			return true;
-		} catch (FileNotFoundException e) {
-			System.out.println("ERROR: " + e.getMessage());
-		}
-		return false;
-	}
-
-	//Checks the Transaction Summary File to see if it is valid or not
-	private static boolean isTsfValid(String filename) {
-		Scanner file = null;
-		try {
-			file = new Scanner(new FileInputStream(filename));
-
-			//while loop to ensure all lines are read within the file
-			while (file.hasNextLine()) {
-				String line = file.nextLine();
-				String[] words = line.split(" ");
-
-				if (line.equals("EOS") && (file.hasNextLine() == false)) {
-					break;
-				}
-
-				if (line.length() > 61) {
-					file.close();
-					return false;
-				}
-				if (!words[0].equals("DEP") && !words[0].equals("WDR") && !words[0].equals("XFR") &&
-						!words[0].equals("NEW") && !words[0].equals("DEL") && !words[0].equals("EOS")) {
-					file.close();
-					return false;
-				}
-				if (!Validation.accountNumberValid(words[1]) || !Validation
-						.accountNumberValid(words[3])) {
-					file.close();
-					return false;
-				}
-				if (!Validation.validMonetaryAmount(words[2])) {
-					file.close();
-					return false;
-				}
-				if (!Validation.accountNameValid(words[4]) && !words[4].equals("***")) {
-					file.close();
-					return false;
-				}
-				file.close();
-			}
-		} catch (FileNotFoundException e) {
-			System.out.println("ERROR: " + e.getMessage());
-		}
-		return true;
-	}
-
+    /**
+     * This method will create a new master accounts file, based on the hash set of Accounts objects
+     * It also ensures that accounts are listed in descending order
+     */
 	private static void newMasterAcctFile() throws IOException {
 		//Creating the new Master Accounts File, and creating a set of all keys
 		BufferedWriter writer = new BufferedWriter(new FileWriter("NewMasterAccountsFile.txt"));
@@ -375,6 +305,9 @@ public class BackEnd {
 		writer.close();
 	}
 
+    /**
+     * This method will create a new valid accounts list using the hash set
+     */
 	private static void newValidAccList() throws IOException {
 		BufferedWriter writer = new BufferedWriter(new FileWriter("newValidAccList.txt"));
 		for (Map.Entry<String, Account> entry : accounts.entrySet()) {
