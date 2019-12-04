@@ -32,7 +32,9 @@ public class FrontEnd {
             accountListFileLocation = args[0];
             transactionSummaryFileLocation = args[1];
             startUp(accountListFileLocation);
-        } 
+        } else {
+            System.out.println("Please specify the locations of the account list txt file and the transaction summary txt file");
+        }
     }
 
     //startUp method acts as a welcome screen, requests for initial user commands and keeps on running until a system logout
