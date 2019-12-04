@@ -6,10 +6,6 @@ subprocess.run("python dailyScript.py 1")
 # Tuesday
 subprocess.run("python dailyScript.py 2")
 
-subprocess.run("python dailyScript.py 3")
-
-quit()
-
 # Wednesday
 subprocess.run("python dailyScript.py 3")
 
