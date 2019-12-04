@@ -34,7 +34,8 @@ def first_day():
     print("Ran session 3 manually")
     subprocess.check_call("java -cp src/main/java FrontEnd C:\\Users\\Tyler\\Documents\\GitHub\\Quinterac\\validAccountList.txt C:\\Users\\Tyler\\Documents\\GitHub\\Quinterac\\transactionSummaryFile.txt")
 
-    mergedTsfFiles(True)  # call this after every logout
+    mergedTsfFiles(False)  # call this after every logout
+    mergedTsf.close()
 
     print("Ran backend for day")
     # subprocess.run("javac -cp src/main/java BackEnd.java")
@@ -46,24 +47,27 @@ def other_days():
     print("--- Day " + sys.argv[1] + " ---")
 
     print("Ran session 1 automatically")
-    subprocess.run("java FrontEnd ../../../validAccountList.txt ../../../transactionSummaryFile.txt",
+    subprocess.run("java -cp src/main/java FrontEnd C:\\Users\\Tyler\\Documents\\GitHub\\Quinterac\\validAccountList.txt C:\\Users\\Tyler\\Documents\\GitHub\\Quinterac\\transactionSummaryFile.txt",
                    input="login\nagent\ndeposit\n9999999\n100000\nfoo\nlogout", text=True)
-    mergedTsfFiles()  # call this after every logout
+    mergedTsfFiles(False)  # call this after every logout
 
     print("Ran session 2 automatically")
-    subprocess.run("java FrontEnd ../../../validAccountList.txt ../../../transactionSummaryFile.txt",
+    subprocess.run("java -cp src/main/java FrontEnd C:\\Users\\Tyler\\Documents\\GitHub\\Quinterac\\validAccountList.txt C:\\Users\\Tyler\\Documents\\GitHub\\Quinterac\\transactionSummaryFile.txt",
                    input="login\nagent\ndeposit\n7777777\n87654321\nbar\nlogout", text=True)
 
-    mergedTsfFiles()  # call this after every logout
+    mergedTsfFiles(False)  # call this after every logout
 
-    print("Ran session 3 manually")
-    subprocess.check_call("java FrontEnd ../../../validAccountList.txt ../../../transactionSummaryFile.txt")
+    # print("Ran session 3 manually")
+    # subprocess.check_call("java -cp src/java/main FrontEnd ../../../validAccountList.txt ../../../transactionSummaryFile.txt")
 
-    mergedTsfFiles()  # call this after every logout
+    if sys.argv[1] == "3":
+        mergedTsfFiles(True)
+    else:
+        mergedTsfFiles(False)  # call this after every logout
 
     print("Ran backend for day")
-    subprocess.run("javac BackEnd.java")
-    subprocess.run("java BackEnd ../../../oldMasterAccounts.txt ../../../mergedTransactionSummaryFile.txt")
+    # subprocess.run("javac BackEnd.java")
+    subprocess.run("java -cp src/main/java BackEnd C:\\Users\\Tyler\\Documents\\GitHub\\Quinterac\\oldMasterAccounts.txt C:\\Users\\Tyler\\Documents\\GitHub\\Quinterac\\mergedTransactionSummaryFile.txt")
 
 
 # Monday (first day)
@@ -71,7 +75,7 @@ if len(sys.argv) >= 2:
     if sys.argv[1] == "1":
         # it is the first day
         first_day();
-    # else:
-        # other_days();
+    else:
+        other_days();
 else:
     print("Script malfunction, specify day")
