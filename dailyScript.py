@@ -66,6 +66,8 @@ def other_days():
     else:
         mergedTsfFiles(False)  # call this after every logout
 
+    mergedTsf.close()
+
     print("Ran backend for day")
     # subprocess.run("javac BackEnd.java")
     subprocess.run("java -cp src/main/java BackEnd C:\\Users\\Tyler\\Documents\\GitHub\\Quinterac\\newMasterAccountsFile.txt C:\\Users\\Tyler\\Documents\\GitHub\\Quinterac\\mergedTransactionSummaryFile.txt")
