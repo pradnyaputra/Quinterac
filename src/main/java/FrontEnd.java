@@ -133,14 +133,18 @@ public class FrontEnd {
             System.out.println("Please enter the new account number: ");
             accNum = input.nextLine();
 
+            System.out.println(accNum);
+
             //proceeds with account creation after account number has been validated, and there is no current account with that account number
             if (Validation.accountNumberValid(accNum) && !Validation.accountNumberExists(accountList, accNum)) {
                 System.out.println("Please enter an account name: ");
                 accName = input.nextLine();
+                System.out.println(accName);
 
                 //verifies the validity of the account name, and then adds the corresponding transaction code tsfQueue
                 if (Validation.accountNameValid(accName)) {
                     tsfData = "NEW " + accNum + " 000 0000000 " + accName;
+                    System.out.println(tsfData);
                     tsfQueue.add(tsfData);
                     System.out.println("Account successfully created");
                     return;

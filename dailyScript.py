@@ -1,11 +1,12 @@
 import os
 import subprocess
 import sys
+import time
 
-mergedTsf = open("C:\\Users\\Shane\\Documents\\GitHub\\Quinterac\\mergedTransactionSummaryFile.txt", "a+")
+mergedTsf = open("C:\\Users\\Tyler\\Documents\\GitHub\\Quinterac\\mergedTransactionSummaryFile.txt", "a+")
 
 def mergedTsfFiles(final):
-    tsfFile = open("C:\\Users\\Shane\\Documents\\GitHub\\Quinterac\\transactionSummaryFile.txt", "r")
+    tsfFile = open("C:\\Users\\Tyler\\Documents\\GitHub\\Quinterac\\transactionSummaryFile.txt", "r")
     contents = tsfFile.read()
     # print(contents)
     mergedTsf.write(contents)
@@ -13,7 +14,7 @@ def mergedTsfFiles(final):
         mergedTsf.write("EOS")
 
 def first_day():
-    mergedTsf.truncate(0)
+    # mergedTsf.truncate(0)
     print("--- Day 1 ---")
     # subprocess.run("javac -cp src/main/java FrontEnd.java")
 
@@ -26,18 +27,19 @@ def first_day():
     # subprocess.run("java FrontEnd ../../../validAccountList.txt ../../../transactionSummaryFile.txt",
     #                input="login\nagent\ncreateacct\n7777777\nbar\nlogout", text=True)
     # mergedTsfFiles()  # call this after every logout
-    subprocess.check_call("java -cp src/main/java FrontEnd C:\\Users\\Shane\\Documents\\GitHub\\Quinterac\\validAccountList.txt C:\\Users\\Shane\\Documents\\GitHub\\Quinterac\\transactionSummaryFile.txt")
+    subprocess.check_call("java -cp src/main/java FrontEnd C:\\Users\\Tyler\\Documents\\GitHub\\Quinterac\\validAccountList.txt C:\\Users\\Tyler\\Documents\\GitHub\\Quinterac\\transactionSummaryFile.txt")
     mergedTsfFiles(False)  # call this after every logout
 
 
     print("Ran session 3 manually")
-    subprocess.check_call("java -cp src/main/java FrontEnd C:\\Users\\Shane\\Documents\\GitHub\\Quinterac\\validAccountList.txt C:\\Users\\Shane\\Documents\\GitHub\\Quinterac\\transactionSummaryFile.txt")
+    subprocess.check_call("java -cp src/main/java FrontEnd C:\\Users\\Tyler\\Documents\\GitHub\\Quinterac\\validAccountList.txt C:\\Users\\Tyler\\Documents\\GitHub\\Quinterac\\transactionSummaryFile.txt")
 
     mergedTsfFiles(True)  # call this after every logout
 
     print("Ran backend for day")
     # subprocess.run("javac -cp src/main/java BackEnd.java")
-    subprocess.check_call("java -cp src/main/java BackEnd C:\\Users\\Shane\\Documents\\GitHub\\Quinterac\\oldMasterAccounts.txt C:\\Users\\Shane\\Documents\\GitHub\\Quinterac\\mergedTransactionSummaryFile.txt")
+    subprocess.check_call("java -cp src/main/java BackEnd C:\\Users\\Tyler\\Documents\\GitHub\\Quinterac\\oldMasterAccounts.txt C:\\Users\\Tyler\\Documents\\GitHub\\Quinterac\\mergedTransactionSummaryFile.txt")
+    # subprocess.check_call("java -cp src/main/java BackEnd C:\\Users\\Tyler\\Documents\\GitHub\\Quinterac\\oldMasterAccounts.txt C:\\Users\\Tyler\\Documents\\GitHub\\Quinterac\\mergedTransactionSummaryFile.txt")
 
 
 def other_days():

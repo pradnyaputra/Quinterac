@@ -123,9 +123,12 @@ public class BackEnd {
 	    // this is used to store previous lines as we go, so we can check daily limit amounts
         // it is a bit arbitrary but we don't have timestamps on these transactions so it's the best we can do
 		ArrayList<String> transactions = new ArrayList<String>();
+		File fileLocation = new File(filename);
 		Scanner file = null;
 		try {
-			file = new Scanner(new FileInputStream(filename));
+			file = new Scanner(new FileInputStream(fileLocation));
+
+			System.out.println(fileLocation.getAbsolutePath());
 
 			while (file.hasNextLine()) {
 				String line = file.nextLine();
@@ -271,7 +274,10 @@ public class BackEnd {
      */
 	private static void newMasterAcctFile() throws IOException {
 		//Creating the new Master Accounts File, and creating a set of all keys
-		BufferedWriter writer = new BufferedWriter(new FileWriter("NewMasterAccountsFile.txt"));
+		File file = new File("NewMasterAccountsFile.txt");
+		BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+
+//		System.out.println(file.getAbsolutePath());
 
 		Set<Integer> intKeySet = accounts.keySet().stream()
 				.map(s -> Integer.parseInt(s))
@@ -309,7 +315,10 @@ public class BackEnd {
      * This method will create a new valid accounts list using the hash set
      */
 	private static void newValidAccList() throws IOException {
-		BufferedWriter writer = new BufferedWriter(new FileWriter("newValidAccList.txt"));
+		File file = new File("newValidAccList.txt");
+		BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+//		System.out.println(file.getAbsolutePath());
+
 		for (Map.Entry<String, Account> entry : accounts.entrySet()) {
 			writer.write(entry.getKey());
 			writer.newLine();
