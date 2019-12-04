@@ -5,6 +5,6 @@ import subprocess
 
 # subprocess.check_call("dir")
 
-print(os.path.realpath(__file__))
+# print(os.path.realpath("../../../" + __file__))
 
-subprocess.check_call("java FrontEnd ../validAccountList.txt ../transactionSummaryFile.txt")
+subprocess.check_call("java FrontEnd ../../../validAccountList.txt ../../../transactionSummaryFile.txt")
