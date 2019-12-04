@@ -2,17 +2,20 @@ import os
 import subprocess
 import sys
 
-mergedTsf = open("../../../mergedTransactionSummaryFile.txt", "a+")
+mergedTsf = open("C:\\Users\\Shane\\Documents\\GitHub\\Quinterac\\mergedTransactionSummaryFile.txt", "a+")
 
-def mergedTsfFiles():
-    tsfFile = open("../../../transactionSummaryFile.txt", "r")
+def mergedTsfFiles(final):
+    tsfFile = open("C:\\Users\\Shane\\Documents\\GitHub\\Quinterac\\transactionSummaryFile.txt", "r")
     contents = tsfFile.read()
-    print(contents)
+    # print(contents)
     mergedTsf.write(contents)
+    if final:
+        mergedTsf.write("EOS")
 
 def first_day():
+    mergedTsf.truncate(0)
     print("--- Day 1 ---")
-    subprocess.run("javac FrontEnd.java")
+    # subprocess.run("javac -cp src/main/java FrontEnd.java")
 
     print("Ran session 1 automatically")
     # subprocess.run("java FrontEnd ../../../validAccountList.txt ../../../transactionSummaryFile.txt",
@@ -23,15 +26,18 @@ def first_day():
     # subprocess.run("java FrontEnd ../../../validAccountList.txt ../../../transactionSummaryFile.txt",
     #                input="login\nagent\ncreateacct\n7777777\nbar\nlogout", text=True)
     # mergedTsfFiles()  # call this after every logout
+    subprocess.check_call("java -cp src/main/java FrontEnd C:\\Users\\Shane\\Documents\\GitHub\\Quinterac\\validAccountList.txt C:\\Users\\Shane\\Documents\\GitHub\\Quinterac\\transactionSummaryFile.txt")
+    mergedTsfFiles(False)  # call this after every logout
+
 
     print("Ran session 3 manually")
-    subprocess.check_call("java FrontEnd ../../../validAccountList.txt ../../../transactionSummaryFile.txt")
+    subprocess.check_call("java -cp src/main/java FrontEnd C:\\Users\\Shane\\Documents\\GitHub\\Quinterac\\validAccountList.txt C:\\Users\\Shane\\Documents\\GitHub\\Quinterac\\transactionSummaryFile.txt")
 
-    mergedTsfFiles()  # call this after every logout
+    mergedTsfFiles(True)  # call this after every logout
 
     print("Ran backend for day")
-    subprocess.run("javac BackEnd.java")
-    subprocess.run("java BackEnd ../../../oldMasterAccounts.txt ../../../mergedTransactionSummaryFile.txt")
+    # subprocess.run("javac -cp src/main/java BackEnd.java")
+    subprocess.check_call("java -cp src/main/java BackEnd C:\\Users\\Shane\\Documents\\GitHub\\Quinterac\\oldMasterAccounts.txt C:\\Users\\Shane\\Documents\\GitHub\\Quinterac\\mergedTransactionSummaryFile.txt")
 
 
 def other_days():
