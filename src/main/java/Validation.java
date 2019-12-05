@@ -104,7 +104,7 @@ public class Validation {
         try {
             file = new Scanner(new FileInputStream(filename));
 
-            String prevAccNumber="9999999";
+            String prevAccNumber="99999999";
             //while loop to ensure all lines are read within the file
             while (file.hasNextLine()) {
                 String line = file.nextLine();
@@ -112,29 +112,34 @@ public class Validation {
 
                 //checks to ensure that the next account number is less than the previous one (descending order)
                 if(Integer.parseInt(words[0]) >= Integer.parseInt(prevAccNumber)){
+                    System.out.println("1");
                     return false;
                 }
 
                 //Checks to ensure the line is not longer than 47 characters
                 if (line.length()>47){
+                    System.out.println("2");
                     file.close();
                     return false;
                 }
 
                 //Checks to ensure that the account number is valid (Exists etc)
                 if(!accountNumberValid(words[0])){
+                    System.out.println("3");
                     file.close();
                     return false;
                 }
 
                 //Checks to ensure that the account name is valid
                 if(!accountNameValid(String.join(" ", Arrays.copyOfRange(words, 2, words.length)))){
+                    System.out.println("4");
                     file.close();
                     return false;
                 }
 
                 //Checks to ensure the first character of the account number is not a 0
                 if (line.substring(0, 1).equals("0")) {
+                    System.out.println("5");
                     file.close();
                     return false;
                 }

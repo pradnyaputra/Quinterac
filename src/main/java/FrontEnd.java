@@ -132,7 +132,6 @@ public class FrontEnd {
         } else {// machine mode
             System.out.println("Please enter the new account number: ");
             accNum = input.nextLine();
-
             //proceeds with account creation after account number has been validated, and there is no current account with that account number
             if (Validation.accountNumberValid(accNum) && !Validation.accountNumberExists(accountList, accNum)) {
                 System.out.println("Please enter an account name: ");
