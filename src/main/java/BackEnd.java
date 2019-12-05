@@ -128,8 +128,6 @@ public class BackEnd {
 		try {
 			file = new Scanner(new FileInputStream(fileLocation));
 
-			System.out.println(fileLocation.getAbsolutePath());
-
 			while (file.hasNextLine()) {
 				String line = file.nextLine();
 				if (!line.equals("EOS")) {
@@ -226,7 +224,7 @@ public class BackEnd {
      */
 	private static void withdraw(String accountNumber, int amount, String accountName) {
 		Account tempAccount = accounts.get(accountNumber);
-		if (!tempAccount.getAccountName().equals(accountName)) {
+		if (!tempAccount.getAccountName().equals(accountName) && !accountName.equals("***")) {
 			System.out.println("Failed Constraint Log: the name given in a withdraw transaction" +
 					" must match the name associated with the withdrawing account");
 			return;
@@ -246,7 +244,7 @@ public class BackEnd {
      */
 	private static void deposit(String accountNumber, int amount, String accountName) {
 		Account tempAccount = accounts.get(accountNumber);
-		if (!tempAccount.getAccountName().equals(accountName)) {
+		if (!tempAccount.getAccountName().equals(accountName) && !accountName.equals("***")) {
 			System.out.println("Failed Constraint Log: the name given in a deposit transaction " +
 					"must match the name associated with the depositing account");
 			return;
@@ -276,8 +274,6 @@ public class BackEnd {
 		//Creating the new Master Accounts File, and creating a set of all keys
 		File file = new File("NewMasterAccountsFile.txt");
 		BufferedWriter writer = new BufferedWriter(new FileWriter(file));
-
-//		System.out.println(file.getAbsolutePath());
 
 		Set<Integer> intKeySet = accounts.keySet().stream()
 				.map(s -> Integer.parseInt(s))
@@ -317,7 +313,6 @@ public class BackEnd {
 	private static void newValidAccList() throws IOException {
 		File file = new File("newValidAccList.txt");
 		BufferedWriter writer = new BufferedWriter(new FileWriter(file));
-//		System.out.println(file.getAbsolutePath());
 
 		for (Map.Entry<String, Account> entry : accounts.entrySet()) {
 			writer.write(entry.getKey());
