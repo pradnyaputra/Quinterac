@@ -61,7 +61,7 @@ def returnRandomSequence(x):
 def first_day():
     mergedTsf.truncate(0)
     print("--- Day 1 ---")
-    subprocess.run("javac src/main/java/*.java")
+    #subprocess.run("javac src/main/java/*.java")
 
     print("Ran session 1 automatically")
     subprocess.run("java -cp src/main/java FrontEnd validAccountList.txt transactionSummaryFile.txt",
@@ -120,7 +120,7 @@ def other_days():
 
     print("Ran backend for day")
     # subprocess.run("javac BackEnd.java")
-    subprocess.run("java -cp src/main/java BackEnd NewMasterAccountsFile.txt mergedTransactionSummaryFile.txt")
+    subprocess.check_call("java -cp src/main/java BackEnd NewMasterAccountsFile.txt mergedTransactionSummaryFile.txt")
 
 
 # Monday (first day)

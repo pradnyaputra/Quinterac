@@ -133,18 +133,18 @@ public class BackEnd {
 				if (!line.equals("EOS")) {
 					String[] words = line.split(" ");
 					String command = words[0];
-					String accountFrom = words[1];
+					String accountTo = words[1];
 					int amount = Integer.parseInt(words[2]);
-					String accountTo = words[3];
+					String accountFrom = words[3];
 					String accountName = String.join(" ", Arrays.copyOfRange(words, 4, words.length));
 
 					switch (command) {
 						case "NEW":
-							createAcct(accountFrom, accountName);
+							createAcct(accountTo, accountName);
 							break;
 						case "DEP":
-							if (!overDailyLimit(amount, command, accountFrom, transactions)) {
-								deposit(accountFrom, amount, accountName);
+							if (!overDailyLimit(amount, command, accountTo, transactions)) {
+								deposit(accountTo, amount, accountName);
 								// this was a deposit line, so add it to the list of previous transactions
 								transactions.add(line);
 							}
@@ -164,7 +164,7 @@ public class BackEnd {
 							}
 							break;
 						case "DEL":
-							deleteAcct(accountFrom, accountName);
+							deleteAcct(accountTo, accountName);
 							break;
 						case "EOS":
 							break;
