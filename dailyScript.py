@@ -4,17 +4,26 @@ import sys
 import time
 import random
 
-mergedTsf = open("mergedTransactionSummaryFile.txt", "a+")
+merged_tsf = open("mergedTransactionSummaryFile.txt", "a+")
 
-def mergedTsfFiles(final):
-    tsfFile = open("transactionSummaryFile.txt", "r")
-    contents = tsfFile.read()
-    # print(contents)
-    mergedTsf.write(contents)
+def merge_tsf_files(final):
+    """Combine the transaction summary file generated for the session with all others from the same day
+
+    :param final: True if this is the last session of a day, False otherwise
+    :return: None
+    """
+    tsf_file = open("transactionSummaryFile.txt", "r")
+    contents = tsf_file.read()
+    merged_tsf.write(contents)
     if final:
-        mergedTsf.write("EOS")
+        merged_tsf.write("EOS")
 
-def returnRandomCommand():
+
+def get_random_command():
+    """Using a list of commands, return a random item from the list
+
+    :return: A command for the front end
+    """
     commands = [
     "deposit\n1234567\n900000\n",
     "deposit\n7654321\n550000\n",
@@ -50,80 +59,84 @@ def returnRandomCommand():
     return random.choice(commands)
 
 
-def returnRandomSequence(x):
+def get_random_sequence(length):
+    """Generate and format a string of random commands
+
+    :param length: The number of commands that should be generated
+    :return: A formatted list with (length) commands
+    """
     string = "login\nagent\n"
-    for y in range(x):
-        string += returnRandomCommand()
+    for y in range(length):
+        string += get_random_command()
     string += "logout"
     return string
 
 
 def first_day():
-    mergedTsf.truncate(0)
+    """The first day should only create accounts
+
+    :return: None
+    """
+
+    # Clear the merged tsf file from last session
+    merged_tsf.truncate(0)
     print("--- Day 1 ---")
-    #subprocess.run("javac src/main/java/*.java")
+    # Compile the java files so they can be run from command line
+    subprocess.run("javac src/main/java/*.java")
 
     print("Ran session 1 automatically")
     subprocess.run("java -cp src/main/java FrontEnd validAccountList.txt transactionSummaryFile.txt",
                    input="login\nagent\ncreateacct\n1234566\narmin\ncreateacct\n1234567\ngod\nlogout", text=True)
-    mergedTsfFiles(False)  # call this after every logout
+    merge_tsf_files(False)
 
     print("Ran session 2 automatically")
     subprocess.run("java -cp src/main/java FrontEnd validAccountList.txt transactionSummaryFile.txt",
                    input="login\nagent\ncreateacct\n7654321\nblueface\nlogout", text=True)
-    mergedTsfFiles(True)  # call this after every logout
-    # subprocess.check_call("java -cp src/main/java FrontEnd C:\\Users\\Tyler\\Documents\\GitHub\\Quinterac\\validAccountList.txt C:\\Users\\Tyler\\Documents\\GitHub\\Quinterac\\transactionSummaryFile.txt")
-    # mergedTsfFiles(False)  # call this after every logout
+    merge_tsf_files(False)
 
+    print("Ran session 3 manually")
+    subprocess.check_call("java -cp src/main/java FrontEnd validAccountList.txt transactionSummaryFile.txt")
+    merge_tsf_files(True)  # call this after every logout
 
-    # print("Ran session 3 manually")
-    # subprocess.check_call("java -cp src/main/java FrontEnd C:\\Users\\Tyler\\Documents\\GitHub\\Quinterac\\validAccountList.txt C:\\Users\\Tyler\\Documents\\GitHub\\Quinterac\\transactionSummaryFile.txt")
-    # mergedTsfFiles(False)  # call this after every logout
-
-    mergedTsf.close()
+    # Close the file to ensure writer is flushed to disk
+    merged_tsf.close()
 
     print("Ran backend for day")
-    # subprocess.run("javac -cp src/main/java BackEnd.java")
     subprocess.check_call("java -cp src/main/java BackEnd oldMasterAccounts.txt mergedTransactionSummaryFile.txt")
-    # subprocess.check_call("java -cp src/main/java BackEnd C:\\Users\\Tyler\\Documents\\GitHub\\Quinterac\\oldMasterAccounts.txt C:\\Users\\Tyler\\Documents\\GitHub\\Quinterac\\mergedTransactionSummaryFile.txt")
 
 
 def other_days():
-    time.sleep(15)
-    mergedTsf.truncate(0)
+    """All other days of the week should have random command input to the program
+
+    :return: None
+    """
+    
+    # Clear the merged tsf file from last session
+    merged_tsf.truncate(0)
     print("--- Day " + sys.argv[1] + " ---")
 
     print("Ran session 1 automatically")
-    set_of_commands = returnRandomSequence(random.randint(1, 10))
-    print(set_of_commands)
+    set_of_commands = get_random_sequence(random.randint(1, 10))
     subprocess.run("java -cp src/main/java FrontEnd newValidAccList.txt transactionSummaryFile.txt",
                    input=set_of_commands, text=True)
-    mergedTsfFiles(False)  # call this after every logout
+    merge_tsf_files(False)
 
     print("Ran session 2 automatically")
-    set_of_commands = returnRandomSequence(random.randint(1, 10))
-    print(set_of_commands)
+    set_of_commands = get_random_sequence(random.randint(1, 10))
     subprocess.run("java -cp src/main/java FrontEnd newValidAccList.txt transactionSummaryFile.txt",
                    input=set_of_commands, text=True)
+    merge_tsf_files(False)
 
-    # mergedTsfFiles(False)  # call this after every logout
+    print("Ran session 3 manually")
+    subprocess.check_call("java -cp src/main/java FrontEnd validAccountList.txt transactionSummaryFile.txt")
+    merge_tsf_files(True)
 
-    # print("Ran session 3 manually")
-    # subprocess.check_call("java -cp src/java/main FrontEnd ../../../validAccountList.txt ../../../transactionSummaryFile.txt")
-
-    # if sys.argv[1] == "5":
-    mergedTsfFiles(True)
-    # else:
-    #     mergedTsfFiles(False)  # call this after every logout
-
-    mergedTsf.close()
+    merged_tsf.close()
 
     print("Ran backend for day")
-    # subprocess.run("javac BackEnd.java")
     subprocess.check_call("java -cp src/main/java BackEnd NewMasterAccountsFile.txt mergedTransactionSummaryFile.txt")
 
 
-# Monday (first day)
 if len(sys.argv) >= 2:
     if sys.argv[1] == "1":
         # it is the first day
