@@ -41,7 +41,7 @@ def returnRandomCommand():
     "deposit\n1234567\n50000\n",
     "deposit\n6969696\n999999\n",
     "createacct\n6955569\npleaseGiveUsS\n",
-    "withdraw\n6969696\n",
+    "withdraw\n6969696\n500\n",
     "deposit\n7654321\n1111111\n",
     "withdraw\n7654321\n50000\n",
     "withdraw\n1234567\n50000\n"
@@ -65,12 +65,12 @@ def first_day():
 
     print("Ran session 1 automatically")
     subprocess.run("java -cp src/main/java FrontEnd validAccountList.txt transactionSummaryFile.txt",
-                   input="login\nagent\ncreateacct\n9999999\nfoo\nlogout", text=True)
+                   input="login\nagent\ncreateacct\n1234566\narmin\ncreateacct\n1234567\ngod\nlogout", text=True)
     mergedTsfFiles(False)  # call this after every logout
 
     print("Ran session 2 automatically")
     subprocess.run("java -cp src/main/java FrontEnd validAccountList.txt transactionSummaryFile.txt",
-                   input="login\nagent\ncreateacct\n7777777\nbar\nlogout", text=True)
+                   input="login\nagent\ncreateacct\n7654321\nblueface\nlogout", text=True)
     mergedTsfFiles(True)  # call this after every logout
     # subprocess.check_call("java -cp src/main/java FrontEnd C:\\Users\\Tyler\\Documents\\GitHub\\Quinterac\\validAccountList.txt C:\\Users\\Tyler\\Documents\\GitHub\\Quinterac\\transactionSummaryFile.txt")
     # mergedTsfFiles(False)  # call this after every logout
@@ -89,17 +89,20 @@ def first_day():
 
 
 def other_days():
+    time.sleep(15)
     mergedTsf.truncate(0)
     print("--- Day " + sys.argv[1] + " ---")
 
     print("Ran session 1 automatically")
     set_of_commands = returnRandomSequence(random.randint(1, 10))
+    print(set_of_commands)
     subprocess.run("java -cp src/main/java FrontEnd newValidAccList.txt transactionSummaryFile.txt",
                    input=set_of_commands, text=True)
     mergedTsfFiles(False)  # call this after every logout
 
     print("Ran session 2 automatically")
     set_of_commands = returnRandomSequence(random.randint(1, 10))
+    print(set_of_commands)
     subprocess.run("java -cp src/main/java FrontEnd newValidAccList.txt transactionSummaryFile.txt",
                    input=set_of_commands, text=True)
 
@@ -117,7 +120,7 @@ def other_days():
 
     print("Ran backend for day")
     # subprocess.run("javac BackEnd.java")
-    subprocess.run("java -cp src/main/java BackEnd newMasterAccountsFile.txt mergedTransactionSummaryFile.txt")
+    subprocess.run("java -cp src/main/java BackEnd NewMasterAccountsFile.txt mergedTransactionSummaryFile.txt")
 
 
 # Monday (first day)
