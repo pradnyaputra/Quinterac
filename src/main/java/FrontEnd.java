@@ -207,7 +207,7 @@ public class FrontEnd {
 
             if (Validation.isAllDigits(amount)) {
 
-                if(!validMonetaryAmount(amount)){
+                if(!Validation.validMonetaryAmount(amount)){
                     System.out.println("ERROR: Please enter a valid value");
                     return;
                 }
@@ -283,7 +283,7 @@ public class FrontEnd {
 
             if (Validation.isAllDigits(amount)) {
 
-                if(!validMonetaryAmount(amount)){
+                if(!Validation.validMonetaryAmount(amount)){
                     System.out.println("ERROR: Please enter a valid value");
                     return;
                 }
@@ -362,7 +362,7 @@ public class FrontEnd {
 
             if (Validation.isAllDigits(amount)) {
 
-                if(!validMonetaryAmount(amount)){
+                if(!Validation.validMonetaryAmount(amount)){
                     System.out.println("ERROR: Please enter a valid value");
                     return;
                 }
