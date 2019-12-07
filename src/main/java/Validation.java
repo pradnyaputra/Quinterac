@@ -104,7 +104,7 @@ public class Validation {
         try {
             file = new Scanner(new FileInputStream(filename));
 
-            String prevAccNumber="9999999";
+            String prevAccNumber="99999999";
             //while loop to ensure all lines are read within the file
             while (file.hasNextLine()) {
                 String line = file.nextLine();
@@ -181,20 +181,20 @@ public class Validation {
                 }
 
                 //Checks to ensure that the account number is valid
-                if (!Validation.accountNumberValid(words[1]) || !Validation
+                if (!accountNumberValid(words[1]) || !Validation
                         .accountNumberValid(words[3])) {
                     file.close();
                     return false;
                 }
 
                 //Checks to ensure that the monetary value is valid
-                if (!Validation.validMonetaryAmount(words[2])) {
+                if (!validMonetaryAmount(words[2])) {
                     file.close();
                     return false;
                 }
 
                 //checks to ensure that the account name is valid
-                if (!Validation.accountNameValid(String.join(" ",
+                if (!accountNameValid(String.join(" ",
                         Arrays.copyOfRange(words, 2, words.length))) && !words[4].equals("***")) {
                     file.close();
                     return false;

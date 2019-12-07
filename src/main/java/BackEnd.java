@@ -123,27 +123,28 @@ public class BackEnd {
 	    // this is used to store previous lines as we go, so we can check daily limit amounts
         // it is a bit arbitrary but we don't have timestamps on these transactions so it's the best we can do
 		ArrayList<String> transactions = new ArrayList<String>();
+		File fileLocation = new File(filename);
 		Scanner file = null;
 		try {
-			file = new Scanner(new FileInputStream(filename));
+			file = new Scanner(new FileInputStream(fileLocation));
 
 			while (file.hasNextLine()) {
 				String line = file.nextLine();
 				if (!line.equals("EOS")) {
 					String[] words = line.split(" ");
 					String command = words[0];
-					String accountFrom = words[1];
+					String accountTo = words[1];
 					int amount = Integer.parseInt(words[2]);
-					String accountTo = words[3];
+					String accountFrom = words[3];
 					String accountName = String.join(" ", Arrays.copyOfRange(words, 4, words.length));
 
 					switch (command) {
 						case "NEW":
-							createAcct(accountFrom, accountName);
+							createAcct(accountTo, accountName);
 							break;
 						case "DEP":
-							if (!overDailyLimit(amount, command, accountFrom, transactions)) {
-								deposit(accountFrom, amount, accountName);
+							if (!overDailyLimit(amount, command, accountTo, transactions)) {
+								deposit(accountTo, amount, accountName);
 								// this was a deposit line, so add it to the list of previous transactions
 								transactions.add(line);
 							}
@@ -163,7 +164,7 @@ public class BackEnd {
 							}
 							break;
 						case "DEL":
-							deleteAcct(accountFrom, accountName);
+							deleteAcct(accountTo, accountName);
 							break;
 						case "EOS":
 							break;
@@ -223,7 +224,7 @@ public class BackEnd {
      */
 	private static void withdraw(String accountNumber, int amount, String accountName) {
 		Account tempAccount = accounts.get(accountNumber);
-		if (!tempAccount.getAccountName().equals(accountName)) {
+		if (!tempAccount.getAccountName().equals(accountName) && !accountName.equals("***")) {
 			System.out.println("Failed Constraint Log: the name given in a withdraw transaction" +
 					" must match the name associated with the withdrawing account");
 			return;
@@ -243,7 +244,7 @@ public class BackEnd {
      */
 	private static void deposit(String accountNumber, int amount, String accountName) {
 		Account tempAccount = accounts.get(accountNumber);
-		if (!tempAccount.getAccountName().equals(accountName)) {
+		if (!tempAccount.getAccountName().equals(accountName) && !accountName.equals("***")) {
 			System.out.println("Failed Constraint Log: the name given in a deposit transaction " +
 					"must match the name associated with the depositing account");
 			return;
@@ -271,7 +272,8 @@ public class BackEnd {
      */
 	private static void newMasterAcctFile() throws IOException {
 		//Creating the new Master Accounts File, and creating a set of all keys
-		BufferedWriter writer = new BufferedWriter(new FileWriter("NewMasterAccountsFile.txt"));
+		File file = new File("NewMasterAccountsFile.txt");
+		BufferedWriter writer = new BufferedWriter(new FileWriter(file));
 
 		Set<Integer> intKeySet = accounts.keySet().stream()
 				.map(s -> Integer.parseInt(s))
@@ -309,7 +311,9 @@ public class BackEnd {
      * This method will create a new valid accounts list using the hash set
      */
 	private static void newValidAccList() throws IOException {
-		BufferedWriter writer = new BufferedWriter(new FileWriter("newValidAccList.txt"));
+		File file = new File("newValidAccList.txt");
+		BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+
 		for (Map.Entry<String, Account> entry : accounts.entrySet()) {
 			writer.write(entry.getKey());
 			writer.newLine();
