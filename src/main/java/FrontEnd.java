@@ -207,6 +207,11 @@ public class FrontEnd {
 
             if (Validation.isAllDigits(amount)) {
 
+                if(!validMonetaryAmount(amount)){
+                    System.out.println("ERROR: Please enter a valid value");
+                    return;
+                }
+
                 //checking whether in agent or machine mode
                 if (agent) {
 
@@ -278,6 +283,10 @@ public class FrontEnd {
 
             if (Validation.isAllDigits(amount)) {
 
+                if(!validMonetaryAmount(amount)){
+                    System.out.println("ERROR: Please enter a valid value");
+                    return;
+                }
                 //checking whether in agent or machine mode
                 if (agent) {
 
@@ -352,6 +361,11 @@ public class FrontEnd {
             amount = input.nextLine();
 
             if (Validation.isAllDigits(amount)) {
+
+                if(!validMonetaryAmount(amount)){
+                    System.out.println("ERROR: Please enter a valid value");
+                    return;
+                }
 
                 //checking whether in agent or machine mode
                 if (agent) {
