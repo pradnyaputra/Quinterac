@@ -32,7 +32,9 @@ public class FrontEnd {
             accountListFileLocation = args[0];
             transactionSummaryFileLocation = args[1];
             startUp(accountListFileLocation);
-        } 
+        } else {
+            System.out.println("Please specify the locations of the account list txt file and the transaction summary txt file");
+        }
     }
 
     //startUp method acts as a welcome screen, requests for initial user commands and keeps on running until a system logout
@@ -130,7 +132,6 @@ public class FrontEnd {
         } else {// machine mode
             System.out.println("Please enter the new account number: ");
             accNum = input.nextLine();
-
             //proceeds with account creation after account number has been validated, and there is no current account with that account number
             if (Validation.accountNumberValid(accNum) && !Validation.accountNumberExists(accountList, accNum)) {
                 System.out.println("Please enter an account name: ");
@@ -206,6 +207,11 @@ public class FrontEnd {
 
             if (Validation.isAllDigits(amount)) {
 
+                if(!Validation.validMonetaryAmount(amount)){
+                    System.out.println("ERROR: Please enter a valid value");
+                    return;
+                }
+
                 //checking whether in agent or machine mode
                 if (agent) {
 
@@ -277,6 +283,10 @@ public class FrontEnd {
 
             if (Validation.isAllDigits(amount)) {
 
+                if(!Validation.validMonetaryAmount(amount)){
+                    System.out.println("ERROR: Please enter a valid value");
+                    return;
+                }
                 //checking whether in agent or machine mode
                 if (agent) {
 
@@ -351,6 +361,11 @@ public class FrontEnd {
             amount = input.nextLine();
 
             if (Validation.isAllDigits(amount)) {
+
+                if(!Validation.validMonetaryAmount(amount)){
+                    System.out.println("ERROR: Please enter a valid value");
+                    return;
+                }
 
                 //checking whether in agent or machine mode
                 if (agent) {
