@@ -127,8 +127,10 @@ def other_days():
                    input=set_of_commands, text=True)
     merge_tsf_files(False)
 
-    print("Ran session 3 manually")
-    subprocess.check_call("java -cp src/main/java FrontEnd newValidAccList.txt transactionSummaryFile.txt")
+    print("Ran session 3 automatically")
+    set_of_commands = get_random_sequence(random.randint(1, 10))
+    subprocess.run("java -cp src/main/java FrontEnd newValidAccList.txt transactionSummaryFile.txt",
+                   input=set_of_commands, text=True)
     merge_tsf_files(True)
 
     merged_tsf.close()
