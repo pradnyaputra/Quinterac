@@ -128,7 +128,7 @@ def other_days():
     merge_tsf_files(False)
 
     print("Ran session 3 manually")
-    subprocess.check_call("java -cp src/main/java FrontEnd validAccountList.txt transactionSummaryFile.txt")
+    subprocess.check_call("java -cp src/main/java FrontEnd newValidAccountList.txt transactionSummaryFile.txt")
     merge_tsf_files(True)
 
     merged_tsf.close()
